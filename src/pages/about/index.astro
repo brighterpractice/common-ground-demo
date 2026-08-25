@@ -1,0 +1,389 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { breadcrumbSchema, pageSchema } from '../../lib/schema';
+
+const crumbs = [{ label: 'About Align Therapy Group' }];
+---
+
+<Layout
+  title="About Align Therapy Group | Madison, Wisconsin"
+  description="Learn about Align Therapy Group, a private counseling practice for adults in Madison, Wisconsin."
+  schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
+>
+  <PageHero
+    eyebrow="About the practice"
+    title="Therapy built around the person in the room."
+    intro="Align Therapy Group is Jordan Ellis’s counseling practice in Madison, Wisconsin, offering individual therapy for adults."
+    crumbs={crumbs}
+  />
+
+  <section class="about-intro">
+    <div class="container about-intro-grid">
+      <div class="about-number">
+        <span>01</span>
+        <div></div>
+      </div>
+
+      <div>
+        <p class="eyebrow">The idea behind Align</p>
+
+        <h2>
+          You do not need to fit yourself into a predetermined version of
+          therapy.
+        </h2>
+      </div>
+
+      <div class="intro-copy">
+        <p>
+          Therapy begins with understanding what has been happening in your
+          life and what you would like to be different. Some concerns are
+          specific and easy to name. Others become clearer over time.
+        </p>
+
+        <p>
+          You and Jordan can decide together what deserves attention, what pace
+          feels manageable, and what kind of support may be useful.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="principles">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">What you can expect</p>
+        <h2>Three ideas that shape the work.</h2>
+      </div>
+
+      <div class="principle-list">
+        <article>
+          <span>01</span>
+
+          <h3>Individual attention</h3>
+
+          <p>
+            Align Therapy Group provides one-to-one counseling for adults. The
+            work stays focused on your experiences, concerns, and goals.
+          </p>
+        </article>
+
+        <article>
+          <span>02</span>
+
+          <h3>Collaboration</h3>
+
+          <p>
+            Therapy is something you participate in rather than something done
+            to you. Questions, preferences, uncertainty, and feedback are
+            welcome.
+          </p>
+        </article>
+
+        <article>
+          <span>03</span>
+
+          <h3>Room for context</h3>
+
+          <p>
+            Relationships, values, culture, beliefs, responsibilities, and life
+            circumstances can all matter without requiring you to fit a
+            particular mold.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="starting-point">
+    <div class="container starting-grid">
+      <div class="starting-title">
+        <p class="eyebrow">Choosing where to begin</p>
+
+        <h2>
+          You do not need to know exactly what kind of therapy you need.
+        </h2>
+      </div>
+
+      <div class="starting-panel">
+        <p>
+          The Services section describes some of the concerns people may bring
+          to counseling. The Approaches section explains several methods Jordan
+          may use during the work.
+        </p>
+
+        <p>
+          Both are starting points. A conversation with Jordan can help you
+          determine whether Align Therapy Group fits what you are looking for.
+        </p>
+
+        <div class="starting-links">
+          <a href="/services/">
+            <span>Services</span>
+            <strong>Explore areas of support ↗</strong>
+          </a>
+
+          <a href="/approaches/">
+            <span>Approaches</span>
+            <strong>See how therapy may work ↗</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="counselor-band">
+    <div class="container counselor-grid">
+      <div class="counselor-visual" aria-hidden="true">
+        <div class="visual-square"></div>
+        <div class="visual-circle"></div>
+
+        <div class="visual-person">
+          <span class="head"></span>
+          <span class="body"></span>
+        </div>
+      </div>
+
+      <div class="counselor-copy">
+        <p class="eyebrow">The counselor behind the practice</p>
+
+        <h2>Meet Jordan Ellis, LPC.</h2>
+
+        <p>
+          Jordan’s education, clinical training, professional credentials, and
+          therapeutic background are described in more detail on her profile.
+        </p>
+
+        <a class="profile-link" href="/about/jordan-ellis/">
+          View Jordan’s profile
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-intro,
+  .principles,
+  .starting-point,
+  .counselor-band {
+    padding: clamp(4.5rem, 8vw, 7rem) 0;
+  }
+
+  .about-intro-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .about-number {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: #5f82ad;
+    font-size: .75rem;
+    font-weight: 800;
+  }
+
+  .about-number div {
+    width: 3rem;
+    height: 1px;
+    background: #a9bed6;
+  }
+
+  .about-intro h2 {
+    max-width: 17ch;
+  }
+
+  .intro-copy {
+    max-width: 42rem;
+  }
+
+  .intro-copy p + p {
+    margin-top: 1rem;
+  }
+
+  .principles {
+    background: #eef4fa;
+  }
+
+  .section-heading {
+    max-width: 42rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .principle-list {
+    border-top: 1px solid #cbd8e6;
+  }
+
+  .principle-list article {
+    display: grid;
+    gap: .8rem;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid #cbd8e6;
+  }
+
+  .principle-list article > span {
+    color: #5f82ad;
+    font-size: .72rem;
+    font-weight: 800;
+  }
+
+  .principle-list h3,
+  .principle-list p {
+    margin: 0;
+  }
+
+  .principle-list p {
+    max-width: 42rem;
+  }
+
+  .starting-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .starting-title h2 {
+    max-width: 16ch;
+  }
+
+  .starting-panel {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border-left: 4px solid #7793b3;
+    background: #f6f9fc;
+  }
+
+  .starting-panel > p + p {
+    margin-top: 1rem;
+  }
+
+  .starting-links {
+    display: grid;
+    gap: .75rem;
+    margin-top: 2rem;
+  }
+
+  .starting-links a {
+    display: grid;
+    gap: .2rem;
+    padding: 1rem 0;
+    border-top: 1px solid #d4e0eb;
+    color: #294c70;
+    text-decoration: none;
+  }
+
+  .starting-links a span {
+    color: #74879a;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .counselor-band {
+    overflow: hidden;
+    background: #294c70;
+    color: #dfe8f1;
+  }
+
+  .counselor-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .counselor-band h2 {
+    color: white;
+  }
+
+  .counselor-band .eyebrow {
+    color: #bfd0e3;
+  }
+
+  .counselor-visual {
+    position: relative;
+    min-height: 22rem;
+  }
+
+  .visual-square {
+    position: absolute;
+    width: 15rem;
+    height: 15rem;
+    left: 1rem;
+    top: 1rem;
+    border-radius: 1.3rem;
+    background: #3f648d;
+    transform: rotate(-7deg);
+  }
+
+  .visual-circle {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    right: 1rem;
+    bottom: 1rem;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 50%;
+  }
+
+  .visual-person {
+    position: absolute;
+    width: 9rem;
+    height: 11rem;
+    left: 7rem;
+    top: 6rem;
+  }
+
+  .head {
+    position: absolute;
+    width: 3.3rem;
+    height: 3.3rem;
+    left: 2.85rem;
+    border-radius: 50%;
+    background: #dbe6f0;
+  }
+
+  .body {
+    position: absolute;
+    width: 8rem;
+    height: 7rem;
+    left: .5rem;
+    bottom: 0;
+    border-radius: 4rem 4rem .8rem .8rem;
+    background: #a9bed6;
+  }
+
+  .profile-link {
+    display: inline-flex;
+    gap: .7rem;
+    align-items: center;
+    margin-top: 1.5rem;
+    color: white;
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  @media (min-width:48rem) {
+    .about-intro-grid {
+      grid-template-columns: .22fr .78fr 1fr;
+      gap: clamp(2rem,5vw,5rem);
+      align-items: start;
+    }
+
+    .principle-list article {
+      grid-template-columns: .2fr .7fr 1.3fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .starting-grid {
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(3rem,7vw,7rem);
+    }
+
+    .counselor-grid {
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(4rem,8vw,8rem);
+    }
+  }
+</style>

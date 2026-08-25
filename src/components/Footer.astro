@@ -1,0 +1,230 @@
+---
+import {
+  appointmentUrl,
+  clientPortalUrl,
+  practice,
+  externalLinkAttrs
+} from '../data/site';
+
+const appointmentAttrs = externalLinkAttrs();
+const portalAttrs = externalLinkAttrs();
+---
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <img
+        src="/images/branding/align-icon.png"
+        alt=""
+        width="72"
+        height="84"
+        loading="lazy"
+      />
+
+      <div>
+        <p class="name">{practice.name}</p>
+        <p class="location">
+          Individual counseling in {practice.city}, {practice.state}.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-callout">
+      <p>Ready when you are.</p>
+      <a
+        href={appointmentUrl}
+        target={appointmentAttrs.target}
+        rel={appointmentAttrs.rel}
+        data-track="request-appointment"
+      >
+        Request an appointment
+        <span>↗</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="container footer-rule"></div>
+
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-label">Explore</p>
+      <a href="/about/">About</a>
+      <a href="/services/">Services</a>
+      <a href="/approaches/">Approaches</a>
+      <a href="/contact/">Contact</a>
+    </div>
+
+    <div>
+      <p class="footer-label">Clients</p>
+      <a
+        href={clientPortalUrl}
+        target={portalAttrs.target}
+        rel={portalAttrs.rel}
+        data-track="client-portal"
+      >
+        Client Portal
+      </a>
+    </div>
+
+    <div class="footer-note">
+      <p class="footer-label">Demo website</p>
+      <p>
+        Align Therapy Group and Jordan Ellis are fictional and are presented
+        as a design demonstration by Brighter Sites.
+      </p>
+    </div>
+  </div>
+
+  <div class="container legal">
+    <span>© {new Date().getFullYear()} {practice.name}</span>
+
+    <span>{practice.city}, {practice.state}</span>
+
+    <span class="legal-links">
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 4.5rem 0 2rem;
+    background: #213b57;
+    color: #cdd9e5;
+  }
+
+  .footer-top {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+  }
+
+  .footer-brand img {
+    width: 3.8rem;
+    height: auto;
+  }
+
+  .name {
+    margin: 0;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -.02em;
+  }
+
+  .location {
+    margin: .35rem 0 0;
+  }
+
+  .footer-callout {
+    align-self: end;
+  }
+
+  .footer-callout p {
+    margin: 0 0 .45rem;
+    color: #aebed0;
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .footer-callout a {
+    display: inline-flex;
+    gap: .65rem;
+    align-items: center;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 750;
+    text-decoration: none;
+  }
+
+  .footer-rule {
+    height: 1px;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    background: rgba(255,255,255,.14);
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .footer-label {
+    margin: 0 0 .8rem;
+    color: #91aac4;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .footer-grid a {
+    display: flex;
+    width: fit-content;
+    min-height: 42px;
+    align-items: center;
+    color: #e5edf5;
+    text-decoration: none;
+  }
+
+  .footer-grid a:hover,
+  .footer-callout a:hover {
+    color: white;
+  }
+
+  .footer-note p:last-child {
+    max-width: 30rem;
+    margin: 0;
+    color: #aebed0;
+    font-size: .88rem;
+    line-height: 1.65;
+  }
+
+  .legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .8rem 1.3rem;
+    margin-top: 3rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(255,255,255,.1);
+    color: #91a5ba;
+    font-size: .78rem;
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .legal a {
+    color: #cdd9e5;
+    text-decoration: none;
+  }
+
+  @media (min-width:48rem) {
+    .footer-top {
+      grid-template-columns: 1.4fr .6fr;
+      align-items: end;
+    }
+
+    .footer-grid {
+      grid-template-columns: .7fr .7fr 1.6fr;
+      gap: 3rem;
+    }
+
+    .footer-grid a {
+      min-height: 0;
+      padding: .25rem 0;
+    }
+  }
+</style>
