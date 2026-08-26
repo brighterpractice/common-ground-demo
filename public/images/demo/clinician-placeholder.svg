@@ -1,41 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 920">
-  <rect width="800" height="920" fill="#e7eef6"/>
+  <rect width="800" height="920" fill="#f7efe7"/>
 
   <rect
     x="70"
     y="70"
     width="660"
     height="780"
-    rx="42"
-    fill="#d4e1ee"
+    rx="56"
+    fill="#f0dccd"
   />
 
   <circle
     cx="400"
     cy="320"
     r="118"
-    fill="#88a5c2"
+    fill="#d99878"
   />
 
   <path
     d="M190 790c18-190 104-292 210-292s192 102 210 292"
-    fill="#6f8faf"
+    fill="#b76f62"
   />
 
   <circle
-    cx="655"
-    cy="190"
-    r="74"
-    fill="#b5c9dc"
-    opacity=".8"
+    cx="660"
+    cy="185"
+    r="72"
+    fill="#e7b959"
+    opacity=".75"
   />
 
-  <circle
-    cx="155"
-    cy="690"
-    r="96"
-    fill="#c2d3e3"
-    opacity=".9"
+  <path
+    d="M115 690
+       C155 630 220 625 255 690
+       C220 755 155 755 115 690Z"
+    fill="#87927d"
+    opacity=".55"
   />
 
   <text
@@ -45,7 +45,7 @@
     font-family="Arial, sans-serif"
     font-size="30"
     letter-spacing="4"
-    fill="#4f6c89"
+    fill="#745c60"
   >
     CLINICIAN PHOTO
   </text>

@@ -11,116 +11,108 @@ import {
 ---
 
 <Layout
-  title="Align Therapy Group | Therapy in Madison, Wisconsin"
-  description="Individual counseling in Madison, Wisconsin for adults navigating anxiety, burnout, relationship patterns, grief, major transitions, and difficult life experiences."
+  title="Common Ground Therapy | Therapy in Richmond, Virginia"
+  description="Individual counseling in Richmond, Virginia for adults navigating anxiety, grief, stress, relationships, transitions, and difficult seasons of life."
   schema={pageSchema([organizationSchema(), websiteSchema()])}
 >
-  <section class="align-hero">
-    <div class="container align-hero-grid">
-      <div class="align-hero-copy">
-        <p class="eyebrow">Align Therapy Group · Madison, Wisconsin</p>
+  <!-- HERO -->
+  <section class="cg-hero">
+    <div class="hero-dots" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">Common Ground Therapy · Richmond, Virginia</p>
 
         <h1>
-          Therapy for when life feels
-          <span>out of alignment.</span>
+          Therapy for
+          <em>real life,</em>
+          real people.
         </h1>
 
-        <p class="align-lead">
-          Individual counseling for adults who want space to understand what is
-          happening, reconnect with what matters, and move forward with greater
-          clarity.
+        <p class="hero-intro">
+          A warm, down-to-earth place to talk about what feels heavy,
+          confusing, repetitive, or simply harder than you want it to be.
         </p>
 
-        <div class="align-actions">
+        <div class="hero-actions">
           <Button href={appointmentUrl} tracking="request-appointment">
             Request an appointment
           </Button>
 
-          <a class="align-secondary" href="/services/">
-            Explore services
+          <a href="/about/" class="underlined-link">
+            Meet the practice →
           </a>
         </div>
       </div>
 
-      <div class="align-art" aria-hidden="true">
-        <div class="shape shape-a"></div>
-        <div class="shape shape-b"></div>
-        <div class="shape shape-c"></div>
+      <div class="hero-scene" aria-hidden="true">
+        <div class="scene-plum"></div>
+        <div class="scene-orange"></div>
+        <div class="scene-yellow"></div>
 
-        <div class="art-card art-card-main">
-          <span class="art-line art-line-wide"></span>
-          <span class="art-line"></span>
-          <span class="art-line art-line-short"></span>
-
-          <div class="art-person">
-            <span class="person-head"></span>
-            <span class="person-body"></span>
-          </div>
+        <div class="figure figure-left">
+          <span class="figure-head"></span>
+          <span class="figure-body"></span>
+          <span class="figure-arm"></span>
         </div>
 
-        <div class="art-card art-card-small">
-          <span class="art-dot"></span>
-          <span class="art-dot"></span>
-          <span class="art-dot"></span>
+        <div class="figure figure-right">
+          <span class="figure-head"></span>
+          <span class="figure-body"></span>
+        </div>
+
+        <div class="speech-card">
+          <span>“</span>
+          <p>You don’t have to have it all figured out.</p>
+        </div>
+
+        <div class="mini-note">
+          <strong>Start where you are.</strong>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="align-intro">
-    <div class="container align-intro-grid">
-      <div>
-        <p class="eyebrow">A place to think clearly</p>
-        <h2>Start with what feels hardest to sort through.</h2>
-      </div>
+  <!-- COLOR STRIP -->
+  <div class="color-strip" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-      <div class="align-intro-copy">
-        <p>
-          You do not need to arrive with the right words or a perfectly defined
-          goal. Therapy can begin with the part of life that currently feels
-          confusing, heavy, repetitive, or difficult to manage.
-        </p>
+  <!-- WHAT BRINGS PEOPLE IN -->
+  <section class="cg-needs">
+    <div class="container needs-grid">
+      <div class="needs-heading">
+        <p class="hand-label">What brings people in</p>
 
-        <p>
-          Together, the work can focus on understanding patterns, identifying
-          what is getting in the way, and finding practical ways to move toward
-          something different.
-        </p>
+        <h2>
+          Start with whatever feels
+          <span>most present</span>
+          right now.
+        </h2>
 
-        <a class="link-arrow" href="/about/">
-          Learn about Align Therapy Group
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="align-services">
-    <div class="container">
-      <div class="align-section-heading">
-        <div>
-          <p class="eyebrow">Areas of support</p>
-          <h2>Support for the parts of life that can feel difficult to carry alone.</h2>
-        </div>
-
-        <a class="align-outline-link" href="/services/">
-          View all services
+        <a href="/services/" class="underlined-link">
+          Explore all services →
         </a>
       </div>
 
-      <div class="align-service-grid">
+      <div class="needs-cloud">
         {
-          homepageServices.slice(0, 6).map((service, index) => (
-            <a class="align-service-card" href={`/services/${service.slug}/`}>
-              <span class="service-index">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-
-              <div>
-                <h3>{service.title}</h3>
-                <p>{service.summary}</p>
-              </div>
-
-              <span class="service-arrow">↗</span>
+          homepageServices.slice(0, 7).map((service, index) => (
+            <a
+              href={`/services/${service.slug}/`}
+              class:list={[
+                'need-chip',
+                `chip-${(index % 5) + 1}`,
+              ]}
+            >
+              <span class="chip-dot"></span>
+              {service.title}
             </a>
           ))
         }
@@ -128,151 +120,215 @@ import {
     </div>
   </section>
 
-  <section class="align-methods">
-    <div class="container align-methods-grid">
-      <div class="align-methods-panel">
-        <p class="eyebrow">How therapy can work</p>
+  <!-- HOW WE WORK -->
+  <section class="cg-process">
+    <div class="container">
+      <div class="process-heading">
+        <p class="hand-label">How we work together</p>
+        <h2>Therapy can feel human.</h2>
+      </div>
+
+      <div class="process-flow">
+        <article class="process-card process-1">
+          <span class="number">01</span>
+          <div class="process-icon">•••</div>
+          <h3>Talk</h3>
+          <p>Share what is on your mind at your own pace.</p>
+        </article>
+
+        <div class="connector connector-one" aria-hidden="true">→</div>
+
+        <article class="process-card process-2">
+          <span class="number">02</span>
+          <div class="process-icon">?</div>
+          <h3>Explore</h3>
+          <p>Notice patterns, feelings, and experiences together.</p>
+        </article>
+
+        <div class="connector connector-two" aria-hidden="true">→</div>
+
+        <article class="process-card process-3">
+          <span class="number">03</span>
+          <div class="process-icon">✦</div>
+          <h3>Understand</h3>
+          <p>Make sense of what may be happening underneath.</p>
+        </article>
+
+        <div class="connector connector-three" aria-hidden="true">→</div>
+
+        <article class="process-card process-4">
+          <span class="number">04</span>
+          <div class="process-icon">↗</div>
+          <h3>Move forward</h3>
+          <p>Build awareness, choices, and new possibilities.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG STATEMENT -->
+  <section class="cg-statement">
+    <div class="statement-orange" aria-hidden="true"></div>
+
+    <div class="container statement-grid">
+      <p class="statement-number">01</p>
+
+      <blockquote>
+        You are allowed to bring the
+        <em>messy version</em>
+        of the story.
+      </blockquote>
+
+      <div class="statement-copy">
+        <p>
+          You do not need the right diagnosis, the perfect explanation, or a
+          polished version of what has been happening.
+        </p>
+
+        <p>
+          Therapy can begin with a feeling, a conflict, a loss, a pattern,
+          or simply knowing that something needs to change.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVERY -->
+  <section class="cg-avery">
+    <div class="container avery-grid">
+      <div class="avery-photo-area">
+        <div class="photo-shape"></div>
+
+        <div class="photo-card">
+          <div class="tape" aria-hidden="true"></div>
+
+          <img
+            src="/images/demo/clinician-placeholder.svg"
+            alt="Clinician photo placeholder for Avery Morgan, LPC"
+            loading="lazy"
+          />
+
+          <p>Avery Morgan, LPC</p>
+        </div>
+
+        <div class="avery-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="avery-copy">
+        <p class="hand-label">Meet Avery Morgan, LPC</p>
 
         <h2>
-          More than one way to understand what you are experiencing.
+          Thoughtful,
+          <span>down-to-earth,</span>
+          and here for the whole you.
         </h2>
 
         <p>
-          Jordan may draw from several counseling approaches depending on the
-          focus of therapy, your preferences, and what seems useful in the work.
-        </p>
-
-        <a class="align-light-link" href="/approaches/">
-          Explore therapy approaches →
-        </a>
-      </div>
-
-      <div class="align-method-list">
-        <a href="/approaches/internal-family-systems/">
-          <span>01</span>
-          <strong>Internal Family Systems</strong>
-        </a>
-
-        <a href="/approaches/somatic-experiencing/">
-          <span>02</span>
-          <strong>Somatic Experiencing</strong>
-        </a>
-
-        <a href="/approaches/emotionally-focused-therapy/">
-          <span>03</span>
-          <strong>Emotionally Focused Therapy</strong>
-        </a>
-
-        <a href="/approaches/mindfulness-based-therapy/">
-          <span>04</span>
-          <strong>Mindfulness-Based Therapy</strong>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="align-clinician">
-    <div class="container align-clinician-grid">
-      <div class="clinician-visual">
-        <div class="clinician-block"></div>
-
-        <div class="clinician-card">
-          <div class="clinician-avatar">
-            <span></span>
-          </div>
-
-          <p>Jordan Ellis, LPC</p>
-          <small>Individual counseling for adults</small>
-        </div>
-      </div>
-
-      <div class="clinician-copy">
-        <p class="eyebrow">Meet Jordan</p>
-
-        <h2>A collaborative approach to understanding what needs attention.</h2>
-
-        <p>
-          Jordan works with adults who may be navigating stress, anxiety,
-          relationships, grief, transitions, emotional disconnection, or
-          patterns that have become difficult to change on their own.
+          Avery works with adults navigating stress, anxiety, grief,
+          relationship patterns, emotional disconnection, and major life
+          transitions.
         </p>
 
         <p>
-          Sessions are designed to be thoughtful, practical, and responsive to
-          what each client needs from the process.
+          Sessions are collaborative, curious, and centered around the person
+          sitting in the room—not around forcing everyone into the same mold.
         </p>
 
-        <a class="link-arrow" href="/about/jordan-ellis/">
-          Meet Jordan Ellis, LPC
+        <a href="/about/avery-morgan/" class="underlined-link">
+          Learn more about Avery →
         </a>
       </div>
     </div>
   </section>
 
-  <section class="align-steps">
-    <div class="container">
-      <div class="align-section-heading">
-        <div>
-          <p class="eyebrow">Getting started</p>
-          <h2>A simple first step.</h2>
-        </div>
-      </div>
-
-      <div class="align-step-grid">
-        <div class="align-step">
-          <span>01</span>
-          <h3>Reach out</h3>
-          <p>
-            Request an appointment or contact the practice with a question.
-          </p>
-        </div>
-
-        <div class="align-step">
-          <span>02</span>
-          <h3>Connect</h3>
-          <p>
-            Review practical details and determine whether the practice may be a
-            good fit for what you are looking for.
-          </p>
-        </div>
-
-        <div class="align-step">
-          <span>03</span>
-          <h3>Begin</h3>
-          <p>
-            Meet with Jordan and start with the concerns that matter most to
-            you right now.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="align-location">
-    <div class="container align-location-grid">
+  <!-- APPROACHES -->
+  <section class="cg-approaches">
+    <div class="approach-copy">
       <div>
-        <p class="eyebrow">Madison, Wisconsin</p>
-        <h2>Individual counseling in a modern, welcoming setting.</h2>
+        <p class="hand-label light">More than one way in</p>
+
+        <h2>
+          Different people connect with therapy in different ways.
+        </h2>
 
         <p>
-          Align Therapy Group is based in Madison and welcomes adults from
-          Madison and nearby communities.
+          Avery may draw from several therapeutic approaches depending on what
+          you are experiencing and what feels useful in the work.
+        </p>
+
+        <a href="/approaches/">Explore approaches →</a>
+      </div>
+    </div>
+
+    <div class="approach-list">
+      <a href="/approaches/internal-family-systems/">
+        <span>01</span>
+        <strong>Internal Family Systems</strong>
+        <b>↗</b>
+      </a>
+
+      <a href="/approaches/somatic-experiencing/">
+        <span>02</span>
+        <strong>Somatic Experiencing</strong>
+        <b>↗</b>
+      </a>
+
+      <a href="/approaches/emotionally-focused-therapy/">
+        <span>03</span>
+        <strong>Emotionally Focused Therapy</strong>
+        <b>↗</b>
+      </a>
+
+      <a href="/approaches/mindfulness-based-therapy/">
+        <span>04</span>
+        <strong>Mindfulness-Based Therapy</strong>
+        <b>↗</b>
+      </a>
+    </div>
+  </section>
+
+  <!-- LOCATION / PERSONALITY BLOCK -->
+  <section class="cg-richmond">
+    <div class="container richmond-card">
+      <div class="richmond-copy">
+        <p class="hand-label">Richmond, Virginia</p>
+
+        <h2>
+          Connection.
+          <span>Understanding.</span>
+          Growth.
+        </h2>
+
+        <p>
+          Common Ground Therapy welcomes adults in Richmond and surrounding
+          communities.
         </p>
       </div>
 
-      <div class="location-graphic" aria-hidden="true">
-        <span class="location-ring ring-one"></span>
-        <span class="location-ring ring-two"></span>
-        <span class="location-dot"></span>
+      <div class="richmond-art" aria-hidden="true">
+        <div class="big-dot"></div>
+        <div class="pill"></div>
+
+        <div class="people-mini">
+          <span class="mini-head one"></span>
+          <span class="mini-body one"></span>
+          <span class="mini-head two"></span>
+          <span class="mini-body two"></span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="align-cta">
-    <div class="container align-cta-inner">
+  <!-- FINAL CTA -->
+  <section class="cg-final">
+    <div class="container final-grid">
       <div>
-        <p class="eyebrow">A next step</p>
-        <h2>See whether Align Therapy Group may be a good fit.</h2>
+        <p class="hand-label">A next step can be simple.</p>
+        <h2>Bring whatever you are carrying.</h2>
       </div>
 
       <Button
@@ -287,577 +343,827 @@ import {
 </Layout>
 
 <style>
-  .align-hero {
+  :global(body) {
+    background: #fff8ed;
+  }
+
+  .cg-hero {
     position: relative;
     overflow: hidden;
-    padding: clamp(4.5rem, 9vw, 8rem) 0;
-    background:
-      linear-gradient(135deg, #f6f9fd 0%, #eaf2fb 100%);
+    padding: clamp(4.5rem, 9vw, 8rem) 0 4rem;
+    background: #fff8ed;
   }
 
-  .align-hero:before {
-    content: "";
-    position: absolute;
-    width: 32rem;
-    height: 32rem;
-    right: -11rem;
-    top: -13rem;
-    border-radius: 50%;
-    background: rgba(48, 105, 190, .08);
-  }
-
-  .align-hero-grid {
+  .hero-grid {
     display: grid;
     gap: 3rem;
     align-items: center;
   }
 
-  .align-hero-copy {
-    position: relative;
-    z-index: 2;
-    max-width: 47rem;
+  .kicker,
+  .hand-label {
+    color: #d85f40;
+    font-size: .78rem;
+    font-weight: 850;
+    letter-spacing: .1em;
   }
 
-  .align-hero h1 {
-    max-width: 11ch;
-    font-size: clamp(3rem, 7vw, 6.3rem);
+  .hand-label {
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    font-style: italic;
+    letter-spacing: .03em;
+    text-transform: none;
   }
 
-  .align-hero h1 span {
+  .hero-copy h1 {
+    max-width: 8.5ch;
+    margin: .5rem 0 0;
+    color: #512c45;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3.8rem, 8.5vw, 7.4rem);
+    font-weight: 500;
+    line-height: .88;
+    letter-spacing: -.06em;
+  }
+
+  .hero-copy h1 em {
     display: block;
-    color: #5f82ad;
+    color: #ed5c31;
+    font-weight: 500;
   }
 
-  .align-lead {
-    max-width: 42rem;
-    margin-top: 1.5rem;
-    color: #42546b;
-    font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+  .hero-intro {
+    max-width: 37rem;
+    margin-top: 1.8rem;
+    color: #65505a;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    line-height: 1.7;
   }
 
-  .align-actions {
+  .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: .85rem;
+    gap: 1rem 1.5rem;
+    align-items: center;
     margin-top: 2rem;
   }
 
-  .align-secondary {
-    display: inline-flex;
-    min-height: 3rem;
-    align-items: center;
-    padding: .72rem 1.1rem;
-    border: 1px solid #3f648d;
-    border-radius: .55rem;
-    color: #3f648d;
-    font-weight: 750;
-    text-decoration: none;
+  .underlined-link {
+    color: #a74636;
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-color: #ed9a78;
+    text-underline-offset: .25rem;
   }
 
-  .align-art {
+  .hero-scene {
     position: relative;
-    min-height: 29rem;
+    min-height: 32rem;
   }
 
-  .shape {
+  .scene-plum,
+  .scene-orange,
+  .scene-yellow {
     position: absolute;
   }
 
-  .shape-a {
+  .scene-plum {
     width: 18rem;
-    height: 18rem;
-    right: 2rem;
-    top: 1rem;
-    border-radius: 3rem;
-    background: #5f82ad;
-    transform: rotate(10deg);
-  }
-
-  .shape-b {
-    width: 15rem;
-    height: 15rem;
-    right: 10rem;
-    bottom: 0;
-    border-radius: 50%;
-    background: #d7e6f7;
-  }
-
-  .shape-c {
-    width: 8rem;
-    height: 8rem;
+    height: 22rem;
     right: 0;
-    bottom: 3rem;
-    border-radius: 1.2rem;
-    background: #a9bed6;
-    transform: rotate(-12deg);
+    top: 0;
+    border-radius: 55% 45% 42% 58% / 48% 42% 58% 52%;
+    background: #7f4565;
+    transform: rotate(8deg);
   }
 
-  .art-card {
-    position: absolute;
-    border: 1px solid rgba(11,29,58,.12);
-    background: rgba(255,255,255,.94);
-    box-shadow: 0 22px 50px rgba(11,29,58,.14);
+  .scene-orange {
+    width: 15rem;
+    height: 13rem;
+    left: 0;
+    bottom: 1rem;
+    border-radius: 50% 45% 55% 45%;
+    background: #f47752;
+    transform: rotate(-8deg);
   }
 
-  .art-card-main {
-    width: min(21rem, 80%);
-    min-height: 19rem;
-    left: 1rem;
-    top: 3rem;
-    padding: 1.6rem;
-    border-radius: 1rem;
-  }
-
-  .art-card-small {
-    display: flex;
-    gap: .45rem;
+  .scene-yellow {
+    width: 9rem;
+    height: 9rem;
     right: 1rem;
+    bottom: 0;
+    border-radius: 2rem 4rem 2rem 4rem;
+    background: #efa916;
+    transform: rotate(12deg);
+  }
+
+  .figure {
+    position: absolute;
+    z-index: 2;
+  }
+
+  .figure-head,
+  .figure-body,
+  .figure-arm {
+    position: absolute;
+    display: block;
+  }
+
+  .figure-head {
+    border-radius: 50%;
+    background: #f5c3a7;
+  }
+
+  .figure-left {
+    width: 11rem;
+    height: 16rem;
+    left: 3rem;
+    bottom: 2rem;
+  }
+
+  .figure-left .figure-head {
+    width: 4rem;
+    height: 4rem;
+    left: 3.3rem;
+  }
+
+  .figure-left .figure-body {
+    width: 10rem;
+    height: 10rem;
+    left: .5rem;
+    bottom: 0;
+    border-radius: 5rem 5rem 1rem 1rem;
+    background: #d95637;
+  }
+
+  .figure-left .figure-arm {
+    width: 7rem;
+    height: 2rem;
+    right: -3.5rem;
+    top: 7rem;
+    border-radius: 999px;
+    background: #d95637;
+    transform: rotate(-25deg);
+  }
+
+  .figure-right {
+    width: 10rem;
+    height: 14rem;
+    right: 5rem;
+    bottom: 2rem;
+  }
+
+  .figure-right .figure-head {
+    width: 3.8rem;
+    height: 3.8rem;
+    left: 3.1rem;
+  }
+
+  .figure-right .figure-body {
+    width: 9rem;
+    height: 8rem;
+    left: .5rem;
+    bottom: 0;
+    border-radius: 4.5rem 4.5rem .8rem .8rem;
+    background: #62354f;
+  }
+
+  .speech-card {
+    position: absolute;
+    z-index: 4;
+    width: 14rem;
+    left: 0;
+    top: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 1.3rem 1.3rem 1.3rem .2rem;
+    background: #fffdf8;
+    box-shadow: 0 16px 38px rgba(81,44,69,.12);
+    transform: rotate(-4deg);
+  }
+
+  .speech-card span {
+    display: block;
+    height: 1.7rem;
+    color: #efa916;
+    font-family: Georgia, serif;
+    font-size: 3rem;
+    line-height: .8;
+  }
+
+  .speech-card p {
+    margin: 0;
+    color: #513544;
+    font-weight: 800;
+  }
+
+  .mini-note {
+    position: absolute;
+    z-index: 4;
+    right: 0;
     top: 13rem;
     padding: .8rem 1rem;
-    border-radius: .7rem;
+    border-radius: 999px;
+    background: #efa916;
+    color: #512c45;
+    transform: rotate(5deg);
   }
 
-  .art-line {
-    display: block;
-    width: 62%;
-    height: .75rem;
-    margin-bottom: .7rem;
-    border-radius: .3rem;
-    background: #dce7f4;
+  .hero-dots {
+    position: absolute;
+    left: 2vw;
+    bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, .45rem);
+    gap: .45rem;
   }
 
-  .art-line-wide {
-    width: 88%;
-    background: #aec5e1;
+  .hero-dots span,
+  .avery-dots span {
+    width: .45rem;
+    height: .45rem;
+    border-radius: 50%;
+    background: #ed5c31;
   }
 
-  .art-line-short {
-    width: 45%;
+  .color-strip {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    height: .55rem;
   }
 
-  .art-dot {
+  .color-strip span:nth-child(1) { background:#ed5c31; }
+  .color-strip span:nth-child(2) { background:#efa916; }
+  .color-strip span:nth-child(3) { background:#7f4565; }
+  .color-strip span:nth-child(4) { background:#778873; }
+
+  .cg-needs {
+    padding: clamp(4.5rem, 8vw, 7rem) 0;
+    background: #ff9d70;
+  }
+
+  .needs-grid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .needs-heading h2 {
+    max-width: 12ch;
+    color: #512c45;
+    font-family: Georgia, serif;
+    font-size: clamp(2.7rem, 5vw, 4.5rem);
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .needs-heading h2 span {
+    color: #fff8ed;
+    font-style: italic;
+  }
+
+  .needs-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    align-content: center;
+  }
+
+  .need-chip {
+    display: inline-flex;
+    gap: .65rem;
+    align-items: center;
+    min-height: 3.3rem;
+    padding: .75rem 1.1rem;
+    border-radius: 999px;
+    color: #512c45;
+    font-weight: 850;
+    text-decoration: none;
+    box-shadow: 0 8px 18px rgba(81,44,69,.08);
+  }
+
+  .chip-dot {
     width: .65rem;
     height: .65rem;
     border-radius: 50%;
-    background: #7793b3;
   }
 
-  .art-person {
-    position: absolute;
-    right: 1.8rem;
-    bottom: 1.6rem;
-    width: 7rem;
-    height: 8rem;
+  .chip-1 { background:#fff8ed; }
+  .chip-1 .chip-dot { background:#efa916; }
+
+  .chip-2 { background:#ffe6d6; }
+  .chip-2 .chip-dot { background:#ed5c31; }
+
+  .chip-3 { background:#f0d7e1; }
+  .chip-3 .chip-dot { background:#7f4565; }
+
+  .chip-4 { background:#e5eadf; }
+  .chip-4 .chip-dot { background:#778873; }
+
+  .chip-5 { background:#ffd57c; }
+  .chip-5 .chip-dot { background:#512c45; }
+
+  .cg-process {
+    padding: clamp(4.5rem, 8vw, 7rem) 0;
+    overflow: hidden;
+    background: #fff8ed;
   }
 
-  .person-head {
-    position: absolute;
-    left: 2.2rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background: #3f648d;
+  .process-heading {
+    margin-bottom: 3rem;
   }
 
-  .person-body {
-    position: absolute;
-    left: .8rem;
-    bottom: 0;
-    width: 5.4rem;
-    height: 5.7rem;
-    border-radius: 2.8rem 2.8rem .8rem .8rem;
-    background: #a9bed6;
+  .process-heading h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(2.8rem, 5vw, 4.6rem);
+    font-weight: 500;
   }
 
-  .align-intro,
-  .align-clinician,
-  .align-steps,
-  .align-location {
-    padding: clamp(4rem, 8vw, 7rem) 0;
-  }
-
-  .align-intro-grid,
-  .align-clinician-grid,
-  .align-location-grid {
+  .process-flow {
     display: grid;
-    gap: 2.5rem;
+    gap: 1rem;
   }
 
-  .align-intro-copy p + p,
-  .clinician-copy p + p {
+  .process-card {
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 2.5rem 1rem 2.5rem 1rem;
+    color: #512c45;
+  }
+
+  .process-1 { background:#f8ded6; }
+  .process-2 { background:#ffe6bd; }
+  .process-3 { background:#f4c4ad; }
+  .process-4 { background:#dce3d5; }
+
+  .number {
+    color: #a74636;
+    font-size: .72rem;
+    font-weight: 900;
+  }
+
+  .process-icon {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    margin: 1rem 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,.6);
+    font-weight: 900;
+  }
+
+  .process-card h3 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 1.45rem;
+  }
+
+  .process-card p {
+    margin: .7rem 0 0;
+  }
+
+  .connector {
+    display: none;
+  }
+
+  .cg-statement {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(5rem, 10vw, 9rem) 0;
+    background: #7f4565;
+    color: #fff1e7;
+  }
+
+  .statement-orange {
+    position: absolute;
+    width: 19rem;
+    height: 19rem;
+    right: -7rem;
+    bottom: -8rem;
+    border-radius: 5rem 2rem 5rem 2rem;
+    background: #ed5c31;
+    transform: rotate(18deg);
+  }
+
+  .statement-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .statement-number {
+    color: #efa916;
+    font-weight: 900;
+  }
+
+  .cg-statement blockquote {
+    max-width: 13ch;
+    margin: 0;
+    color: white;
+    font-family: Georgia, serif;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    line-height: 1;
+  }
+
+  .cg-statement blockquote em {
+    color: #ffd079;
+  }
+
+  .statement-copy {
+    max-width: 38rem;
+  }
+
+  .statement-copy p + p {
     margin-top: 1rem;
   }
 
-  .align-intro-copy .link-arrow,
-  .clinician-copy .link-arrow {
-    display: inline-block;
-    margin-top: 1.2rem;
+  .cg-avery {
+    padding: clamp(5rem, 9vw, 8rem) 0;
+    background: #ffe8db;
   }
 
-  .align-services {
-    padding: clamp(4rem, 8vw, 7rem) 0;
-    background: #edf4fb;
-  }
-
-  .align-section-heading {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: end;
-    justify-content: space-between;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .align-section-heading > div {
-    max-width: 47rem;
-  }
-
-  .align-outline-link {
-    color: #3f648d;
-    font-weight: 750;
-    text-decoration: none;
-  }
-
-  .align-service-grid {
+  .avery-grid {
     display: grid;
-    gap: .75rem;
+    gap: 3rem;
+    align-items: center;
   }
 
-  .align-service-card {
+  .avery-photo-area {
+    position: relative;
+    min-height: 31rem;
+  }
+
+  .photo-shape {
+    position: absolute;
+    width: 19rem;
+    height: 22rem;
+    left: 1rem;
+    top: 3rem;
+    border-radius: 4rem 2rem 5rem 1rem;
+    background: #778873;
+    transform: rotate(-5deg);
+  }
+
+  .photo-card {
+    position: absolute;
+    z-index: 2;
+    width: min(20rem, 80%);
+    left: 4rem;
+    top: 1rem;
+    padding: .8rem .8rem 1.3rem;
+    background: white;
+    box-shadow: 0 22px 45px rgba(81,44,69,.16);
+    transform: rotate(3deg);
+  }
+
+  .photo-card img {
+    display: block;
+    width: 100%;
+  }
+
+  .photo-card p {
+    margin: .9rem 0 0;
+    color: #512c45;
+    font-family: Georgia, serif;
+    font-weight: 700;
+  }
+
+  .tape {
+    position: absolute;
+    z-index: 4;
+    width: 5rem;
+    height: 1.5rem;
+    left: calc(50% - 2.5rem);
+    top: -.65rem;
+    background: rgba(239,169,22,.55);
+    transform: rotate(-4deg);
+  }
+
+  .avery-dots {
+    position: absolute;
+    z-index: 3;
+    right: 1rem;
+    bottom: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, .5rem);
+    gap: .55rem;
+  }
+
+  .avery-copy h2 {
+    max-width: 13ch;
+    color: #512c45;
+    font-family: Georgia, serif;
+    font-size: clamp(2.8rem, 5vw, 4.7rem);
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .avery-copy h2 span {
+    color: #ed5c31;
+    font-style: italic;
+  }
+
+  .avery-copy p + p {
+    margin-top: 1rem;
+  }
+
+  .avery-copy .underlined-link {
+    display: inline-block;
+    margin-top: 1.4rem;
+  }
+
+  .cg-approaches {
+    display: grid;
+  }
+
+  .approach-copy {
+    display: flex;
+    align-items: center;
+    padding: clamp(4rem, 8vw, 7rem) max(1.25rem, calc((100vw - 76rem) / 2));
+    background: #5d334e;
+    color: #f7e9e1;
+  }
+
+  .approach-copy h2 {
+    max-width: 13ch;
+    color: white;
+    font-family: Georgia, serif;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 500;
+  }
+
+  .approach-copy .light {
+    color: #ffc277;
+  }
+
+  .approach-copy p:not(.hand-label) {
+    max-width: 36rem;
+  }
+
+  .approach-copy a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: white;
+    font-weight: 800;
+  }
+
+  .approach-list {
+    padding: clamp(3rem, 7vw, 6rem) max(1.25rem, calc((100vw - 76rem) / 2));
+    background: #efa916;
+  }
+
+  .approach-list a {
     display: grid;
     grid-template-columns: 2.5rem 1fr auto;
     gap: 1rem;
     align-items: center;
-    padding: 1.25rem;
-    border: 1px solid #d3dfed;
-    border-radius: .7rem;
-    background: white;
-    color: #42546b;
+    padding: 1.3rem 0;
+    border-bottom: 2px solid rgba(81,44,69,.2);
+    color: #512c45;
     text-decoration: none;
-    transition:
-      transform .18s ease,
-      border-color .18s ease,
-      box-shadow .18s ease;
   }
 
-  .align-service-card:hover {
-    border-color: #a9bed6;
-    box-shadow: 0 12px 30px rgba(11,29,58,.08);
-    transform: translateY(-2px);
+  .approach-list span {
+    font-size: .72rem;
+    font-weight: 900;
   }
 
-  .align-service-card h3 {
-    margin-bottom: .25rem;
+  .approach-list strong {
+    font-size: 1.05rem;
   }
 
-  .service-index {
-    color: #5f82ad;
-    font-size: .75rem;
-    font-weight: 800;
+  .approach-list b {
+    font-size: 1.4rem;
   }
 
-  .service-arrow {
-    color: #3f648d;
-    font-size: 1.2rem;
+  .cg-richmond {
+    padding: clamp(4.5rem, 8vw, 7rem) 0;
+    background: #fff8ed;
   }
 
-  .align-methods {
-    padding: clamp(4rem, 8vw, 7rem) 0;
-    background: #0b1d3a;
-    color: #dfe9f5;
-  }
-
-  .align-methods-grid {
+  .richmond-card {
     display: grid;
-    gap: 2.5rem;
-  }
-
-  .align-methods h2 {
-    color: white;
-  }
-
-  .align-methods .eyebrow {
-    color: #b5c8df;
-  }
-
-  .align-methods-panel p:not(.eyebrow) {
-    max-width: 38rem;
-    margin-top: 1rem;
-  }
-
-  .align-light-link {
-    display: inline-block;
-    margin-top: 1.5rem;
-    color: white;
-    font-weight: 750;
-    text-decoration: none;
-  }
-
-  .align-method-list {
-    border-top: 1px solid rgba(255,255,255,.16);
-  }
-
-  .align-method-list a {
-    display: grid;
-    grid-template-columns: 3rem 1fr;
-    gap: 1rem;
-    padding: 1.2rem 0;
-    border-bottom: 1px solid rgba(255,255,255,.16);
-    color: white;
-    text-decoration: none;
-  }
-
-  .align-method-list span {
-    color: #abc1da;
-    font-size: .75rem;
-    font-weight: 800;
-  }
-
-  .clinician-visual {
-    position: relative;
-    min-height: 27rem;
-  }
-
-  .clinician-block {
-    position: absolute;
-    inset: 2rem 4rem 0 0;
-    border-radius: 1.5rem;
-    background:
-      linear-gradient(135deg, #5f82ad, #3f648d);
-  }
-
-  .clinician-card {
-    position: absolute;
-    right: 0;
-    bottom: 1rem;
-    width: min(20rem, 85%);
-    padding: 1.5rem;
-    border-radius: 1rem;
-    background: white;
-    box-shadow: 0 20px 50px rgba(11,29,58,.16);
-  }
-
-  .clinician-avatar {
-    position: relative;
-    width: 6rem;
-    height: 6rem;
-    margin-bottom: 1rem;
+    gap: 2rem;
     overflow: hidden;
-    border-radius: .7rem;
-    background: #dce7f4;
+    padding: clamp(2rem, 5vw, 4.5rem);
+    border-radius: 2rem;
+    background: #f47852;
   }
 
-  .clinician-avatar:before {
-    content: "";
-    position: absolute;
-    width: 2.4rem;
-    height: 2.4rem;
-    left: 1.8rem;
-    top: .8rem;
-    border-radius: 50%;
-    background: #7793b3;
+  .richmond-copy h2 {
+    max-width: 10ch;
+    color: #512c45;
+    font-family: Georgia, serif;
+    font-size: clamp(2.7rem, 5vw, 4.5rem);
+    font-weight: 500;
+    line-height: .95;
   }
 
-  .clinician-avatar span {
-    position: absolute;
-    width: 5rem;
-    height: 3.6rem;
-    left: .5rem;
-    bottom: -.3rem;
-    border-radius: 2.8rem 2.8rem .7rem .7rem;
-    background: #a9bed6;
+  .richmond-copy h2 span {
+    display: block;
+    color: #fff8ed;
   }
 
-  .clinician-card p {
-    color: #0b1d3a;
-    font-weight: 800;
-  }
-
-  .clinician-card small {
-    color: #6b7d93;
-  }
-
-  .align-step-grid {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .align-step {
-    padding: 1.5rem;
-    border-left: 4px solid #5f82ad;
-    background: #f3f7fc;
-  }
-
-  .align-step > span {
-    color: #5f82ad;
-    font-size: .75rem;
-    font-weight: 800;
-  }
-
-  .align-step h3 {
-    margin-top: .6rem;
-  }
-
-  .align-step p {
-    margin-top: .5rem;
-  }
-
-  .align-location {
-    background: #edf4fb;
-  }
-
-  .location-graphic {
+  .richmond-art {
     position: relative;
-    min-height: 18rem;
+    min-height: 17rem;
   }
 
-  .location-ring {
+  .big-dot {
     position: absolute;
-    border: 1px solid #7fa2ce;
-    border-radius: 50%;
-  }
-
-  .ring-one {
-    width: 13rem;
-    height: 13rem;
-    right: 4rem;
-    top: 2rem;
-  }
-
-  .ring-two {
     width: 8rem;
     height: 8rem;
-    right: 1rem;
-    top: 7rem;
-  }
-
-  .location-dot {
-    position: absolute;
-    width: 2rem;
-    height: 2rem;
-    right: 7rem;
-    top: 7rem;
+    right: 2rem;
+    top: 0;
     border-radius: 50%;
-    background: #5f82ad;
-    box-shadow: 0 0 0 1.2rem rgba(29,78,216,.12);
+    background: #efa916;
   }
 
-  .align-cta {
+  .pill {
+    position: absolute;
+    width: 13rem;
+    height: 5rem;
+    right: 5rem;
+    bottom: 1rem;
+    border-radius: 999px;
+    background: #7f4565;
+    transform: rotate(-7deg);
+  }
+
+  .people-mini {
+    position: absolute;
+    z-index: 2;
+    left: 1rem;
+    bottom: 0;
+    width: 10rem;
+    height: 12rem;
+  }
+
+  .mini-head,
+  .mini-body {
+    position: absolute;
+  }
+
+  .mini-head {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    background: #ffe0cc;
+  }
+
+  .mini-body {
+    width: 5rem;
+    height: 6rem;
+    bottom: 0;
+    border-radius: 3rem 3rem .7rem .7rem;
+  }
+
+  .mini-head.one { left: 0; }
+  .mini-body.one {
+    left: -1rem;
+    background: #512c45;
+  }
+
+  .mini-head.two {
+    right: 0;
+    top: 1.3rem;
+  }
+
+  .mini-body.two {
+    right: -1rem;
+    background: #778873;
+  }
+
+  .cg-final {
     padding: clamp(4rem, 8vw, 6rem) 0;
-    background: #294c70;
-    color: #dfe9f5;
+    background: #efa916;
   }
 
-  .align-cta-inner {
+  .final-grid {
     display: flex;
     flex-wrap: wrap;
+    gap: 2rem;
     align-items: end;
     justify-content: space-between;
-    gap: 2rem;
   }
 
-  .align-cta h2 {
-    max-width: 18ch;
-    color: white;
+  .cg-final .hand-label {
+    color: #7f4565;
   }
 
-  .align-cta .eyebrow {
-    color: #bfd0e3;
+  .cg-final h2 {
+    max-width: 12ch;
+    color: #512c45;
+    font-family: Georgia, serif;
+    font-size: clamp(2.7rem, 5vw, 4.5rem);
+    font-weight: 500;
   }
 
-  @media (min-width: 48rem) {
-    .align-hero-grid {
+  @media (min-width:48rem) {
+    .hero-grid {
       grid-template-columns: 1.05fr .95fr;
-      gap: clamp(3rem, 7vw, 7rem);
+      gap: clamp(3rem,7vw,7rem);
     }
 
-    .align-intro-grid,
-    .align-clinician-grid,
-    .align-location-grid {
-      grid-template-columns: .9fr 1.1fr;
-      gap: clamp(3rem, 7vw, 7rem);
+    .needs-grid {
+      grid-template-columns: .85fr 1.15fr;
+      gap: clamp(3rem,7vw,7rem);
       align-items: center;
     }
 
-    .align-methods-grid {
-      grid-template-columns: .9fr 1.1fr;
-      gap: clamp(3rem, 7vw, 7rem);
+    .process-flow {
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      align-items: center;
+    }
+
+    .connector {
+      display: block;
+      color: #d85f40;
+      font-size: 1.6rem;
+      font-weight: 900;
+    }
+
+    .process-1 { transform:rotate(-2deg); }
+    .process-2 { transform:translateY(1.3rem) rotate(2deg); }
+    .process-3 { transform:translateY(-.8rem) rotate(-1deg); }
+    .process-4 { transform:translateY(1rem) rotate(2deg); }
+
+    .statement-grid {
+      grid-template-columns: .2fr 1.1fr .7fr;
+      gap: clamp(2rem,5vw,5rem);
       align-items: start;
     }
 
-    .align-service-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .avery-grid {
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(4rem,8vw,8rem);
     }
 
-    .align-step-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .cg-approaches {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .richmond-card {
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
     }
   }
 
-  @media (max-width: 47.999rem) {
-    .align-hero {
-      padding-top: 3.75rem;
+  @media (max-width:47.999rem) {
+    .hero-copy h1 {
+      font-size: clamp(3.6rem,16vw,5.5rem);
     }
 
-    .align-art {
-      min-height: 23rem;
-    }
-
-    .shape-a {
-      width: 14rem;
-      height: 14rem;
-      right: .5rem;
-    }
-
-    .shape-b {
-      width: 11rem;
-      height: 11rem;
-      right: 7rem;
-    }
-
-    .shape-c {
-      width: 6rem;
-      height: 6rem;
-    }
-
-    .art-card-main {
-      width: 78%;
-      min-height: 15rem;
-      left: .25rem;
-    }
-
-    .align-actions {
+    .hero-actions {
       display: grid;
     }
 
-    .align-actions > * {
+    .hero-actions > * {
       width: 100%;
       justify-content: center;
+      text-align: center;
     }
 
-    .align-section-heading {
-      align-items: start;
+    .hero-scene {
+      min-height: 25rem;
     }
 
-    .align-service-card {
-      grid-template-columns: 2rem 1fr auto;
-      padding: 1rem;
+    .scene-plum {
+      width: 14rem;
+      height: 17rem;
     }
 
-    .align-service-card p {
-      font-size: .9rem;
+    .figure-right {
+      right: 2rem;
     }
 
-    .clinician-visual {
-      min-height: 22rem;
+    .figure-left {
+      left: 1rem;
     }
 
-    .clinician-block {
-      inset: 1rem 3rem 0 0;
+    .speech-card {
+      width: 12rem;
     }
 
-    .location-graphic {
-      min-height: 13rem;
+    .mini-note {
+      display: none;
+    }
+
+    .process-flow {
+      gap: 1rem;
+    }
+
+    .process-card {
+      border-radius: 2rem 1rem 2rem 1rem;
+    }
+
+    .avery-photo-area {
+      min-height: 27rem;
+    }
+
+    .photo-card {
+      left: 2rem;
     }
   }
 </style>

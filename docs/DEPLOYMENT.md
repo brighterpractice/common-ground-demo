@@ -1,6 +1,6 @@
 # Deployment
 
-Align Therapy Group is a static Astro site deployed from [align-therapy-demo](https://github.com/align-therapy-demo) to Cloudflare Pages.
+Common Ground Therapy is a static Astro site deployed from [common-ground-demo](https://github.com/common-ground-demo) to Cloudflare Pages.
 
 ## Cloudflare Pages project
 
@@ -24,20 +24,20 @@ Cloudflare Pages keeps previous deployments. If a production issue is discovered
 
 ## Custom domain and DNS
 
-Add `align-therapy-demo.example` under the Pages project's **Custom domains** settings and follow Cloudflare's DNS prompts. The site configuration, canonical URLs, sitemap, and robots file assume the apex domain:
+Add `common-ground-demo.example` under the Pages project's **Custom domains** settings and follow Cloudflare's DNS prompts. The site configuration, canonical URLs, sitemap, and robots file assume the apex domain:
 
-`https://align-therapy-demo.example`
+`https://common-ground-demo.example`
 
-Choose the apex domain as the single canonical host. Configure `www.align-therapy-demo.example` to redirect permanently to the apex domain, and confirm Cloudflare's automatic HTTP-to-HTTPS redirect is active. Test the custom domain before announcing launch.
+Choose the apex domain as the single canonical host. Configure `www.common-ground-demo.example` to redirect permanently to the apex domain, and confirm Cloudflare's automatic HTTP-to-HTTPS redirect is active. Test the custom domain before announcing launch.
 
 Security and cache response headers live in `public/_headers`. After the first deployment, inspect representative HTML, `/_astro/` assets, images, `robots.txt`, and `sitemap.xml` in the browser network panel or with `curl -I` to confirm the rules are active.
 
 ## Search Console
 
-1. Add a Google Search Console **Domain property** for `align-therapy-demo.example`.
+1. Add a Google Search Console **Domain property** for `common-ground-demo.example`.
 2. Copy the verification TXT value supplied by Google; do not create one manually.
 3. Add that TXT record in Cloudflare DNS and complete verification in Search Console.
-4. Submit `https://align-therapy-demo.example/sitemap.xml`.
+4. Submit `https://common-ground-demo.example/sitemap.xml`.
 5. Inspect the homepage and representative service pages after deployment, then request indexing when appropriate.
 6. Confirm the apex-domain redirect, canonical URLs, and indexed host agree.
 
@@ -60,4 +60,4 @@ npm run build
 git diff --check
 ```
 
-Confirm the 404 page, legal pages, nine service pages, sitemap, robots file, official branding, Jordan clinician profile, appointment fallback, and Client Portal fallback are present in `dist/`.
+Confirm the 404 page, legal pages, nine service pages, sitemap, robots file, official branding, Avery clinician profile, appointment fallback, and Client Portal fallback are present in `dist/`.

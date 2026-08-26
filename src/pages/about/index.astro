@@ -3,18 +3,18 @@ import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import { breadcrumbSchema, pageSchema } from '../../lib/schema';
 
-const crumbs = [{ label: 'About Align Therapy Group' }];
+const crumbs = [{ label: 'About Common Ground Therapy' }];
 ---
 
 <Layout
-  title="About Align Therapy Group | Madison, Wisconsin"
-  description="Learn about Align Therapy Group, a private counseling practice for adults in Madison, Wisconsin."
+  title="About Common Ground Therapy | Richmond, Virginia"
+  description="Learn about Common Ground Therapy, a private counseling practice for adults in Richmond, Virginia."
   schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
 >
   <PageHero
     eyebrow="About the practice"
     title="Therapy built around the person in the room."
-    intro="Align Therapy Group is Jordan Ellis’s counseling practice in Madison, Wisconsin, offering individual therapy for adults."
+    intro="Common Ground Therapy is Avery Morgan’s counseling practice in Richmond, Virginia, offering individual therapy for adults."
     crumbs={crumbs}
   />
 
@@ -42,7 +42,7 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
         </p>
 
         <p>
-          You and Jordan can decide together what deserves attention, what pace
+          You and Avery can decide together what deserves attention, what pace
           feels manageable, and what kind of support may be useful.
         </p>
       </div>
@@ -63,7 +63,7 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
           <h3>Individual attention</h3>
 
           <p>
-            Align Therapy Group provides one-to-one counseling for adults. The
+            Common Ground Therapy provides one-to-one counseling for adults. The
             work stays focused on your experiences, concerns, and goals.
           </p>
         </article>
@@ -108,13 +108,13 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
       <div class="starting-panel">
         <p>
           The Services section describes some of the concerns people may bring
-          to counseling. The Approaches section explains several methods Jordan
+          to counseling. The Approaches section explains several methods Avery
           may use during the work.
         </p>
 
         <p>
-          Both are starting points. A conversation with Jordan can help you
-          determine whether Align Therapy Group fits what you are looking for.
+          Both are starting points. A conversation with Avery can help you
+          determine whether Common Ground Therapy fits what you are looking for.
         </p>
 
         <div class="starting-links">
@@ -147,15 +147,15 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
       <div class="counselor-copy">
         <p class="eyebrow">The counselor behind the practice</p>
 
-        <h2>Meet Jordan Ellis, LPC.</h2>
+        <h2>Meet Avery Morgan, LPC.</h2>
 
         <p>
-          Jordan’s education, clinical training, professional credentials, and
+          Avery’s education, clinical training, professional credentials, and
           therapeutic background are described in more detail on her profile.
         </p>
 
-        <a class="profile-link" href="/about/jordan-ellis/">
-          View Jordan’s profile
+        <a class="profile-link" href="/about/avery-morgan/">
+          View Avery’s profile
           <span>→</span>
         </a>
       </div>
@@ -180,7 +180,7 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
     display: flex;
     gap: 1rem;
     align-items: center;
-    color: #5f82ad;
+    color: #d36b4c;
     font-size: .75rem;
     font-weight: 800;
   }
@@ -188,7 +188,7 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
   .about-number div {
     width: 3rem;
     height: 1px;
-    background: #a9bed6;
+    background: #e6ae8f;
   }
 
   .about-intro h2 {
@@ -204,7 +204,7 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
   }
 
   .principles {
-    background: #eef4fa;
+    background: #f8efe6;
   }
 
   .section-heading {
@@ -213,18 +213,18 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
   }
 
   .principle-list {
-    border-top: 1px solid #cbd8e6;
+    border-top: 1px solid #e6d1c5;
   }
 
   .principle-list article {
     display: grid;
     gap: .8rem;
     padding: 1.8rem 0;
-    border-bottom: 1px solid #cbd8e6;
+    border-bottom: 1px solid #e6d1c5;
   }
 
   .principle-list article > span {
-    color: #5f82ad;
+    color: #d36b4c;
     font-size: .72rem;
     font-weight: 800;
   }
@@ -249,8 +249,8 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
 
   .starting-panel {
     padding: clamp(1.5rem, 4vw, 2.5rem);
-    border-left: 4px solid #7793b3;
-    background: #f6f9fc;
+    border-left: 4px solid #c9795c;
+    background: #fffaf4;
   }
 
   .starting-panel > p + p {
@@ -267,13 +267,13 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
     display: grid;
     gap: .2rem;
     padding: 1rem 0;
-    border-top: 1px solid #d4e0eb;
-    color: #294c70;
+    border-top: 1px solid #ead6ca;
+    color: #7a4d67;
     text-decoration: none;
   }
 
   .starting-links a span {
-    color: #74879a;
+    color: #81746f;
     font-size: .72rem;
     font-weight: 800;
     letter-spacing: .1em;
@@ -282,8 +282,8 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
 
   .counselor-band {
     overflow: hidden;
-    background: #294c70;
-    color: #dfe8f1;
+    background: #7a4d67;
+    color: #f7eee8;
   }
 
   .counselor-grid {
@@ -297,7 +297,7 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
   }
 
   .counselor-band .eyebrow {
-    color: #bfd0e3;
+    color: #ead1bd;
   }
 
   .counselor-visual {
@@ -312,7 +312,7 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
     left: 1rem;
     top: 1rem;
     border-radius: 1.3rem;
-    background: #3f648d;
+    background: #9a5e63;
     transform: rotate(-7deg);
   }
 
@@ -350,7 +350,7 @@ const crumbs = [{ label: 'About Align Therapy Group' }];
     left: .5rem;
     bottom: 0;
     border-radius: 4rem 4rem .8rem .8rem;
-    background: #a9bed6;
+    background: #e6ae8f;
   }
 
   .profile-link {

@@ -12,7 +12,7 @@ export function organizationSchema() {
     '@type': 'Organization',
     name: site.practice.name,
     url: absoluteUrl('/'),
-    logo: absoluteUrl('/images/branding/align-icon.png'),
+    logo: absoluteUrl('/images/branding/common-ground-icon.png'),
   };
 }
 

@@ -1,10 +1,10 @@
 export const practice = {
- name: 'Align Therapy Group',
- shortName: 'Align Therapy',
- city: 'Madison',
- state: 'Wisconsin',
+ name: 'Common Ground Therapy',
+ shortName: 'Common Ground Therapy',
+ city: 'Richmond',
+ state: 'Virginia',
  stateAbbreviation: 'WI',
- address: 'Madison, Wisconsin',
+ address: 'Richmond, Virginia',
  phone: '(970) 555-0148',
  email: 'hello@example.com',
 };
@@ -18,10 +18,10 @@ export const externalLinkAttrs = () => ({
 });
 
 export const site = {
- publicUrl: 'https://align-therapy-demo.example',
+ publicUrl: 'https://common-ground-demo.example',
  practice,
  clinician: {
- name: 'Jordan Ellis',
+ name: 'Avery Morgan',
  credentials: 'LPC',
  title: 'Licensed Professional Counselor',
  },

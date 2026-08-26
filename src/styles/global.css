@@ -1,10 +1,10 @@
-:root{--ink:#0b1d3a;--body:#42546b;--muted:#6b7d93;--paper:#f8fbff;--cream:#edf4fb;--sand:#d8e4f2;--sage:#7793b3;--sage-dark:#3f648d;--moss:#294c70;--clay:#5f82ad;--clay-text:#5f82ad;--sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--serif:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--xs:.78rem;--base:clamp(1rem,.97rem + .14vw,1.08rem);--lg:clamp(1.18rem,1.08rem + .45vw,1.45rem);--xl:clamp(1.6rem,1.35rem + 1vw,2.2rem);--xxl:clamp(2.35rem,1.8rem + 2.6vw,4.5rem);--s1:.5rem;--s2:.75rem;--s3:1rem;--s4:1.5rem;--s5:2rem;--s6:3rem;--s7:clamp(4rem,8vw,7.5rem);--container:72rem;--measure:42rem;--radius:1rem;--shadow:0 18px 50px rgba(36,51,47,.09)}
+:root{--ink:#684052;--body:#695b61;--muted:#81746f;--paper:#fffaf4;--cream:#f7efe5;--sand:#ead9c9;--sage:#c9795c;--sage-dark:#9a5e63;--moss:#7a4d67;--clay:#d36b4c;--clay-text:#d36b4c;--sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--serif:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--xs:.78rem;--base:clamp(1rem,.97rem + .14vw,1.08rem);--lg:clamp(1.18rem,1.08rem + .45vw,1.45rem);--xl:clamp(1.6rem,1.35rem + 1vw,2.2rem);--xxl:clamp(2.35rem,1.8rem + 2.6vw,4.5rem);--s1:.5rem;--s2:.75rem;--s3:1rem;--s4:1.5rem;--s5:2rem;--s6:3rem;--s7:clamp(4rem,8vw,7.5rem);--container:72rem;--measure:42rem;--radius:1rem;--shadow:0 18px 50px rgba(36,51,47,.09)}
 *,*:before,*:after{box-sizing:border-box}html{max-width:100%;overflow-x:clip;scroll-behavior:smooth}body{max-width:100%;margin:0;color:var(--body);background:var(--paper);font-family:var(--sans);font-size:var(--base);line-height:1.65;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}a{color:var(--sage-dark);text-underline-offset:.2em}a:hover{color:var(--clay-text)}h1,h2,h3{color:var(--ink);font-family:var(--serif);font-weight:400;line-height:1.14;margin:0 0 var(--s3);text-wrap:balance}h1{font-size:var(--xxl);letter-spacing:-.035em}h2{font-size:var(--xl);letter-spacing:-.02em}h3{font-size:var(--lg);line-height:1.2}p{margin:0 0 var(--s3)}p:last-child{margin-bottom:0}:focus-visible{outline:3px solid var(--clay);outline-offset:4px}.skip-link{position:fixed;top:.75rem;left:.75rem;z-index:100;transform:translateY(-180%);padding:.7rem 1rem;background:var(--ink);color:white}.skip-link:focus{transform:none}.container{width:min(100% - 2rem,var(--container));margin-inline:auto}.container>*,.grid>*{min-width:0}.measure{max-width:var(--measure)}.section{padding-block:3.5rem}.section--tint{background:var(--cream)}.section--dark{background:var(--moss);color:#eaf0ec}.section--dark h2{color:white}.eyebrow{color:var(--clay-text);font-size:var(--xs);font-weight:800;line-height:1.4;letter-spacing:.13em;text-transform:uppercase}.section--dark .eyebrow{color:#eaf0ec}.grid{display:grid;gap:var(--s4)}.card{height:100%;padding:1.35rem;border:1px solid var(--sand);border-radius:var(--radius);background:rgba(255,255,255,.78);box-shadow:0 8px 30px rgba(36,51,47,.04)}.card p{line-height:1.6}.link-arrow{font-weight:700;text-decoration:none}.link-arrow:after{content:" →"}.button{display:inline-flex;min-height:3rem;align-items:center;justify-content:center;padding:.72rem 1.15rem;border:1px solid var(--moss);border-radius:999px;background:var(--moss);color:white;font-size:.92rem;font-weight:750;line-height:1.2;text-align:center;text-decoration:none}.button:hover{background:var(--sage-dark);color:white}.button--light{border-color:white;background:white;color:var(--moss)}.button--outline{background:transparent;color:var(--moss)}.mobile-appointment{position:fixed;z-index:40;right:max(.5rem,env(safe-area-inset-right));bottom:max(.5rem,env(safe-area-inset-bottom));width:auto;max-width:calc(100vw - 1rem);height:44px;min-height:44px;padding:.35rem .7rem;font-size:.8rem;white-space:nowrap;box-shadow:0 6px 18px rgba(36,51,47,.22)}main{min-height:60vh}
 .service-link{display:block;color:var(--body);text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.service-link:hover{color:var(--body)}@media(hover:hover){.service-link:hover{border-color:var(--sage);box-shadow:var(--shadow);transform:translateY(-2px)}}
 @media(max-width:47.999rem){.mobile-appointment{transition:opacity .18s ease,transform .18s ease;will-change:opacity,transform}.mobile-appointment.is-retreating{pointer-events:none;opacity:0;transform:translateY(calc(100% + 2rem))}.hero [data-track="request-appointment"],.section--dark [data-track="request-appointment"],footer [data-track="request-appointment"]{display:none}}
 @media(min-width:48rem){body{line-height:1.7}.container{width:min(100% - 4rem,var(--container))}.section{padding-block:var(--s7)}.grid--2{grid-template-columns:repeat(2,1fr)}.grid--3{grid-template-columns:repeat(3,1fr)}.card{padding:clamp(1.35rem,3vw,2.25rem)}.mobile-appointment{display:none}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
-/* Align Therapy Group visual system */
+/* Common Ground Therapy visual system */
 
 body {
   background:
@@ -61,7 +61,7 @@ h3 {
     linear-gradient(
       135deg,
       #eef5fc,
-      #f8fbff
+      #fffaf4
     );
 }
 
@@ -69,8 +69,8 @@ h3 {
   background:
     linear-gradient(
       135deg,
-      #0b1d3a,
-      #294c70
+      #684052,
+      #7a4d67
     );
 }
 
@@ -78,17 +78,17 @@ h3 {
   background:
     linear-gradient(
       135deg,
-      #edf4fb,
-      #f8fbff
+      #f7efe5,
+      #fffaf4
     );
 }
 
 .eyebrow {
-  color: #5f82ad;
+  color: #d36b4c;
 }
 
 .link-arrow {
-  color: #3f648d;
+  color: #9a5e63;
 }
 
 .profile img,
@@ -128,4 +128,313 @@ footer a:hover,
 footer hr,
 .site-footer hr {
   border-color: rgba(255,255,255,.16) !important;
+}
+
+/* Common Ground visual identity */
+
+body {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(247,239,229,.38),
+      transparent 20rem
+    ),
+    #fffaf4;
+}
+
+h1,
+h2,
+h3 {
+  color: #4f3743;
+}
+
+.eyebrow {
+  color: #c66e52;
+}
+
+.button {
+  border-radius: 999px;
+}
+
+.card {
+  border-radius: 1.2rem;
+  box-shadow:
+    0 14px 34px rgba(95,65,70,.07);
+}
+
+.section--tint {
+  background:
+    linear-gradient(
+      135deg,
+      #f9eee5,
+      #fffaf4
+    );
+}
+
+.section--dark {
+  background:
+    linear-gradient(
+      135deg,
+      #624355,
+      #7a514f
+    );
+}
+
+.page-hero {
+  background:
+    linear-gradient(
+      135deg,
+      #fff8f1,
+      #f5e5d8
+    );
+}
+
+.site-footer,
+footer {
+  background: #684052 !important;
+  color: #f1e6e2 !important;
+}
+
+footer a,
+.site-footer a {
+  color: #f7ece7 !important;
+}
+
+footer a:hover,
+.site-footer a:hover {
+  color: #ffffff !important;
+}
+
+/* Common Ground warm feature sections */
+
+.align-methods {
+  background:
+    linear-gradient(
+      135deg,
+      #684052,
+      #76505a
+    ) !important;
+  color: #f7ece7 !important;
+}
+
+.align-methods h2,
+.align-methods strong,
+.align-methods a {
+  color: #fffaf4 !important;
+}
+
+.align-methods .eyebrow {
+  color: #e8b49b !important;
+}
+
+.align-method-list {
+  border-color: rgba(255,255,255,.18) !important;
+}
+
+.align-method-list a {
+  border-color: rgba(255,255,255,.18) !important;
+}
+
+.align-method-list span {
+  color: #e2b195 !important;
+}
+
+.link-arrow,
+.align-outline-link,
+.align-secondary {
+  color: #a35f58 !important;
+}
+
+.align-secondary {
+  border-color: #c9795c !important;
+}
+
+/* Avoid thin outlined circular decorations.
+   On small screens these can resemble hairs/scratches. */
+.hero-accent,
+.location-ring,
+.visual-circle {
+  display: none !important;
+}
+
+/* -------------------------------------------------------
+   COMMON GROUND — vibrant expressive palette
+   ------------------------------------------------------- */
+
+:root {
+  --cg-ink: #4d3040;
+  --cg-plum: #7f4565;
+  --cg-plum-dark: #5f3650;
+
+  --cg-terracotta: #d85f40;
+  --cg-coral: #f18767;
+  --cg-peach: #f7b18f;
+
+  --cg-gold: #e5aa35;
+  --cg-gold-soft: #f4cf78;
+
+  --cg-sage: #788873;
+
+  --cg-cream: #fff8ed;
+  --cg-paper: #fffdf8;
+  --cg-blush: #fae8dc;
+}
+
+body {
+  background: var(--cg-paper);
+  color: #63515a;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--cg-ink);
+}
+
+.eyebrow {
+  color: var(--cg-terracotta) !important;
+}
+
+.button {
+  background: var(--cg-terracotta);
+  border-color: var(--cg-terracotta);
+  color: white;
+}
+
+.button:hover {
+  background: #bd4e34;
+  border-color: #bd4e34;
+}
+
+.link-arrow,
+.align-outline-link,
+.align-secondary {
+  color: var(--cg-terracotta) !important;
+}
+
+.align-secondary {
+  border-color: var(--cg-terracotta) !important;
+}
+
+.section--tint {
+  background:
+    linear-gradient(
+      135deg,
+      #fff3e8,
+      #fde5d6
+    ) !important;
+}
+
+.section--dark,
+.align-methods {
+  background:
+    linear-gradient(
+      125deg,
+      var(--cg-plum-dark),
+      var(--cg-plum)
+    ) !important;
+}
+
+.align-methods .eyebrow {
+  color: #f5b99c !important;
+}
+
+.align-method-list span {
+  color: var(--cg-gold-soft) !important;
+}
+
+.site-footer,
+footer {
+  background: var(--cg-plum-dark) !important;
+}
+
+.card {
+  border-color: rgba(112,67,91,.12);
+}
+
+/* -------------------------------------------------------
+   Common Ground headline wrapping safeguards
+   ------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+blockquote {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.cg-avery h2,
+.avery-copy h2,
+.richmond-copy h2,
+.needs-heading h2,
+.cg-statement blockquote,
+.approach-copy h2,
+.cg-final h2 {
+  max-width: none !important;
+}
+
+.cg-avery h2,
+.avery-copy h2 {
+  font-size: clamp(2.45rem, 4.3vw, 4.15rem) !important;
+  line-height: 1.03 !important;
+}
+
+.richmond-copy h2 {
+  font-size: clamp(2.35rem, 4.4vw, 4rem) !important;
+  line-height: .98 !important;
+}
+
+.needs-heading h2 {
+  font-size: clamp(2.45rem, 4.4vw, 4rem) !important;
+  line-height: 1.02 !important;
+}
+
+.cg-statement blockquote {
+  font-size: clamp(2.55rem, 5vw, 4.6rem) !important;
+  line-height: 1.04 !important;
+}
+
+.approach-copy h2 {
+  font-size: clamp(2.35rem, 4.4vw, 3.9rem) !important;
+  line-height: 1.03 !important;
+}
+
+.cg-final h2 {
+  font-size: clamp(2.4rem, 4.4vw, 4rem) !important;
+  line-height: 1.02 !important;
+}
+
+/* Give the text columns a little more room on desktop. */
+@media (min-width: 48rem) {
+  .avery-grid {
+    grid-template-columns: .82fr 1.18fr !important;
+  }
+
+  .richmond-card {
+    grid-template-columns: 1.25fr .75fr !important;
+  }
+
+  .needs-grid {
+    grid-template-columns: .95fr 1.05fr !important;
+  }
+
+  .statement-grid {
+    grid-template-columns: .15fr 1.2fr .65fr !important;
+  }
+}
+
+/* Mobile: slightly smaller display type to avoid awkward wraps. */
+@media (max-width: 47.999rem) {
+  .cg-avery h2,
+  .avery-copy h2,
+  .richmond-copy h2,
+  .needs-heading h2,
+  .cg-statement blockquote,
+  .approach-copy h2,
+  .cg-final h2 {
+    font-size: clamp(2.15rem, 11vw, 3.25rem) !important;
+    line-height: 1.02 !important;
+  }
 }

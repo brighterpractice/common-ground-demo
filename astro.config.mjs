@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://align-therapy-demo.example',
+  site: 'https://common-ground-demo.example',
   output: 'static',
   trailingSlash: 'always',
 });
