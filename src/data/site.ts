@@ -18,7 +18,7 @@ export const externalLinkAttrs = () => ({
 });
 
 export const site = {
- publicUrl: 'https://common-ground-demo.example',
+ publicUrl: 'https://common.brightersites.app',
  practice,
  clinician: {
  name: 'Avery Morgan',

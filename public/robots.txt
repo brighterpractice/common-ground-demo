@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://common-ground-demo.example/sitemap.xml
+Sitemap: https://common.brightersites.app/sitemap.xml

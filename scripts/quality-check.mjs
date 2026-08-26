@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
-const canonicalOrigin = 'https://common-ground-demo.example';
+const canonicalOrigin = 'https://common.brightersites.app';
 
 const failures = [];
 const warnings = [];
