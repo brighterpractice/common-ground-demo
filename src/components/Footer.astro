@@ -93,6 +93,17 @@ const portalAttrs = externalLinkAttrs();
       <a href="/terms/">Terms</a>
     </span>
   </div>
+
+  <div class="container brighter-sites-signature">
+    Website built and managed by
+    <a
+      href="https://brightersites.app"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Brighter Sites
+    </a>
+  </div>
 </footer>
 
 <style>
@@ -217,6 +228,25 @@ const portalAttrs = externalLinkAttrs();
   .legal a {
     color: #cdd9e5;
     text-decoration: none;
+  }
+
+  .brighter-sites-signature {
+    margin-top: .7rem;
+    color: #7890a8;
+    font-size: .68rem;
+    line-height: 1.5;
+  }
+
+  .brighter-sites-signature a {
+    color: #9fb0c2;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(255,255,255,.15);
+    text-underline-offset: 2px;
+  }
+
+  .brighter-sites-signature a:hover {
+    color: #cdd9e5;
   }
 
   @media (min-width:48rem) {
