@@ -23,7 +23,7 @@ import {
     </div>
 
     <div class="container hero-grid">
-      <div class="hero-copy">
+      <div class="hero-copy motion-hero">
         <p class="kicker">Common Ground Therapy · Richmond, Virginia</p>
 
         <h1>
@@ -128,8 +128,8 @@ import {
         <h2>Therapy can feel human.</h2>
       </div>
 
-      <div class="process-flow">
-        <article class="process-card process-1">
+      <div class="process-flow motion-process">
+        <article class="process-card process-1 motion-reveal">
           <span class="number">01</span>
           <div class="process-icon">•••</div>
           <h3>Talk</h3>
@@ -138,7 +138,7 @@ import {
 
         <div class="connector connector-one" aria-hidden="true">→</div>
 
-        <article class="process-card process-2">
+        <article class="process-card process-2 motion-reveal">
           <span class="number">02</span>
           <div class="process-icon">?</div>
           <h3>Explore</h3>
@@ -147,7 +147,7 @@ import {
 
         <div class="connector connector-two" aria-hidden="true">→</div>
 
-        <article class="process-card process-3">
+        <article class="process-card process-3 motion-reveal">
           <span class="number">03</span>
           <div class="process-icon">✦</div>
           <h3>Understand</h3>
@@ -156,7 +156,7 @@ import {
 
         <div class="connector connector-three" aria-hidden="true">→</div>
 
-        <article class="process-card process-4">
+        <article class="process-card process-4 motion-reveal">
           <span class="number">04</span>
           <div class="process-icon">↗</div>
           <h3>Move forward</h3>
@@ -340,11 +340,88 @@ import {
       </Button>
     </div>
   </section>
+  <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion) {
+      document.documentElement.classList.add('motion-enabled');
+
+      const process = document.querySelector('.motion-process');
+
+      if (process) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (!entry.isIntersecting) return;
+
+            process.classList.add('is-visible');
+            observer.disconnect();
+          },
+          { threshold: 0.2 }
+        );
+
+        observer.observe(process);
+      }
+    }
+  </script>
 </Layout>
 
 <style>
   :global(body) {
     background: #fff8ed;
+  }
+
+
+  /* Restrained motion showcase */
+  :global(.motion-enabled) .motion-hero {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: hero-enter 700ms ease-out 120ms forwards;
+  }
+
+  :global(.motion-enabled) .motion-reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 520ms ease-out,
+      transform 520ms ease-out;
+  }
+
+  :global(.motion-enabled) .motion-process.is-visible .motion-reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  :global(.motion-enabled) .motion-process.is-visible .motion-reveal:nth-of-type(1) {
+    transition-delay: 0ms;
+  }
+
+  :global(.motion-enabled) .motion-process.is-visible .motion-reveal:nth-of-type(2) {
+    transition-delay: 90ms;
+  }
+
+  :global(.motion-enabled) .motion-process.is-visible .motion-reveal:nth-of-type(3) {
+    transition-delay: 180ms;
+  }
+
+  :global(.motion-enabled) .motion-process.is-visible .motion-reveal:nth-of-type(4) {
+    transition-delay: 270ms;
+  }
+
+  @keyframes hero-enter {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .motion-hero,
+    .motion-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      transition: none !important;
+    }
   }
 
   .cg-hero {
