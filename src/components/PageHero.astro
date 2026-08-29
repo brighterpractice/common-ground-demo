@@ -11,133 +11,154 @@ interface Props {
 const { eyebrow, title, intro, crumbs } = Astro.props;
 ---
 
-<section class="page-hero">
-  <div class="hero-accent" aria-hidden="true"></div>
-
-  <div class="container page-hero-grid">
+<section class="cg-page-hero">
+  <div class="container cg-page-hero-grid">
     <div class="hero-meta">
       {crumbs && <Breadcrumbs items={crumbs} />}
-
-      {eyebrow && (
-        <div class="hero-label">
-          <span></span>
-          <p>{eyebrow}</p>
-        </div>
-      )}
+      {eyebrow && <p class="hero-kicker">{eyebrow}</p>}
     </div>
 
-    <div class="hero-main">
+    <div class="hero-copy">
       <h1>{title}</h1>
+      <p class="intro">{intro}</p>
+    </div>
 
-      <div class="intro-wrap">
-        <span class="intro-rule" aria-hidden="true"></span>
-        <p class="intro">{intro}</p>
-      </div>
+    <div class="hero-poster" aria-hidden="true">
+      <span class="poster-plum"></span>
+      <span class="poster-coral"></span>
+      <span class="poster-gold"></span>
+      <span class="poster-dot dot-one"></span>
+      <span class="poster-dot dot-two"></span>
+      <span class="poster-line"></span>
     </div>
   </div>
 </section>
 
 <style>
-  .page-hero {
+  .cg-page-hero {
     position: relative;
     overflow: hidden;
-    padding: clamp(3.75rem, 8vw, 7rem) 0;
-    background:
-      linear-gradient(
-        120deg,
-        #f8fbfe 0%,
-        #f8efe6 60%,
-        #e6eef7 100%
-      );
+    padding: clamp(3.5rem, 7vw, 6.5rem) 0;
+    border-bottom: 1px solid rgba(81,44,69,.1);
+    background: #fff8ed;
   }
 
-  .hero-accent {
+  .cg-page-hero::before {
     position: absolute;
-    width: 24rem;
-    height: 24rem;
-    right: -10rem;
-    top: -12rem;
-    border: 1px solid rgba(95,130,173,.22);
-    border-radius: 50%;
+    inset: auto 0 0;
+    height: .55rem;
+    background: linear-gradient(90deg,#ed6d4f 0 31%,#f4b21a 31% 58%,#7f4565 58% 80%,#788873 80%);
+    content: '';
   }
 
-  .hero-accent:after {
-    content: "";
-    position: absolute;
-    width: 12rem;
-    height: 12rem;
-    left: -3rem;
-    bottom: -4rem;
-    border: 1px solid rgba(95,130,173,.24);
-    border-radius: 50%;
-  }
-
-  .page-hero-grid {
-    position: relative;
-    z-index: 1;
+  .cg-page-hero-grid {
     display: grid;
-    gap: 2rem;
+    gap: 2.25rem;
+    align-items: center;
   }
 
   .hero-meta {
     align-self: start;
   }
 
-  .hero-label {
-    display: flex;
-    gap: .8rem;
-    align-items: center;
-    margin-top: 1.2rem;
+  .hero-kicker {
+    margin: 1.2rem 0 0;
+    color: #d85f40;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 700;
   }
 
-  .hero-label span {
-    display: block;
-    width: 2.25rem;
-    height: 2px;
-    background: #d36b4c;
-  }
-
-  .hero-label p {
+  .hero-copy h1 {
+    max-width: 12ch;
     margin: 0;
-    color: #a35f58;
-    font-size: .78rem;
-    font-weight: 800;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-  }
-
-  .hero-main h1 {
-    max-width: 17ch;
-    margin: 0;
-    font-size: clamp(2.65rem, 6vw, 5rem);
-    line-height: .98;
-  }
-
-  .intro-wrap {
-    display: grid;
-    grid-template-columns: 3px 1fr;
-    gap: 1.1rem;
-    max-width: 46rem;
-    margin-top: 2rem;
-  }
-
-  .intro-rule {
-    border-radius: 999px;
-    background: #e6ae8f;
+    color: #512c45;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(3rem, 6.5vw, 6rem);
+    font-weight: 500;
+    line-height: .94;
+    letter-spacing: -.055em;
   }
 
   .intro {
-    margin: 0;
-    color: #695b61;
-    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
-    line-height: 1.65;
+    max-width: 42rem;
+    margin: 1.5rem 0 0;
+    color: #6c5660;
+    font-size: clamp(1.04rem, 1.5vw, 1.22rem);
+    line-height: 1.7;
+  }
+
+  .hero-poster {
+    position: relative;
+    min-height: 18rem;
+    isolation: isolate;
+  }
+
+  .hero-poster span {
+    position: absolute;
+    display: block;
+  }
+
+  .poster-plum {
+    width: 10.5rem;
+    height: 13.5rem;
+    right: 1.5rem;
+    top: 1rem;
+    border-radius: 5.8rem 5.8rem 1.2rem 1.2rem;
+    background: #7f4565;
+    transform: rotate(5deg);
+  }
+
+  .poster-coral {
+    width: 11rem;
+    height: 7.5rem;
+    left: 1rem;
+    bottom: 1.25rem;
+    border-radius: 5rem 1.2rem 5rem 1.2rem;
+    background: #f17855;
+    transform: rotate(-8deg);
+  }
+
+  .poster-gold {
+    width: 6.2rem;
+    height: 6.2rem;
+    right: 8.8rem;
+    bottom: 1rem;
+    border-radius: 50%;
+    background: #f4b21a;
+  }
+
+  .poster-dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #fff1df;
+    z-index: 2;
+  }
+
+  .dot-one { right: 5.2rem; top: 5rem; }
+  .dot-two { right: 2.7rem; top: 7.2rem; }
+
+  .poster-line {
+    width: 8rem;
+    height: .2rem;
+    left: 3.6rem;
+    top: 6.2rem;
+    background: #512c45;
+    transform: rotate(-12deg);
+    transform-origin: left center;
   }
 
   @media (min-width:48rem) {
-    .page-hero-grid {
-      grid-template-columns: minmax(12rem,.35fr) minmax(0,1fr);
-      gap: clamp(3rem,7vw,7rem);
-      align-items: start;
+    .cg-page-hero-grid {
+      grid-template-columns: .28fr 1.05fr .67fr;
+      gap: clamp(2rem,4.5vw,5rem);
+      align-items: center;
+    }
+
+    .hero-poster {
+      min-height: 22rem;
     }
   }
 </style>

@@ -3,47 +3,42 @@ import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import { breadcrumbSchema, pageSchema } from '../../lib/schema';
 
-const crumbs = [{ label: 'About Common Ground Therapy' }];
+const crumbs = [{ label: 'Our Place' }];
 ---
 
 <Layout
   title="About Common Ground Therapy | Richmond, Virginia"
-  description="Learn about Common Ground Therapy, a private counseling practice for adults in Richmond, Virginia."
+  description="Learn about Common Ground Therapy, a fictional counseling practice for adults in Richmond, Virginia."
   schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
 >
   <PageHero
-    eyebrow="About the practice"
-    title="Therapy built around the person in the room."
-    intro="Common Ground Therapy is Avery Morgan’s counseling practice in Richmond, Virginia, offering individual therapy for adults."
+    eyebrow="Our place"
+    title="A therapy room with space for the unfinished version of things."
+    intro="Common Ground Therapy is Avery Morgan’s fictional Richmond practice for adults who want counseling that feels conversational, curious, and connected to ordinary life."
     crumbs={crumbs}
   />
 
-  <section class="about-intro">
-    <div class="container about-intro-grid">
-      <div class="about-number">
-        <span>01</span>
-        <div></div>
+  <section class="manifesto">
+    <div class="container manifesto-grid">
+      <div class="manifesto-number">01</div>
+
+      <div class="manifesto-copy">
+        <p class="hand-label">The idea behind Common Ground</p>
+        <blockquote>
+          You do not have to make your life sound neat before it is worth talking about.
+        </blockquote>
       </div>
 
-      <div>
-        <p class="eyebrow">The idea behind Align</p>
-
-        <h2>
-          You do not need to fit yourself into a predetermined version of
-          therapy.
-        </h2>
-      </div>
-
-      <div class="intro-copy">
+      <div class="manifesto-note">
         <p>
-          Therapy begins with understanding what has been happening in your
-          life and what you would like to be different. Some concerns are
-          specific and easy to name. Others become clearer over time.
+          People rarely arrive with one clean problem and a perfectly organized
+          explanation. There may be a conflict, a loss, a reaction that keeps
+          surprising you, or several things happening at once.
         </p>
-
         <p>
-          You and Avery can decide together what deserves attention, what pace
-          feels manageable, and what kind of support may be useful.
+          Common Ground is built around meeting that reality directly. The first
+          useful question can be as simple as, “What keeps taking up the most
+          room lately?”
         </p>
       </div>
     </div>
@@ -51,44 +46,38 @@ const crumbs = [{ label: 'About Common Ground Therapy' }];
 
   <section class="principles">
     <div class="container">
-      <div class="section-heading">
-        <p class="eyebrow">What you can expect</p>
-        <h2>Three ideas that shape the work.</h2>
+      <div class="principles-heading">
+        <p class="hand-label light">What the room is for</p>
+        <h2>Three things that matter here.</h2>
       </div>
 
-      <div class="principle-list">
-        <article>
+      <div class="principle-collage">
+        <article class="principle principle-one">
           <span>01</span>
-
-          <h3>Individual attention</h3>
-
+          <h3>Say the real thing</h3>
           <p>
-            Common Ground Therapy provides one-to-one counseling for adults. The
-            work stays focused on your experiences, concerns, and goals.
+            Therapy can hold uncertainty, contradiction, humor, frustration,
+            awkwardness, and the sentence you are not sure how to finish yet.
           </p>
         </article>
 
-        <article>
+        <article class="principle principle-two">
           <span>02</span>
-
-          <h3>Collaboration</h3>
-
+          <h3>Stay curious</h3>
           <p>
-            Therapy is something you participate in rather than something done
-            to you. Questions, preferences, uncertainty, and feedback are
-            welcome.
+            A reaction that seems frustrating may have a history, a purpose, or
+            something it is trying to protect. Understanding it can create more
+            options than arguing with it.
           </p>
         </article>
 
-        <article>
+        <article class="principle principle-three">
           <span>03</span>
-
-          <h3>Room for context</h3>
-
+          <h3>Keep real life in view</h3>
           <p>
-            Relationships, values, culture, beliefs, responsibilities, and life
-            circumstances can all matter without requiring you to fit a
-            particular mold.
+            Work, family, relationships, identity, money, health, culture, and
+            the rest of your actual week belong in the conversation when they
+            shape what is happening.
           </p>
         </article>
       </div>
@@ -97,36 +86,27 @@ const crumbs = [{ label: 'About Common Ground Therapy' }];
 
   <section class="starting-point">
     <div class="container starting-grid">
-      <div class="starting-title">
-        <p class="eyebrow">Choosing where to begin</p>
-
-        <h2>
-          You do not need to know exactly what kind of therapy you need.
-        </h2>
+      <div class="starting-statement">
+        <span>02</span>
+        <h2>You can enter through whatever door makes sense first.</h2>
       </div>
 
-      <div class="starting-panel">
+      <div class="starting-note">
+        <div class="tape" aria-hidden="true"></div>
         <p>
-          The Services section describes some of the concerns people may bring
-          to counseling. The Approaches section explains several methods Avery
-          may use during the work.
+          Some people start by reading about anxiety, grief, trauma, or
+          relationship concerns. Others are more interested in how Avery works
+          and what the different therapy approaches actually mean.
         </p>
-
         <p>
-          Both are starting points. A conversation with Avery can help you
-          determine whether Common Ground Therapy fits what you are looking for.
+          Neither route commits you to a label or a method. They are simply
+          ways to get a feel for the practice before deciding whether to reach
+          out.
         </p>
 
         <div class="starting-links">
-          <a href="/services/">
-            <span>Services</span>
-            <strong>Explore areas of support ↗</strong>
-          </a>
-
-          <a href="/approaches/">
-            <span>Approaches</span>
-            <strong>See how therapy may work ↗</strong>
-          </a>
+          <a href="/services/">What we help with ↗</a>
+          <a href="/approaches/">How we work ↗</a>
         </div>
       </div>
     </div>
@@ -135,255 +115,318 @@ const crumbs = [{ label: 'About Common Ground Therapy' }];
   <section class="counselor-band">
     <div class="container counselor-grid">
       <div class="counselor-visual" aria-hidden="true">
-        <div class="visual-square"></div>
-        <div class="visual-circle"></div>
-
-        <div class="visual-person">
-          <span class="head"></span>
-          <span class="body"></span>
-        </div>
+        <span class="shape plum"></span>
+        <span class="shape coral"></span>
+        <span class="shape gold"></span>
+        <span class="head"></span>
+        <span class="body"></span>
+        <span class="note">Bring the whole story.</span>
       </div>
 
       <div class="counselor-copy">
-        <p class="eyebrow">The counselor behind the practice</p>
-
-        <h2>Meet Avery Morgan, LPC.</h2>
-
+        <p class="hand-label light">Meet the person in the room</p>
+        <h2>Avery Morgan, LPC.</h2>
         <p>
-          Avery’s education, clinical training, professional credentials, and
-          therapeutic background are described in more detail on her profile.
+          Avery’s fictional profile shows the tone of Common Ground more
+          clearly: engaged, conversational, willing to ask a direct question,
+          and not especially interested in making therapy sound mysterious.
         </p>
-
         <a class="profile-link" href="/about/avery-morgan/">
-          View Avery’s profile
-          <span>→</span>
+          Meet Avery →
         </a>
       </div>
     </div>
   </section>
 </Layout>
 
-<style>
-  .about-intro,
+<style is:inline>
+  .manifesto,
   .principles,
   .starting-point,
   .counselor-band {
-    padding: clamp(4.5rem, 8vw, 7rem) 0;
+    padding:clamp(4.5rem,8vw,7rem) 0;
   }
 
-  .about-intro-grid {
-    display: grid;
-    gap: 2rem;
+  .hand-label {
+    margin:0 0 .7rem;
+    color:#d85f40;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:1rem;
+    font-style:italic;
+    font-weight:700;
   }
 
-  .about-number {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    color: #d36b4c;
-    font-size: .75rem;
-    font-weight: 800;
+  .hand-label.light { color:#ffd7bf; }
+
+  .manifesto { background:#fffdf8; }
+
+  .manifesto-grid {
+    display:grid;
+    gap:2rem;
+    align-items:start;
   }
 
-  .about-number div {
-    width: 3rem;
-    height: 1px;
-    background: #e6ae8f;
+  .manifesto-number {
+    color:#d85f40;
+    font-size:.76rem;
+    font-weight:900;
+    letter-spacing:.1em;
   }
 
-  .about-intro h2 {
-    max-width: 17ch;
+  .manifesto blockquote {
+    max-width:13ch;
+    margin:0;
+    color:#512c45;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:clamp(2.7rem,5vw,5rem);
+    font-weight:500;
+    line-height:.96;
+    letter-spacing:-.05em;
   }
 
-  .intro-copy {
-    max-width: 42rem;
-  }
-
-  .intro-copy p + p {
-    margin-top: 1rem;
+  .manifesto-note {
+    max-width:34rem;
+    padding:1.7rem;
+    border-left:.45rem solid #f4b21a;
+    background:#fff0e5;
   }
 
   .principles {
-    background: #f8efe6;
+    overflow:hidden;
+    background:#63384f;
   }
 
-  .section-heading {
-    max-width: 42rem;
-    margin-bottom: 2.5rem;
+  .principles-heading {
+    max-width:46rem;
+    margin-bottom:2.7rem;
   }
 
-  .principle-list {
-    border-top: 1px solid #e6d1c5;
+  .principles-heading h2 {
+    margin:0;
+    color:white;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:clamp(2.8rem,5vw,5rem);
+    font-weight:500;
+    line-height:.98;
   }
 
-  .principle-list article {
-    display: grid;
-    gap: .8rem;
-    padding: 1.8rem 0;
-    border-bottom: 1px solid #e6d1c5;
+  .principle-collage {
+    display:grid;
+    gap:1rem;
   }
 
-  .principle-list article > span {
-    color: #d36b4c;
-    font-size: .72rem;
-    font-weight: 800;
+  .principle {
+    padding:clamp(1.6rem,3vw,2.4rem);
+    color:#512c45;
   }
 
-  .principle-list h3,
-  .principle-list p {
-    margin: 0;
+  .principle > span {
+    display:block;
+    margin-bottom:2rem;
+    font-size:.74rem;
+    font-weight:900;
+    letter-spacing:.1em;
   }
 
-  .principle-list p {
-    max-width: 42rem;
+  .principle h3 {
+    margin-bottom:.8rem;
+    color:#512c45;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:clamp(2rem,3vw,3rem);
+    font-weight:500;
   }
+
+  .principle p { max-width:31rem; }
+  .principle-one { background:#f2a082; }
+  .principle-two { background:#f4c252; }
+  .principle-three { background:#b1b99a; }
+
+  .starting-point { background:#fff8ed; }
 
   .starting-grid {
-    display: grid;
-    gap: 2.5rem;
+    display:grid;
+    gap:3rem;
+    align-items:center;
   }
 
-  .starting-title h2 {
-    max-width: 16ch;
+  .starting-statement {
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:1.2rem;
+    align-items:start;
   }
 
-  .starting-panel {
-    padding: clamp(1.5rem, 4vw, 2.5rem);
-    border-left: 4px solid #c9795c;
-    background: #fffaf4;
+  .starting-statement > span {
+    padding-top:.5rem;
+    color:#d85f40;
+    font-size:.72rem;
+    font-weight:900;
   }
 
-  .starting-panel > p + p {
-    margin-top: 1rem;
+  .starting-statement h2 {
+    max-width:11ch;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:clamp(2.7rem,5vw,4.8rem);
+    font-weight:500;
+    line-height:.97;
+    letter-spacing:-.045em;
+  }
+
+  .starting-note {
+    position:relative;
+    max-width:34rem;
+    padding:clamp(1.8rem,4vw,2.8rem);
+    background:#f8e5d6;
+    box-shadow:0 18px 40px rgba(81,44,69,.08);
+    transform:rotate(1.25deg);
+  }
+
+  .tape {
+    position:absolute;
+    width:6.5rem;
+    height:1.4rem;
+    left:50%;
+    top:-.7rem;
+    background:rgba(244,194,82,.72);
+    transform:translateX(-50%) rotate(-4deg);
   }
 
   .starting-links {
-    display: grid;
-    gap: .75rem;
-    margin-top: 2rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem 1.5rem;
+    margin-top:1.5rem;
   }
 
   .starting-links a {
-    display: grid;
-    gap: .2rem;
-    padding: 1rem 0;
-    border-top: 1px solid #ead6ca;
-    color: #7a4d67;
-    text-decoration: none;
-  }
-
-  .starting-links a span {
-    color: #81746f;
-    font-size: .72rem;
-    font-weight: 800;
-    letter-spacing: .1em;
-    text-transform: uppercase;
+    color:#8a3f39;
+    font-weight:850;
+    text-decoration:underline;
+    text-underline-offset:.25rem;
   }
 
   .counselor-band {
-    overflow: hidden;
-    background: #7a4d67;
-    color: #f7eee8;
+    background:#d85f40;
+    color:#fff3ea;
   }
 
   .counselor-grid {
-    display: grid;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .counselor-band h2 {
-    color: white;
-  }
-
-  .counselor-band .eyebrow {
-    color: #ead1bd;
+    display:grid;
+    gap:3rem;
+    align-items:center;
   }
 
   .counselor-visual {
-    position: relative;
-    min-height: 22rem;
+    position:relative;
+    min-height:26rem;
   }
 
-  .visual-square {
-    position: absolute;
-    width: 15rem;
-    height: 15rem;
-    left: 1rem;
-    top: 1rem;
-    border-radius: 1.3rem;
-    background: #9a5e63;
-    transform: rotate(-7deg);
+  .shape,.head,.body,.note {
+    position:absolute;
+    display:block;
   }
 
-  .visual-circle {
-    position: absolute;
-    width: 10rem;
-    height: 10rem;
-    right: 1rem;
-    bottom: 1rem;
-    border: 1px solid rgba(255,255,255,.25);
-    border-radius: 50%;
+  .shape.plum {
+    width:15rem;
+    height:19rem;
+    left:12%;
+    top:1rem;
+    border-radius:8rem 8rem 1.2rem 1.2rem;
+    background:#7f4565;
+    transform:rotate(-5deg);
   }
 
-  .visual-person {
-    position: absolute;
-    width: 9rem;
-    height: 11rem;
-    left: 7rem;
-    top: 6rem;
+  .shape.coral {
+    width:13rem;
+    height:8rem;
+    right:4%;
+    bottom:1rem;
+    border-radius:5rem 1.2rem 5rem 1.2rem;
+    background:#f39b77;
+  }
+
+  .shape.gold {
+    width:6rem;
+    height:6rem;
+    right:10%;
+    top:1.5rem;
+    border-radius:50%;
+    background:#f4b21a;
   }
 
   .head {
-    position: absolute;
-    width: 3.3rem;
-    height: 3.3rem;
-    left: 2.85rem;
-    border-radius: 50%;
-    background: #dbe6f0;
+    width:3.6rem;
+    height:3.6rem;
+    left:calc(12% + 5.7rem);
+    top:5.2rem;
+    z-index:2;
+    border-radius:50%;
+    background:#ffd3b8;
   }
 
   .body {
-    position: absolute;
-    width: 8rem;
-    height: 7rem;
-    left: .5rem;
-    bottom: 0;
-    border-radius: 4rem 4rem .8rem .8rem;
-    background: #e6ae8f;
+    width:9rem;
+    height:8rem;
+    left:calc(12% + 3rem);
+    top:9rem;
+    z-index:2;
+    border-radius:4.5rem 4.5rem 1rem 1rem;
+    background:#fff0e4;
   }
+
+  .note {
+    right:3%;
+    top:9rem;
+    z-index:3;
+    max-width:10rem;
+    padding:.8rem 1rem;
+    background:#fff8ed;
+    color:#512c45;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:.95rem;
+    font-style:italic;
+    transform:rotate(4deg);
+  }
+
+  .counselor-copy h2 {
+    color:white;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:clamp(2.8rem,5vw,4.8rem);
+    font-weight:500;
+    line-height:.98;
+  }
+
+  .counselor-copy p:not(.hand-label) { max-width:35rem; }
 
   .profile-link {
-    display: inline-flex;
-    gap: .7rem;
-    align-items: center;
-    margin-top: 1.5rem;
-    color: white;
-    font-weight: 750;
-    text-decoration: none;
+    display:inline-block;
+    margin-top:1rem;
+    color:white;
+    font-weight:850;
+    text-decoration:underline;
+    text-underline-offset:.25rem;
   }
 
-  @media (min-width:48rem) {
-    .about-intro-grid {
-      grid-template-columns: .22fr .78fr 1fr;
-      gap: clamp(2rem,5vw,5rem);
-      align-items: start;
+  @media(min-width:48rem) {
+    .manifesto-grid {
+      grid-template-columns:.13fr 1.17fr .7fr;
+      gap:clamp(2rem,5vw,5rem);
     }
 
-    .principle-list article {
-      grid-template-columns: .2fr .7fr 1.3fr;
-      gap: 2rem;
-      align-items: start;
+    .principle-collage {
+      grid-template-columns:repeat(12,1fr);
+      align-items:start;
+      min-height:28rem;
     }
 
-    .starting-grid {
-      grid-template-columns: .9fr 1.1fr;
-      gap: clamp(3rem,7vw,7rem);
-    }
+    .principle-one { grid-column:1 / 6; }
+    .principle-two { grid-column:5 / 10; margin-top:5rem; }
+    .principle-three { grid-column:9 / 13; margin-top:1.5rem; }
 
+    .starting-grid,
     .counselor-grid {
-      grid-template-columns: .9fr 1.1fr;
-      gap: clamp(4rem,8vw,8rem);
+      grid-template-columns:1fr 1fr;
+      gap:clamp(3rem,7vw,7rem);
     }
   }
 </style>

@@ -1,7 +1,374 @@
 ---
-import Layout from '../layouts/Layout.astro'; import PageHero from '../components/PageHero.astro'; import Button from '../components/Button.astro'; import {appointmentUrl,clientPortalUrl,externalLinkAttrs} from '../data/site'; import {breadcrumbSchema,pageSchema} from '../lib/schema';
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Button from '../components/Button.astro';
+import {
+  appointmentUrl,
+  clientPortalUrl,
+  externalLinkAttrs,
+} from '../data/site';
+import { breadcrumbSchema, pageSchema } from '../lib/schema';
+
 const portalAttrs = externalLinkAttrs();
-const crumbs = [{label:'Contact'}];
+const crumbs = [{ label: 'Contact' }];
 ---
-<Layout title="Contact Common Ground Therapy | Richmond, Virginia" description="Request an individual counseling appointment with Avery Morgan, LPC, at Common Ground Therapy in Richmond, Virginia." schema={pageSchema([breadcrumbSchema(crumbs,Astro.url.pathname)])}><PageHero eyebrow="Contact and getting started" title="Take the first step when you are ready." intro="If you are interested in individual counseling with Avery Morgan, LPC, use the Request Appointment option to begin." crumbs={crumbs}/><section class="section" id="new-clients"><div class="container contact-grid"><div><p class="eyebrow">New clients</p><h2>Begin with an appointment request.</h2><p>Use the Request Appointment option to get started. Information needed for counseling will be collected through the appropriate secure system.</p><p>Please do not send diagnoses, medication information, trauma history, insurance identifiers, or other sensitive clinical details through ordinary contact methods.</p><p class="safety-note">Do not use this website or an appointment request for emergencies or urgent support. If there is immediate danger, contact local emergency services.</p><Button href={appointmentUrl} tracking="request-appointment">Request an appointment</Button></div><aside class="card" id="contact-details"><h2>Common Ground Therapy</h2><dl><div><dt>Location</dt><dd>Richmond, Virginia</dd></div><div><dt>Existing clients</dt><dd><a href={clientPortalUrl} target={portalAttrs.target} rel={portalAttrs.rel} data-track="client-portal">Open Client Portal</a></dd></div></dl></aside></div></section><section class="section" id="faq"><div class="container measure"><p class="eyebrow">Questions before getting started</p><h2>A few helpful details</h2><details><summary>Where is Common Ground Therapy located?</summary><p>Common Ground Therapy is based in Richmond, Virginia.</p></details><details><summary>What kind of counseling is available?</summary><p>Avery provides individual therapy for adults. The <a href="/services/">services overview</a> describes current areas of support.</p></details><details><summary>Where can I learn more about Avery?</summary><p>Read about <a href="/about/avery-morgan/">Avery’s background and approach to counseling</a>.</p></details></div></section></Layout>
-<style>.contact-grid{display:grid;gap:2rem}.contact-grid dl{margin:0}.contact-grid dl div{padding:1rem 0;border-top:1px solid var(--sand)}.safety-note{padding-left:1rem;border-left:3px solid var(--clay);font-size:.92rem}dt{color:var(--muted);font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}dd{margin:.2rem 0 0;color:var(--ink)}details{padding:1.25rem 0;border-top:1px solid var(--sand)}summary{cursor:pointer;color:var(--ink);font-weight:750}details p{padding-top:1rem}@media(min-width:48rem){.contact-grid{grid-template-columns:1.2fr .8fr;align-items:start}}</style>
+
+<Layout
+  title="Contact Common Ground Therapy | Richmond, Virginia"
+  description="Request an individual counseling appointment with Avery Morgan, LPC, at Common Ground Therapy in Richmond, Virginia."
+  schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
+>
+  <PageHero
+    eyebrow="Contact"
+    title="You do not need the perfect opening sentence."
+    intro="If Common Ground feels like it might fit, an appointment request is enough to get the conversation started."
+    crumbs={crumbs}
+  />
+
+  <section class="start-here" id="new-clients">
+    <div class="container start-grid">
+      <div class="start-poster" aria-hidden="true">
+        <span class="poster-plum"></span>
+        <span class="poster-coral"></span>
+        <span class="poster-gold"></span>
+        <em>start here</em>
+      </div>
+
+      <div class="start-copy">
+        <p class="hand-label">New clients</p>
+        <h2>Keep the first step simple.</h2>
+        <p>
+          Use the appointment request to let the practice know you are
+          interested in individual counseling. You do not need to send your
+          whole history or explain everything that brought you here.
+        </p>
+        <p>
+          Sensitive clinical information belongs in the appropriate secure
+          system rather than ordinary email or general website messages.
+        </p>
+        <Button href={appointmentUrl} tracking="request-appointment">
+          Request an appointment
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="what-next">
+    <div class="container">
+      <div class="next-heading">
+        <p class="hand-label light">What happens next</p>
+        <h2>Three small steps.</h2>
+      </div>
+
+      <ol class="next-cards">
+        <li class="next-one">
+          <h3>Reach out</h3>
+          <p>Send the appointment request when you are ready.</p>
+        </li>
+        <li class="next-two">
+          <h3>Sort out the details</h3>
+          <p>Availability and the practical next steps can be handled from there.</p>
+        </li>
+        <li class="next-three">
+          <h3>Bring the real version</h3>
+          <p>Your first conversation can begin with whatever feels most relevant that day.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact-board" id="contact-details">
+    <div class="container board-grid">
+      <div class="board-copy">
+        <p class="hand-label">Practice details</p>
+        <h2>Common Ground Therapy</h2>
+        <p class="practice-location">
+          <strong>Avery Morgan, LPC</strong><br />
+          Richmond, Virginia
+        </p>
+        <p>
+          This fictional demonstration practice provides individual counseling
+          for adults and is presented as a Brighter Sites portfolio example.
+        </p>
+      </div>
+
+      <div class="board-links">
+        <a href="/services/">
+          <span>Need a little more context first?</span>
+          <strong>See what we help with ↗</strong>
+        </a>
+        <a href="/about/avery-morgan/">
+          <span>Want to know who you would be meeting?</span>
+          <strong>Meet Avery ↗</strong>
+        </a>
+        <a
+          href={clientPortalUrl}
+          target={portalAttrs.target}
+          rel={portalAttrs.rel}
+          data-track="client-portal"
+        >
+          <span>Already a client?</span>
+          <strong>Open Client Portal ↗</strong>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="safety-strip">
+    <div class="container safety-grid">
+      <span aria-hidden="true">!</span>
+      <div>
+        <p class="hand-label light">Urgent support</p>
+        <h2>This website is not an emergency service.</h2>
+        <p>
+          Do not use an appointment request for emergencies or immediate danger.
+          Contact local emergency services or an appropriate crisis resource
+          when urgent help is needed.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:inline>
+  .start-here,
+  .what-next,
+  .contact-board,
+  .safety-strip {
+    padding:clamp(4.5rem,8vw,7rem) 0;
+  }
+
+  .hand-label {
+    margin:0 0 .75rem;
+    color:#d85f40;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:1rem;
+    font-style:italic;
+    font-weight:700;
+  }
+
+  .hand-label.light { color:#ffd7bf; }
+
+  .start-here { background:#fffdf8; }
+
+  .start-grid {
+    display:grid;
+    gap:3rem;
+    align-items:center;
+  }
+
+  .start-poster {
+    position:relative;
+    min-height:28rem;
+    isolation:isolate;
+  }
+
+  .start-poster span,
+  .start-poster em {
+    position:absolute;
+    display:block;
+  }
+
+  .poster-plum {
+    width:18rem;
+    height:22rem;
+    left:6%;
+    top:1rem;
+    border-radius:9rem 9rem 1.25rem 1.25rem;
+    background:#7f4565;
+    transform:rotate(-5deg);
+  }
+
+  .poster-coral {
+    width:14rem;
+    height:9rem;
+    right:4%;
+    bottom:1rem;
+    border-radius:5rem 1rem 5rem 1rem;
+    background:#f18767;
+    transform:rotate(4deg);
+  }
+
+  .poster-gold {
+    width:7rem;
+    height:7rem;
+    right:9%;
+    top:1.8rem;
+    border-radius:50%;
+    background:#f4b21a;
+  }
+
+  .start-poster em {
+    right:8%;
+    bottom:7rem;
+    z-index:3;
+    padding:.75rem 1rem;
+    background:#fff8ed;
+    color:#512c45;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:1rem;
+    font-weight:700;
+    transform:rotate(-5deg);
+  }
+
+  .start-copy h2,
+  .next-heading h2,
+  .board-copy h2,
+  .safety-strip h2 {
+    font-family:Georgia,'Times New Roman',serif;
+    font-weight:500;
+    letter-spacing:-.045em;
+  }
+
+  .start-copy h2 {
+    max-width:10ch;
+    font-size:clamp(2.8rem,5vw,5rem);
+    line-height:.97;
+  }
+
+  .start-copy > p:not(.hand-label) {
+    max-width:38rem;
+  }
+
+  .start-copy .button { margin-top:1rem; }
+
+  .what-next {
+    background:#63384f;
+    color:#fff3eb;
+  }
+
+  .next-heading { margin-bottom:2.5rem; }
+
+  .next-heading h2 {
+    margin:0;
+    color:white;
+    font-size:clamp(2.8rem,5vw,5rem);
+  }
+
+  .next-cards {
+    display:grid;
+    gap:1rem;
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+
+  .next-cards li {
+    min-height:16rem;
+    padding:1.7rem;
+    color:#512c45;
+  }
+
+  .next-cards h3 {
+    margin-top:1.5rem;
+    color:#512c45;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:clamp(1.8rem,3vw,2.7rem);
+    font-weight:500;
+  }
+
+  .next-one { background:#f7b18f; transform:rotate(-.4deg); }
+  .next-two { background:#f4cf78; transform:translateY(.6rem) rotate(.3deg); }
+  .next-three { background:#b1b99a; transform:rotate(-.2deg); }
+
+  .contact-board { background:#fff1e4; }
+
+  .board-grid {
+    display:grid;
+    gap:3rem;
+    align-items:start;
+  }
+
+  .board-copy h2 {
+    font-size:clamp(2.8rem,5vw,4.8rem);
+    line-height:.98;
+  }
+
+  .practice-location {
+    margin:1rem 0 1.4rem;
+    color:#6f5661;
+    font-size:1.05rem;
+    line-height:1.55;
+  }
+
+  .practice-location strong {
+    color:#512c45;
+    font-size:1.12rem;
+  }
+
+  .board-copy p:not(.hand-label) { max-width:35rem; }
+
+  .board-links {
+    display:grid;
+    gap:.75rem;
+  }
+
+  .board-links a {
+    display:grid;
+    gap:.25rem;
+    padding:1.25rem 0;
+    border-top:1px solid #d8bdae;
+    color:#512c45;
+    text-decoration:none;
+  }
+
+  .board-links span {
+    color:#8a6f78;
+    font-size:.78rem;
+  }
+
+  .board-links strong { font-size:1.05rem; }
+
+  .safety-strip {
+    background:#d85f40;
+    color:#fff3eb;
+  }
+
+  .safety-grid {
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:1.5rem;
+    align-items:start;
+  }
+
+  .safety-grid > span {
+    display:grid;
+    width:4rem;
+    height:4rem;
+    place-items:center;
+    border:2px solid #fff3eb;
+    border-radius:50%;
+    color:white;
+    font-size:2rem;
+    font-weight:900;
+  }
+
+  .safety-strip h2 {
+    color:white;
+    font-size:clamp(2rem,4vw,3.6rem);
+  }
+
+  .safety-strip p:not(.hand-label) { max-width:44rem; }
+
+  @media(min-width:48rem) {
+    .start-grid,
+    .board-grid {
+      grid-template-columns:.9fr 1.1fr;
+      gap:clamp(3rem,7vw,7rem);
+    }
+
+    .next-cards {
+      grid-template-columns:repeat(3,1fr);
+      gap:1.25rem;
+      align-items:start;
+    }
+
+    .next-two { margin-top:2.2rem; }
+    .next-three { margin-top:.6rem; }
+
+    .safety-grid {
+      grid-template-columns:5rem 1fr;
+      gap:2rem;
+    }
+  }
+</style>

@@ -2,6 +2,7 @@
 import ServicePage from '../../components/ServicePage.astro';
 import { services, type Service } from '../../data/services';
 import { servicePages, type ServicePageContent } from '../../data/service-pages';
+import { commonGroundServicePages } from '../../data/common-ground-service-pages';
 
 export function getStaticPaths() {
   return services
@@ -11,9 +12,12 @@ export function getStaticPaths() {
       service.slug.length > 0
     )
     .map((service) => ({
-    params: { slug: service.slug },
-    props: { service, content: servicePages[service.slug] },
-  }));
+      params: { slug: service.slug },
+      props: {
+        service,
+        content: commonGroundServicePages[service.slug] ?? servicePages[service.slug],
+      },
+    }));
 }
 
 interface Props { service: Service; content: ServicePageContent }

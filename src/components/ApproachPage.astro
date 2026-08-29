@@ -6,15 +6,11 @@ import type { Approach } from '../data/approaches';
 import { appointmentUrl } from '../data/site';
 import { breadcrumbSchema, pageSchema } from '../lib/schema';
 
-interface Props {
- approach: Approach;
-}
-
+interface Props { approach: Approach }
 const { approach } = Astro.props;
-
 const crumbs = [
- { label: 'Approaches', href: '/approaches/' },
- { label: approach.shortTitle },
+  { label: 'How We Work', href: '/approaches/' },
+  { label: approach.shortTitle },
 ];
 ---
 
@@ -23,159 +19,243 @@ const crumbs = [
  description={approach.description}
  schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
 >
- <PageHero
- eyebrow="Therapy approaches"
- title={approach.title}
- intro={approach.hero}
- crumbs={crumbs}
- />
+  <PageHero eyebrow="How we work" title={approach.title} intro={approach.hero} crumbs={crumbs} />
 
- <section class="section">
- <div class="container grid grid--2">
- <div>
- <p class="eyebrow">Understanding the approach</p>
- <h2>{approach.whatItIsTitle}</h2>
- </div>
- <div>
- {approach.whatItIs.map((paragraph) => <p>{paragraph}</p>)}
- </div>
- </div>
- </section>
+  <section class="approach-band band-one">
+    <div class="container band-grid">
+      <div class="band-index">01</div>
+      <div class="band-title">
+        <p class="hand-label">Understanding the approach</p>
+        <h2>{approach.whatItIsTitle}</h2>
+      </div>
+      <div class="band-copy">
+        {approach.whatItIs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
 
- <section class="section section--tint">
- <div class="container grid grid--2">
- <div>
- <p class="eyebrow">What the work may look like</p>
- <h2>{approach.sessionTitle}</h2>
- </div>
- <div>
- {approach.session.map((paragraph) => <p>{paragraph}</p>)}
- </div>
- </div>
- </section>
+  <section class="approach-band band-two">
+    <div class="container band-grid">
+      <div class="band-index">02</div>
+      <div class="band-title">
+        <p class="hand-label dark">What the work may look like</p>
+        <h2>{approach.sessionTitle}</h2>
+      </div>
+      <div class="band-copy">
+        {approach.session.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
 
- <section class="section">
- <div class="container approach-considerations">
- <div>
- <p class="eyebrow">Individual and collaborative</p>
- <h2>{approach.considerationsTitle}</h2>
- </div>
+  <section class="considerations">
+    <div class="container considerations-grid">
+      <div class="considerations-title">
+        <span>03</span>
+        <p class="hand-label">Individual and collaborative</p>
+        <h2>{approach.considerationsTitle}</h2>
+      </div>
 
- <ul class="consideration-list">
- {approach.considerations.map((item) => <li>{item}</li>)}
- </ul>
- </div>
- </section>
+      <div class="consideration-stack">
+        {approach.considerations.map((item, index) => (
+          <div class:list={['consideration', `tone-${(index % 4) + 1}`]}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <p>{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
- <section class="section related">
- <div class="container">
- <p class="eyebrow">Related information</p>
- <h2>Continue exploring.</h2>
- <div class="related-links">
- {approach.related.map((item) => (
- <a class="card service-link" href={item.href}>
- <span>{item.label}</span>
- <span aria-hidden="true">→</span>
- </a>
- ))}
- </div>
- </div>
- </section>
+  <section class="related">
+    <div class="container related-grid">
+      <div>
+        <p class="hand-label light">Keep exploring</p>
+        <h2>Related information.</h2>
+      </div>
 
- <section class="section section--dark">
- <div class="container next-step">
- <div>
- <p class="eyebrow">Questions about an approach</p>
- <h2>You can ask about any of these methods before deciding whether they interest you.</h2>
- <p>
- Avery can explain why she may recommend a particular approach, what
- the process involves, and what other options may be available.
- </p>
- </div>
+      <div class="related-links">
+        {approach.related.map((item, index) => (
+          <a href={item.href}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <strong>{item.label}</strong>
+            <b aria-hidden="true">↗</b>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 
- <Button
- href={appointmentUrl}
- variant="light"
- tracking="request-appointment"
- >
- Request an appointment
- </Button>
- </div>
- </section>
+  <section class="next-step">
+    <div class="container next-step-grid">
+      <div>
+        <p class="hand-label">Questions are welcome.</p>
+        <h2>You can ask about any method before deciding whether it interests you.</h2>
+        <p>
+          Avery can explain why she may recommend a particular approach, what
+          the process involves, and what other options may be available.
+        </p>
+      </div>
+
+      <Button href={appointmentUrl} tracking="request-appointment">
+        Request an appointment
+      </Button>
+    </div>
+  </section>
 </Layout>
 
 <style>
- .approach-considerations{
- display:grid;
- gap:1.75rem
- }
+  .approach-band,
+  .considerations,
+  .related,
+  .next-step {
+    padding: clamp(4.5rem,8vw,7rem) 0;
+  }
 
- .consideration-list{
- display:grid;
- margin:0;
- padding:0;
- list-style:none;
- border-top:1px solid var(--sand)
- }
+  .hand-label {
+    margin: 0 0 .65rem;
+    color: #d85f40;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 700;
+  }
 
- .consideration-list li{
- position:relative;
- padding:1rem 0 1rem 1.5rem;
- border-bottom:1px solid var(--sand)
- }
+  .hand-label.dark { color: #63384f; }
+  .hand-label.light { color: #ffd9c5; }
 
- .consideration-list li:before{
- content:"";
- position:absolute;
- top:1.7rem;
- left:.2rem;
- width:.42rem;
- height:.42rem;
- border-radius:50%;
- background:var(--clay)
- }
+  .band-one { background: #fffdf8; }
+  .band-two { background: #f4b21a; }
 
- .related{
- background:#e6ece7
- }
+  .band-grid,
+  .considerations-grid,
+  .related-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
+  }
 
- .related-links{
- display:grid;
- gap:.75rem;
- margin-top:1.5rem
- }
+  .band-index,
+  .considerations-title > span {
+    color: #d85f40;
+    font-size: .74rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+  }
 
- .related-links a{
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:1rem
- }
+  .band-two .band-index { color: #63384f; }
 
- .next-step{
- display:flex;
- flex-wrap:wrap;
- align-items:end;
- justify-content:space-between;
- gap:1.5rem
- }
+  .band-title h2,
+  .considerations-title h2,
+  .related h2,
+  .next-step h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    line-height: .98;
+    letter-spacing: -.045em;
+  }
 
- .next-step h2{
- max-width:25ch
- }
+  .band-title h2,
+  .considerations-title h2 {
+    max-width: 13ch;
+    font-size: clamp(2.6rem,4.8vw,4.8rem);
+  }
 
- .next-step p:not(.eyebrow){
- max-width:38rem
- }
+  .band-copy {
+    max-width: 39rem;
+  }
 
- @media(min-width:48rem){
- .approach-considerations{
- grid-template-columns:.9fr 1.1fr;
- gap:clamp(3rem,7vw,7rem)
- }
+  .considerations {
+    background: #fff1e4;
+  }
 
- .related-links{
- grid-template-columns:repeat(3,1fr)
- }
- }
+  .considerations-title > span {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .consideration-stack {
+    display: grid;
+    gap: .7rem;
+  }
+
+  .consideration {
+    display: grid;
+    grid-template-columns: 2.7rem 1fr;
+    gap: 1rem;
+    padding: 1.15rem 1.25rem;
+    color: #512c45;
+  }
+
+  .consideration span {
+    padding-top: .1rem;
+    font-size: .7rem;
+    font-weight: 900;
+  }
+
+  .consideration p { margin: 0; }
+  .tone-1 { background: #ffd7c3; }
+  .tone-2 { background: #f4c252; }
+  .tone-3 { background: #ef9a85; }
+  .tone-4 { background: #b1b99a; }
+
+  .related {
+    background: #63384f;
+    color: #f8ece6;
+  }
+
+  .related h2 {
+    color: white;
+    font-size: clamp(2.8rem,5vw,4.8rem);
+  }
+
+  .related-links {
+    display: grid;
+    border-top: 1px solid rgba(255,255,255,.2);
+  }
+
+  .related-links a {
+    display: grid;
+    grid-template-columns: 2.8rem 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.15rem .25rem;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    color: white;
+    text-decoration: none;
+  }
+
+  .related-links a:hover { color: #ffd9c5; }
+  .related-links span { color: #f4c252; font-size: .7rem; font-weight: 900; }
+  .related-links strong { font-family: Georgia, 'Times New Roman', serif; font-size: 1.25rem; font-weight: 500; }
+
+  .next-step { background: #f39a77; }
+
+  .next-step-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: end;
+    justify-content: space-between;
+  }
+
+  .next-step h2 {
+    max-width: 13ch;
+    color: #512c45;
+    font-size: clamp(2.6rem,4.8vw,4.8rem);
+  }
+
+  .next-step p:not(.hand-label) { max-width: 38rem; }
+
+  @media(min-width:48rem) {
+    .band-grid {
+      grid-template-columns: .14fr .93fr .93fr;
+      gap: clamp(2rem,5vw,5rem);
+    }
+
+    .considerations-grid,
+    .related-grid {
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(3rem,7vw,7rem);
+    }
+  }
 </style>
