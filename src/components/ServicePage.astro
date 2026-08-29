@@ -10,62 +10,293 @@ import { breadcrumbSchema, pageSchema } from '../lib/schema';
 
 interface Props { service: Service; content: ServicePageContent }
 const { service, content } = Astro.props;
-const related = content.related?.map((item) => ({ ...item, service: services.find((candidate) => candidate.slug === item.slug) })).filter((item) => item.service?.published);
+const related = content.related
+  ?.map((item) => ({ ...item, service: services.find((candidate) => candidate.slug === item.slug) }))
+  .filter((item) => item.service?.published);
 const approachLinks = content.approachLinks ?? [];
-const crumbs = [{ label: 'Services', href: '/services/' }, { label: service.title }];
+const crumbs = [{ label: 'What We Help With', href: '/services/' }, { label: service.title }];
 ---
+
 <Layout title={content.title} description={content.description} schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}>
- <PageHero eyebrow="Therapy services" title={service.title} intro={content.hero} crumbs={crumbs} />
+  <PageHero eyebrow="What we help with" title={service.title} intro={content.hero} crumbs={crumbs} />
 
- <section class="section">
- <div class="container grid grid--2 service-intro">
- <div><p class="eyebrow">Understanding what brings you in</p><h2>{content.leadTitle}</h2></div>
- <div>{content.lead.map((paragraph) => <p>{paragraph}</p>)}</div>
- </div>
- </section>
+  <section class="detail-lead">
+    <div class="container detail-lead-grid">
+      <div class="section-mark">01</div>
+      <div>
+        <p class="hand-label">Understanding what brings you in</p>
+        <h2>{content.leadTitle}</h2>
+      </div>
+      <div class="lead-copy">{content.lead.map((paragraph) => <p>{paragraph}</p>)}</div>
+    </div>
+  </section>
 
- <section class="section section--tint">
- <div class="container experiences-layout">
- <div><p class="eyebrow">Experiences and concerns</p><h2>{content.experiencesTitle}</h2>{content.experiencesIntro && <p>{content.experiencesIntro}</p>}</div>
- <ul class="experience-list">{content.experiences.map((experience) => <li>{experience}</li>)}</ul>
- </div>
- </section>
+  <section class="experience-board">
+    <div class="container experience-grid">
+      <div class="experience-heading">
+        <span>02</span>
+        <p class="hand-label light">Experiences and concerns</p>
+        <h2>{content.experiencesTitle}</h2>
+        {content.experiencesIntro && <p>{content.experiencesIntro}</p>}
+      </div>
 
- <section class="section">
- <div class="container grid grid--2">
- <div><p class="eyebrow">How counseling may help</p><h2>{content.approachTitle}</h2></div>
- <div>
- {content.approach.map((paragraph) => <p>{paragraph}</p>)}
+      <div class="experience-list">
+        {content.experiences.map((experience, index) => (
+          <div class:list={['experience-item', `experience-tone-${(index % 4) + 1}`]}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <p>{experience}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
- {related && related.length > 0 &&
- <div class="related-links">
- {related.map((item) =>
- <a class="link-arrow" href={item.service!.href}>{item.label}</a>
- )}
- </div>
- }
+  <section class="help-section">
+    <div class="container help-grid">
+      <div class="help-title">
+        <span>03</span>
+        <p class="hand-label">How counseling may help</p>
+        <h2>{content.approachTitle}</h2>
+      </div>
 
- {approachLinks.length > 0 &&
- <div class="approach-links">
- <p class="related-label">Related therapy approaches</p>
- <div class="related-links">
- {approachLinks.map((item) =>
- <a class="link-arrow" href={item.href}>{item.label}</a>
- )}
- </div>
- </div>
- }
- </div>
- </div>
- </section>
+      <div class="help-copy">
+        {content.approach.map((paragraph) => <p>{paragraph}</p>)}
 
- {content.wholePersonTitle && content.wholePerson && <section class="section approach-note"><div class="container measure"><p class="eyebrow">A whole-person perspective</p><h2>{content.wholePersonTitle}</h2>{content.wholePerson.map((paragraph) => <p>{paragraph}</p>)}</div></section>}
+        {related && related.length > 0 && (
+          <div class="related-block">
+            <p class="related-label">Related areas of support</p>
+            <div class="related-links">
+              {related.map((item) => <a href={item.service!.href}>{item.label} ↗</a>)}
+            </div>
+          </div>
+        )}
 
- <section class="section section--dark">
- <div class="container next-step"><div><p class="eyebrow">A next step</p><h2>See whether Common Ground Therapy may be a good fit.</h2><p>You do not need to have everything figured out before reaching out.</p></div><Button href={appointmentUrl} variant="light" tracking="request-appointment">Request an appointment</Button></div>
- </section>
+        {approachLinks.length > 0 && (
+          <div class="related-block">
+            <p class="related-label">Related therapy approaches</p>
+            <div class="related-links">
+              {approachLinks.map((item) => <a href={item.href}>{item.label} ↗</a>)}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  {content.wholePersonTitle && content.wholePerson && (
+    <section class="whole-person">
+      <div class="container whole-person-grid">
+        <div class="whole-number">04</div>
+        <div>
+          <p class="hand-label light">A whole-person perspective</p>
+          <h2>{content.wholePersonTitle}</h2>
+        </div>
+        <div>{content.wholePerson.map((paragraph) => <p>{paragraph}</p>)}</div>
+      </div>
+    </section>
+  )}
+
+  <section class="next-step">
+    <div class="container next-step-grid">
+      <div>
+        <p class="hand-label">A next step</p>
+        <h2>See whether Common Ground Therapy may be a good fit.</h2>
+        <p>You do not need to have everything figured out before reaching out.</p>
+      </div>
+      <Button href={appointmentUrl} tracking="request-appointment">Request an appointment</Button>
+    </div>
+  </section>
 </Layout>
 
 <style>
- .experiences-layout{display:grid;gap:1.75rem}.experience-list{display:grid;margin:0;padding:0;list-style:none;border-top:1px solid var(--sand)}.experience-list li{position:relative;padding:1rem 0 1rem 1.5rem;border-bottom:1px solid var(--sand)}.experience-list li::before{content:"";position:absolute;top:1.7rem;left:.2rem;width:.42rem;height:.42rem;border-radius:50%;background:var(--clay)}.related-links{display:flex;flex-wrap:wrap;gap:1rem 1.5rem;margin-top:1.5rem}.related-links a{display:inline-flex;min-height:44px;align-items:center}.approach-links{margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--sand)}.approach-links .related-links{margin-top:.35rem}.related-label{margin:0;color:var(--muted);font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.approach-note{background:#e6ece7}.next-step{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1.5rem}.next-step h2{max-width:21ch}.next-step p:not(.eyebrow){max-width:36rem}@media(min-width:48rem){.experiences-layout{grid-template-columns:.9fr 1.1fr;gap:clamp(3rem,7vw,7rem);align-items:start}.experience-list{grid-template-columns:repeat(2,1fr)}.experience-list li:nth-child(odd){padding-right:1.5rem}.experience-list li:nth-child(even){padding-left:2.5rem}.experience-list li:nth-child(even)::before{left:1.2rem}}
+  .detail-lead,
+  .experience-board,
+  .help-section,
+  .whole-person,
+  .next-step {
+    padding: clamp(4.5rem,8vw,7rem) 0;
+  }
+
+  .hand-label {
+    margin: 0 0 .65rem;
+    color: #d85f40;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .hand-label.light { color: #ffd9c5; }
+
+  .detail-lead { background: #fffdf8; }
+
+  .detail-lead-grid,
+  .help-grid,
+  .whole-person-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .section-mark,
+  .whole-number,
+  .help-title > span,
+  .experience-heading > span {
+    color: #d85f40;
+    font-size: .74rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+  }
+
+  .detail-lead h2,
+  .help-title h2,
+  .whole-person h2,
+  .next-step h2,
+  .experience-heading h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    line-height: .98;
+    letter-spacing: -.045em;
+  }
+
+  .detail-lead h2,
+  .help-title h2 {
+    max-width: 13ch;
+    font-size: clamp(2.6rem,4.8vw,4.8rem);
+  }
+
+  .lead-copy,
+  .help-copy {
+    max-width: 39rem;
+  }
+
+  .experience-board {
+    background: #d85f40;
+    color: #fff4ec;
+  }
+
+  .experience-grid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .experience-heading h2 {
+    max-width: 12ch;
+    color: white;
+    font-size: clamp(2.7rem,4.8vw,4.7rem);
+  }
+
+  .experience-heading > p:not(.hand-label) {
+    max-width: 34rem;
+  }
+
+  .experience-heading > span {
+    display: block;
+    margin-bottom: 1rem;
+    color: #ffd9c5;
+  }
+
+  .experience-list {
+    display: grid;
+    gap: .65rem;
+  }
+
+  .experience-item {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    align-items: start;
+    padding: 1rem 1.15rem;
+    color: #512c45;
+  }
+
+  .experience-item span {
+    padding-top: .12rem;
+    font-size: .7rem;
+    font-weight: 900;
+  }
+
+  .experience-item p { margin: 0; }
+  .experience-tone-1 { background: #ffd7c3; }
+  .experience-tone-2 { background: #f4c252; }
+  .experience-tone-3 { background: #f1a18b; }
+  .experience-tone-4 { background: #b1b99a; }
+
+  .help-section { background: #fff8ed; }
+
+  .help-title > span {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .related-block {
+    margin-top: 2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid #e8cfc1;
+  }
+
+  .related-label {
+    margin: 0 0 .75rem;
+    color: #8c706d;
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .related-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem 1.25rem;
+  }
+
+  .related-links a {
+    color: #a74636;
+    font-weight: 850;
+    text-decoration: underline;
+    text-underline-offset: .22rem;
+  }
+
+  .whole-person {
+    background: #63384f;
+    color: #f8ebe5;
+  }
+
+  .whole-number { color: #ffd7c3; }
+  .whole-person h2 {
+    color: white;
+    font-size: clamp(2.6rem,4.7vw,4.6rem);
+  }
+
+  .next-step { background: #f4b21a; }
+
+  .next-step-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: end;
+    justify-content: space-between;
+  }
+
+  .next-step h2 {
+    max-width: 12ch;
+    color: #512c45;
+    font-size: clamp(2.6rem,4.8vw,4.8rem);
+  }
+
+  .next-step p:not(.hand-label) { max-width: 34rem; }
+
+  @media(min-width:48rem) {
+    .detail-lead-grid,
+    .whole-person-grid {
+      grid-template-columns: .14fr .93fr .93fr;
+      gap: clamp(2rem,5vw,5rem);
+    }
+
+    .experience-grid,
+    .help-grid {
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(3rem,7vw,7rem);
+    }
+  }
 </style>
