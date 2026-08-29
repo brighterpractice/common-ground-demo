@@ -9,24 +9,11 @@ interface Props {
 }
 
 const { eyebrow, title, intro, crumbs } = Astro.props;
-const path = Astro.url.pathname;
-const sectionNumber = path.startsWith('/about/avery')
-  ? '05'
-  : path.startsWith('/about')
-    ? '02'
-    : path.startsWith('/services')
-      ? '03'
-      : path.startsWith('/approaches')
-        ? '04'
-        : path.startsWith('/contact')
-          ? '06'
-          : '01';
 ---
 
 <section class="cg-page-hero">
   <div class="container cg-page-hero-grid">
     <div class="hero-meta">
-      <span class="section-number">{sectionNumber}</span>
       {crumbs && <Breadcrumbs items={crumbs} />}
       {eyebrow && <p class="hero-kicker">{eyebrow}</p>}
     </div>
@@ -43,7 +30,6 @@ const sectionNumber = path.startsWith('/about/avery')
       <span class="poster-dot dot-one"></span>
       <span class="poster-dot dot-two"></span>
       <span class="poster-line"></span>
-      <strong>{sectionNumber}</strong>
     </div>
   </div>
 </section>
@@ -73,15 +59,6 @@ const sectionNumber = path.startsWith('/about/avery')
 
   .hero-meta {
     align-self: start;
-  }
-
-  .section-number {
-    display: block;
-    margin-bottom: 1.25rem;
-    color: #d85f40;
-    font-size: .78rem;
-    font-weight: 900;
-    letter-spacing: .12em;
   }
 
   .hero-kicker {
@@ -118,8 +95,7 @@ const sectionNumber = path.startsWith('/about/avery')
     isolation: isolate;
   }
 
-  .hero-poster span,
-  .hero-poster strong {
+  .hero-poster span {
     position: absolute;
     display: block;
   }
@@ -168,21 +144,10 @@ const sectionNumber = path.startsWith('/about/avery')
     width: 8rem;
     height: .2rem;
     left: 3.6rem;
-    top: 3.4rem;
+    top: 6.2rem;
     background: #512c45;
     transform: rotate(-12deg);
     transform-origin: left center;
-  }
-
-  .hero-poster strong {
-    left: 3rem;
-    top: 4.2rem;
-    z-index: 3;
-    color: #512c45;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 4.5rem;
-    font-weight: 500;
-    line-height: 1;
   }
 
   @media (min-width:48rem) {
