@@ -4,13 +4,8 @@ import PageHero from '../../components/PageHero.astro';
 import { services } from '../../data/services';
 import { breadcrumbSchema, pageSchema } from '../../lib/schema';
 
-const crumbs = [{ label: 'Services' }];
-
-const publishedServices = services.filter(
- (service) =>
- service.published &&
- service.published
-);
+const crumbs = [{ label: 'What We Help With' }];
+const publishedServices = services.filter((service) => service.published);
 ---
 
 <Layout
@@ -19,154 +14,291 @@ const publishedServices = services.filter(
  schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
 >
  <PageHero
- eyebrow="Individual counseling for adults"
- title="Support for what may be bringing you to therapy."
- intro="The concerns that lead someone to counseling do not always fit neatly into one category. These pages describe several common areas Avery works with."
+ eyebrow="What we help with"
+ title="Start with what is taking up the most space."
+ intro="You do not need to sort your life into a perfect category before reaching out. These are some of the concerns Avery works with in individual counseling."
  crumbs={crumbs}
  />
 
- <section class="section">
- <div class="container grid grid--2">
- <div>
- <p class="eyebrow">Individual therapy</p>
- <h2>Begin with the concern, question, or change that matters to you.</h2>
- </div>
-
- <div>
- <p>
- Some people seek counseling because of a specific experience or
- symptom. Others notice patterns in emotions, relationships, stress,
- or daily life that they want to understand more clearly.
- </p>
-
- <p>
- The service pages below describe common reasons adults may seek
- support. They are not meant to require you to choose a diagnosis or
- place yourself into one category.
- </p>
-
- <a class="link-arrow" href="/services/individual-therapy/">
- Learn more about individual therapy
- </a>
- </div>
- </div>
+ <section class="services-intro">
+   <div class="container services-intro-grid">
+     <div>
+       <p class="hand-label">A place to begin</p>
+       <h2>Bring the concern. We can figure out the rest together.</h2>
+     </div>
+     <div class="intro-copy">
+       <p>
+         Some people arrive knowing exactly what they want support with. Others
+         only know that something feels heavy, repetitive, disconnected, or hard
+         to carry alone.
+       </p>
+       <p>
+         The list below is meant to help you recognize possibilities—not to make
+         you diagnose yourself before therapy begins.
+       </p>
+     </div>
+   </div>
  </section>
 
- <section class="section section--tint" id="areas-of-support">
- <div class="container">
- <p class="eyebrow">Areas of support</p>
- <h2>Explore what may be bringing you to counseling.</h2>
+ <section class="support-board" id="areas-of-support">
+   <div class="container">
+     <div class="board-heading">
+       <p class="hand-label light">What may be bringing you in</p>
+       <h2>An index of support.</h2>
+     </div>
 
- <div class="areas">
- {
- publishedServices.map((service) => (
- <a
- class="service-card service-link card"
- href={service.href}
- aria-label={`Learn more about ${service.title}`}
- data-track={`service-${service.slug}`}
- >
- <h3>{service.title}</h3>
- <p>{service.description}</p>
- </a>
- ))
- }
- </div>
- </div>
+     <div class="support-index">
+       {
+         publishedServices.map((service, index) => (
+           <a
+             class:list={['support-row', `tone-${(index % 4) + 1}`]}
+             href={service.href}
+             aria-label={`Learn more about ${service.title}`}
+             data-track={`service-${service.slug}`}
+           >
+             <span class="row-number">{String(index + 1).padStart(2, '0')}</span>
+             <h3>{service.title}</h3>
+             <p>{service.description}</p>
+             <span class="row-arrow" aria-hidden="true">↗</span>
+           </a>
+         ))
+       }
+     </div>
+   </div>
  </section>
 
- <section class="section">
- <div class="container grid grid--2">
- <div>
- <p class="eyebrow">Services and approaches</p>
- <h2>What brings you in and how therapy works are not the same thing.</h2>
- </div>
+ <section class="services-bridge">
+   <div class="container bridge-grid">
+     <div class="bridge-statement">
+       <span>03</span>
+       <blockquote>
+         What brings you in is only one part of the story.
+       </blockquote>
+     </div>
 
- <div>
- <p>
- Services describe concerns such as trauma, anxiety, grief, chronic
- pain or illness, relationship difficulties, or life transitions.
- Approaches describe
- methods Avery may use during counseling, such as, IFS, somatic
- work, EFT, or mindfulness.
- </p>
-
- <p>
- A single concern may be explored in more than one way, and the
- approach can change as counseling develops.
- </p>
-
- <a class="link-arrow" href="/approaches/">
- Explore therapy approaches
- </a>
- </div>
- </div>
+     <div class="bridge-copy">
+       <p>
+         Services describe the concerns you may want help with. Approaches
+         describe some of the ways Avery may work with those concerns during
+         counseling.
+       </p>
+       <p>
+         One concern can be explored in several different ways, and the process
+         can change as therapy develops.
+       </p>
+       <a href="/approaches/">See how we work →</a>
+     </div>
+   </div>
  </section>
 
- <section class="section section--tint">
- <div class="container measure">
- <p class="eyebrow">Finding a place to begin</p>
- <h2>You can start without having the right label.</h2>
-
- <p>
- Experiences often overlap. If several pages sound familiar—or none of
- them describe your situation exactly—that does not prevent you from
- reaching out.
- </p>
-
- <a class="link-arrow" href="/contact/">
- Contact and getting started
- </a>
- </div>
+ <section class="services-final">
+   <div class="container final-inner">
+     <p class="hand-label">No perfect label required.</p>
+     <h2>If something here feels familiar, that is enough of a place to start.</h2>
+     <a href="/contact/">Contact Common Ground →</a>
+   </div>
  </section>
 </Layout>
 
 <style>
- .areas{
- display:grid;
- gap:.75rem;
- margin-top:2rem
- }
+  .services-intro,
+  .support-board,
+  .services-bridge,
+  .services-final {
+    padding: clamp(4.5rem,8vw,7rem) 0;
+  }
 
- .service-card{
- display:block;
- padding:1.2rem;
- color:var(--body);
- text-decoration:none;
- transition:
- transform .18s ease,
- box-shadow .18s ease,
- border-color .18s ease
- }
+  .services-intro {
+    background: #fffdf8;
+  }
 
- .service-card h3{
- font-family:var(--sans);
- font-size:1rem;
- font-weight:700
- }
+  .services-intro-grid {
+    display: grid;
+    gap: 2.25rem;
+  }
 
- .service-card p{
- font-size:.95rem
- }
+  .hand-label {
+    margin: 0 0 .8rem;
+    color: #d85f40;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 700;
+  }
 
- @media(hover:hover){
- a.service-card:hover{
- border-color:var(--sage);
- color:var(--body);
- box-shadow:var(--shadow);
- transform:translateY(-2px)
- }
- }
+  .hand-label.light {
+    color: #ffd7bf;
+  }
 
- @media(min-width:36rem){
- .areas{
- grid-template-columns:repeat(2,1fr)
- }
- }
+  .services-intro h2 {
+    max-width: 13ch;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.5rem,4.8vw,4.8rem);
+    font-weight: 500;
+    line-height: .98;
+    letter-spacing: -.045em;
+  }
 
- @media(min-width:64rem){
- .areas{
- grid-template-columns:repeat(3,1fr)
- }
- }
+  .intro-copy {
+    max-width: 40rem;
+    align-self: end;
+    font-size: 1.04rem;
+  }
+
+  .support-board {
+    background: #63384f;
+    color: #fff4ec;
+  }
+
+  .board-heading {
+    margin-bottom: 2rem;
+  }
+
+  .board-heading h2 {
+    margin: 0;
+    color: white;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.6rem,5vw,4.8rem);
+    font-weight: 500;
+  }
+
+  .support-index {
+    border-top: 1px solid rgba(255,255,255,.2);
+  }
+
+  .support-row {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr auto;
+    gap: .8rem 1rem;
+    align-items: center;
+    padding: 1.35rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,.18);
+    color: white;
+    text-decoration: none;
+    transition: transform .18s ease, background .18s ease;
+  }
+
+  .support-row h3 {
+    margin: 0;
+    color: white;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.45rem,2.3vw,2.2rem);
+    font-weight: 500;
+  }
+
+  .support-row p {
+    grid-column: 2 / -1;
+    max-width: 48rem;
+    margin: 0;
+    color: rgba(255,255,255,.82);
+    font-size: .93rem;
+    line-height: 1.55;
+  }
+
+  .row-number {
+    align-self: start;
+    padding-top: .25rem;
+    color: #f7bd89;
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+  }
+
+  .row-arrow {
+    color: #f7bd89;
+    font-size: 1.4rem;
+  }
+
+  .support-row:hover {
+    color: white;
+    transform: translateX(.4rem);
+  }
+
+  .tone-1:hover { background: #7f4565; }
+  .tone-2:hover { background: #bd5945; }
+  .tone-3:hover { background: #8a6b48; }
+  .tone-4:hover { background: #667561; }
+
+  .services-bridge {
+    background: #f4b21a;
+  }
+
+  .bridge-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .bridge-statement {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.4rem;
+  }
+
+  .bridge-statement > span {
+    padding-top: .55rem;
+    color: #7c3f42;
+    font-size: .75rem;
+    font-weight: 900;
+  }
+
+  blockquote {
+    max-width: 12ch;
+    margin: 0;
+    color: #512c45;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.8rem,5vw,5rem);
+    font-weight: 500;
+    line-height: .96;
+    letter-spacing: -.045em;
+  }
+
+  .bridge-copy {
+    max-width: 36rem;
+    align-self: end;
+    color: #603b49;
+  }
+
+  .bridge-copy a,
+  .services-final a {
+    display: inline-block;
+    margin-top: .8rem;
+    color: #512c45;
+    font-weight: 850;
+    text-decoration: underline;
+    text-underline-offset: .25rem;
+  }
+
+  .services-final {
+    background: #fff1e4;
+  }
+
+  .final-inner {
+    max-width: 52rem;
+  }
+
+  .services-final h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.5rem,4.6vw,4.4rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -.04em;
+  }
+
+  @media(min-width:48rem) {
+    .services-intro-grid,
+    .bridge-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem,7vw,7rem);
+    }
+
+    .support-row {
+      grid-template-columns: 4.5rem minmax(15rem,.8fr) minmax(18rem,1.2fr) auto;
+      gap: 1.5rem;
+      padding: 1.45rem 1.2rem;
+    }
+
+    .support-row p {
+      grid-column: auto;
+    }
+  }
 </style>
