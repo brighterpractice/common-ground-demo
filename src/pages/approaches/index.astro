@@ -4,139 +4,288 @@ import PageHero from '../../components/PageHero.astro';
 import { approaches } from '../../data/approaches';
 import { breadcrumbSchema, pageSchema } from '../../lib/schema';
 
-const crumbs = [{ label: 'Approaches' }];
+const crumbs = [{ label: 'How We Work' }];
 ---
 
 <Layout
  title="Therapy Approaches in Richmond, Virginia"
- description="Explore therapy approaches Avery Morgan may use in individual counseling, including, IFS, Somatic Experiencing, EFT, and mindfulness."
+ description="Explore therapy approaches Avery Morgan may use in individual counseling, including IFS, Somatic Experiencing, EFT, and mindfulness."
  schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
 >
  <PageHero
- eyebrow="How therapy may take shape"
- title="Therapy approaches Avery may draw from."
- intro="Different approaches offer different ways to understand experiences, emotions, patterns, and responses. Avery may use one or more depending on the focus of counseling."
+ eyebrow="How we work"
+ title="There is more than one way into the work."
+ intro="Different approaches offer different ways to understand experiences, emotions, patterns, and responses. Avery may use one or more depending on what feels useful in counseling."
  crumbs={crumbs}
  />
 
- <section class="section">
- <div class="container grid grid--2">
- <div>
- <p class="eyebrow">Understanding the difference</p>
- <h2>Services describe what may bring you in. Approaches describe ways of working.</h2>
- </div>
+ <section class="approach-intro">
+   <div class="container intro-grid">
+     <div class="intro-mark" aria-hidden="true">
+       <span></span><span></span><span></span>
+     </div>
 
- <div>
- <p>
- A concern such as anxiety, grief, trauma, or relationship difficulty
- does not automatically determine one type of therapy. More than one
- approach may be useful at different points in counseling.
- </p>
+     <div>
+       <p class="hand-label">A flexible process</p>
+       <h2>The method should serve the person—not the other way around.</h2>
+     </div>
 
- <p>
- These pages are here to explain the methods in plain language so you
- can understand what they involve and ask questions if something
- interests you.
- </p>
- </div>
- </div>
+     <div class="intro-copy">
+       <p>
+         Anxiety, grief, trauma, relationship concerns, and other experiences do
+         not automatically determine one type of therapy. More than one approach
+         may be useful at different points in the work.
+       </p>
+       <p>
+         These pages explain the methods in plain language so you can understand
+         what they involve and ask questions about anything that interests you.
+       </p>
+     </div>
+   </div>
  </section>
 
- <section class="section section--tint">
- <div class="container">
- <p class="eyebrow">Approaches Avery may use</p>
- <h2>Explore the methods behind the work.</h2>
+ <section class="method-index">
+   <div class="container">
+     <div class="method-heading">
+       <p class="hand-label light">Ways we may work</p>
+       <h2>Five different doors.</h2>
+     </div>
 
- <div class="approach-grid">
- {
- approaches.map((approach) => (
- <a
- class="card service-link"
- href={approach.href}
- data-track={`approach-${approach.slug}`}
- >
- <h3>{approach.title}</h3>
- <p>{approach.cardDescription}</p>
- <span class="learn">Learn more →</span>
- </a>
- ))
- }
- </div>
- </div>
+     <div class="method-stack">
+       {
+         approaches.map((approach, index) => (
+           <a
+             class:list={['method-row', `method-tone-${(index % 5) + 1}`]}
+             href={approach.href}
+             data-track={`approach-${approach.slug}`}
+           >
+             <span class="method-number">{String(index + 1).padStart(2, '0')}</span>
+             <h3>{approach.title}</h3>
+             <p>{approach.cardDescription}</p>
+             <span class="method-arrow" aria-hidden="true">↗</span>
+           </a>
+         ))
+       }
+     </div>
+   </div>
  </section>
 
- <section class="section">
- <div class="container grid grid--2">
- <div>
- <p class="eyebrow">Choosing an approach</p>
- <h2>The method is only one part of therapy.</h2>
- </div>
+ <section class="approach-note">
+   <div class="container note-grid">
+     <blockquote>
+       You are allowed to say when something does not fit.
+     </blockquote>
 
- <div>
- <p>
- Avery considers the concern being discussed, how a client responds to
- the work, personal preferences, readiness, and what seems useful as
- counseling develops.
- </p>
+     <div>
+       <p>
+         Avery considers what you are working on, how you respond to the process,
+         your preferences, your readiness, and what seems useful as counseling
+         develops.
+       </p>
+       <p>
+         Therapy can be adjusted. Questions, uncertainty, and feedback are part
+         of the work—not interruptions to it.
+       </p>
 
- <p>
- You can also say when something does not make sense or does not feel
- like a good fit. Therapy can be adjusted as the work continues.
- </p>
-
- <div class="overview-links">
- <a class="link-arrow" href="/services/">
- Explore areas of support
- </a>
-
- <a class="link-arrow" href="/about/avery-morgan/">
- Learn more about Avery
- </a>
- </div>
- </div>
- </div>
+       <div class="note-links">
+         <a href="/services/">See what we help with →</a>
+         <a href="/about/avery-morgan/">Meet Avery →</a>
+       </div>
+     </div>
+   </div>
  </section>
 </Layout>
 
 <style>
- .approach-grid{
- display:grid;
- gap:.75rem;
- margin-top:2rem
- }
+  .approach-intro,
+  .method-index,
+  .approach-note {
+    padding: clamp(4.5rem,8vw,7rem) 0;
+  }
 
- .approach-grid a{
- display:block;
- text-decoration:none
- }
+  .approach-intro {
+    background: #fffdf8;
+  }
 
- .approach-grid h3{
- margin-bottom:.6rem
- }
+  .intro-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
+  }
 
- .learn{
- display:inline-block;
- margin-top:.5rem;
- color:var(--sage-dark);
- font-size:.9rem;
- font-weight:750
- }
+  .intro-mark {
+    display: flex;
+    gap: .45rem;
+    padding-top: .55rem;
+  }
 
- .overview-links{
- display:grid;
- gap:.5rem;
- margin-top:1.25rem
- }
+  .intro-mark span {
+    width: .72rem;
+    height: .72rem;
+    border-radius: 50%;
+  }
 
- @media(min-width:48rem){
- .approach-grid{
- grid-template-columns:repeat(2,1fr)
- }
- }
+  .intro-mark span:nth-child(1) { background: #d85f40; }
+  .intro-mark span:nth-child(2) { background: #f4b21a; }
+  .intro-mark span:nth-child(3) { background: #7f4565; }
 
- @media(min-width:64rem){
- .approach-grid{
- grid-template-columns:repeat(3,1fr)
- }
- }
+  .hand-label {
+    margin: 0 0 .75rem;
+    color: #d85f40;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .hand-label.light {
+    color: #ffe0cb;
+  }
+
+  .approach-intro h2 {
+    max-width: 13ch;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.5rem,4.8vw,4.8rem);
+    font-weight: 500;
+    line-height: .98;
+    letter-spacing: -.045em;
+  }
+
+  .intro-copy {
+    max-width: 39rem;
+    align-self: end;
+  }
+
+  .method-index {
+    background: #d85f40;
+  }
+
+  .method-heading {
+    margin-bottom: 2.25rem;
+  }
+
+  .method-heading h2 {
+    margin: 0;
+    color: white;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.8rem,5vw,5rem);
+    font-weight: 500;
+  }
+
+  .method-stack {
+    display: grid;
+    gap: .7rem;
+  }
+
+  .method-row {
+    display: grid;
+    grid-template-columns: 3rem 1fr auto;
+    gap: .8rem 1rem;
+    align-items: center;
+    padding: 1.4rem 1.25rem;
+    color: #512c45;
+    text-decoration: none;
+    transition: transform .18s ease;
+  }
+
+  .method-row:hover {
+    color: #512c45;
+    transform: translateX(.45rem);
+  }
+
+  .method-row h3 {
+    margin: 0;
+    color: #512c45;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.55rem,2.6vw,2.5rem);
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .method-row p {
+    grid-column: 2 / -1;
+    max-width: 43rem;
+    margin: 0;
+    color: rgba(81,44,69,.82);
+    font-size: .93rem;
+  }
+
+  .method-number {
+    align-self: start;
+    padding-top: .2rem;
+    font-size: .72rem;
+    font-weight: 900;
+  }
+
+  .method-arrow {
+    font-size: 1.4rem;
+  }
+
+  .method-tone-1 { background: #ffd8c3; }
+  .method-tone-2 { background: #f5c252; }
+  .method-tone-3 { background: #ef9a85; }
+  .method-tone-4 { background: #b3b999; }
+  .method-tone-5 { background: #f6eadc; }
+
+  .approach-note {
+    background: #63384f;
+    color: #f8ece6;
+  }
+
+  .note-grid {
+    display: grid;
+    gap: 2.75rem;
+  }
+
+  blockquote {
+    max-width: 10ch;
+    margin: 0;
+    color: white;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.8rem,5vw,5rem);
+    font-weight: 500;
+    line-height: .97;
+    letter-spacing: -.045em;
+  }
+
+  .note-grid > div {
+    max-width: 38rem;
+    align-self: end;
+  }
+
+  .note-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-top: 1.4rem;
+  }
+
+  .note-links a {
+    color: #ffd8c3;
+    font-weight: 850;
+    text-decoration: underline;
+    text-underline-offset: .25rem;
+  }
+
+  @media(min-width:48rem) {
+    .intro-grid {
+      grid-template-columns: .16fr .84fr 1fr;
+      gap: clamp(2rem,5vw,5rem);
+    }
+
+    .method-row {
+      grid-template-columns: 4rem minmax(17rem,.9fr) minmax(18rem,1.1fr) auto;
+      gap: 1.5rem;
+      padding: 1.55rem 1.5rem;
+    }
+
+    .method-row p {
+      grid-column: auto;
+    }
+
+    .note-grid {
+      grid-template-columns: 1.15fr .85fr;
+      gap: clamp(3rem,8vw,8rem);
+    }
+  }
 </style>
