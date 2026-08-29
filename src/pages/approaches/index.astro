@@ -8,284 +8,272 @@ const crumbs = [{ label: 'How We Work' }];
 ---
 
 <Layout
- title="Therapy Approaches in Richmond, Virginia"
- description="Explore therapy approaches Avery Morgan may use in individual counseling, including IFS, Somatic Experiencing, EFT, and mindfulness."
- schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
+  title="Therapy Approaches in Richmond, Virginia"
+  description="Explore therapy approaches Avery Morgan may use in individual counseling, including IFS, Somatic Experiencing, EFT, and mindfulness."
+  schema={pageSchema([breadcrumbSchema(crumbs, Astro.url.pathname)])}
 >
- <PageHero
- eyebrow="How we work"
- title="There is more than one way into the work."
- intro="Different approaches offer different ways to understand experiences, emotions, patterns, and responses. Avery may use one or more depending on what feels useful in counseling."
- crumbs={crumbs}
- />
+  <PageHero
+    eyebrow="How we work"
+    title="There is more than one way into the work."
+    intro="Different approaches can help make sense of different parts of an experience. Avery may use one or more depending on what actually feels useful in the room."
+    crumbs={crumbs}
+  />
 
- <section class="approach-intro">
-   <div class="container intro-grid">
-     <div class="intro-mark" aria-hidden="true">
-       <span></span><span></span><span></span>
-     </div>
+  <section class="approach-intro">
+    <div class="container intro-grid">
+      <div class="intro-mark" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
 
-     <div>
-       <p class="hand-label">A flexible process</p>
-       <h2>The method should serve the person—not the other way around.</h2>
-     </div>
+      <div>
+        <p class="hand-label">A flexible process</p>
+        <h2>The method should serve the person—not the other way around.</h2>
+      </div>
 
-     <div class="intro-copy">
-       <p>
-         Anxiety, grief, trauma, relationship concerns, and other experiences do
-         not automatically determine one type of therapy. More than one approach
-         may be useful at different points in the work.
-       </p>
-       <p>
-         These pages explain the methods in plain language so you can understand
-         what they involve and ask questions about anything that interests you.
-       </p>
-     </div>
-   </div>
- </section>
+      <div class="intro-copy">
+        <p>
+          Anxiety, grief, trauma, relationship concerns, and other experiences
+          do not automatically point to one type of therapy. More than one way
+          of working may be useful at different moments.
+        </p>
+        <p>
+          These pages explain the methods in ordinary language so you can know
+          what they are, what they might look like, and whether any of them
+          sound useful to you.
+        </p>
+      </div>
+    </div>
+  </section>
 
- <section class="method-index">
-   <div class="container">
-     <div class="method-heading">
-       <p class="hand-label light">Ways we may work</p>
-       <h2>Five different doors.</h2>
-     </div>
+  <section class="method-index">
+    <div class="container">
+      <div class="method-heading">
+        <p class="hand-label light">Ways we may work</p>
+        <h2>Four different doors.</h2>
+      </div>
 
-     <div class="method-stack">
-       {
-         approaches.map((approach, index) => (
-           <a
-             class:list={['method-row', `method-tone-${(index % 5) + 1}`]}
-             href={approach.href}
-             data-track={`approach-${approach.slug}`}
-           >
-             <span class="method-number">{String(index + 1).padStart(2, '0')}</span>
-             <h3>{approach.title}</h3>
-             <p>{approach.cardDescription}</p>
-             <span class="method-arrow" aria-hidden="true">↗</span>
-           </a>
-         ))
-       }
-     </div>
-   </div>
- </section>
+      <div class="method-stack">
+        {
+          approaches.map((approach, index) => (
+            <a
+              class:list={['method-row', `method-tone-${(index % 4) + 1}`]}
+              href={approach.href}
+              data-track={`approach-${approach.slug}`}
+            >
+              <span class="method-number">{String(index + 1).padStart(2, '0')}</span>
+              <h3>{approach.title}</h3>
+              <p>{approach.cardDescription}</p>
+              <span class="method-arrow" aria-hidden="true">↗</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
- <section class="approach-note">
-   <div class="container note-grid">
-     <blockquote>
-       You are allowed to say when something does not fit.
-     </blockquote>
+  <section class="approach-note">
+    <div class="container note-grid">
+      <blockquote>
+        You are allowed to say when something does not fit.
+      </blockquote>
 
-     <div>
-       <p>
-         Avery considers what you are working on, how you respond to the process,
-         your preferences, your readiness, and what seems useful as counseling
-         develops.
-       </p>
-       <p>
-         Therapy can be adjusted. Questions, uncertainty, and feedback are part
-         of the work—not interruptions to it.
-       </p>
+      <div>
+        <p>
+          Avery pays attention to how you respond to the process, not just the
+          concern you walked in with. A method can be useful, changed, or set
+          aside as the work develops.
+        </p>
+        <p>
+          Questions and feedback are part of therapy here. You do not have to
+          pretend an exercise helped just because it has a name.
+        </p>
 
-       <div class="note-links">
-         <a href="/services/">See what we help with →</a>
-         <a href="/about/avery-morgan/">Meet Avery →</a>
-       </div>
-     </div>
-   </div>
- </section>
+        <div class="note-links">
+          <a href="/services/">See what we help with →</a>
+          <a href="/about/avery-morgan/">Meet Avery →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
-<style>
+<style is:inline>
   .approach-intro,
   .method-index,
   .approach-note {
     padding: clamp(4.5rem,8vw,7rem) 0;
   }
 
-  .approach-intro {
-    background: #fffdf8;
-  }
+  .approach-intro { background:#fffdf8; }
 
   .intro-grid {
-    display: grid;
-    gap: 2rem;
-    align-items: start;
+    display:grid;
+    gap:2rem;
+    align-items:start;
   }
 
   .intro-mark {
-    display: flex;
-    gap: .45rem;
-    padding-top: .55rem;
+    display:flex;
+    gap:.45rem;
+    padding-top:.55rem;
   }
 
   .intro-mark span {
-    width: .72rem;
-    height: .72rem;
-    border-radius: 50%;
+    width:.72rem;
+    height:.72rem;
+    border-radius:50%;
   }
 
-  .intro-mark span:nth-child(1) { background: #d85f40; }
-  .intro-mark span:nth-child(2) { background: #f4b21a; }
-  .intro-mark span:nth-child(3) { background: #7f4565; }
+  .intro-mark span:nth-child(1){background:#d85f40}
+  .intro-mark span:nth-child(2){background:#f4b21a}
+  .intro-mark span:nth-child(3){background:#7f4565}
 
   .hand-label {
-    margin: 0 0 .75rem;
-    color: #d85f40;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: 700;
+    margin:0 0 .75rem;
+    color:#d85f40;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:1rem;
+    font-style:italic;
+    font-weight:700;
   }
 
-  .hand-label.light {
-    color: #ffe0cb;
-  }
+  .hand-label.light { color:#ffe0cb; }
 
   .approach-intro h2 {
-    max-width: 13ch;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(2.5rem,4.8vw,4.8rem);
-    font-weight: 500;
-    line-height: .98;
-    letter-spacing: -.045em;
+    max-width:13ch;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:clamp(2.5rem,4.8vw,4.8rem);
+    font-weight:500;
+    line-height:.98;
+    letter-spacing:-.045em;
   }
 
   .intro-copy {
-    max-width: 39rem;
-    align-self: end;
+    max-width:39rem;
+    align-self:end;
   }
 
-  .method-index {
-    background: #d85f40;
-  }
+  .method-index { background:#d85f40; }
 
-  .method-heading {
-    margin-bottom: 2.25rem;
-  }
+  .method-heading { margin-bottom:2.25rem; }
 
   .method-heading h2 {
-    margin: 0;
-    color: white;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(2.8rem,5vw,5rem);
-    font-weight: 500;
+    margin:0;
+    color:white;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:clamp(2.8rem,5vw,5rem);
+    font-weight:500;
   }
 
   .method-stack {
-    display: grid;
-    gap: .7rem;
+    display:grid;
+    gap:.7rem;
   }
 
   .method-row {
-    display: grid;
-    grid-template-columns: 3rem 1fr auto;
-    gap: .8rem 1rem;
-    align-items: center;
-    padding: 1.4rem 1.25rem;
-    color: #512c45;
-    text-decoration: none;
-    transition: transform .18s ease;
+    display:grid;
+    grid-template-columns:3rem 1fr auto;
+    gap:.8rem 1rem;
+    align-items:center;
+    padding:1.4rem 1.25rem;
+    color:#512c45;
+    text-decoration:none;
+    transition:transform .18s ease;
   }
 
   .method-row:hover {
-    color: #512c45;
-    transform: translateX(.45rem);
+    color:#512c45;
+    transform:translateX(.45rem);
   }
 
   .method-row h3 {
-    margin: 0;
-    color: #512c45;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(1.55rem,2.6vw,2.5rem);
-    font-weight: 500;
-    line-height: 1;
+    margin:0;
+    color:#512c45;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:clamp(1.55rem,2.6vw,2.5rem);
+    font-weight:500;
+    line-height:1;
   }
 
   .method-row p {
-    grid-column: 2 / -1;
-    max-width: 43rem;
-    margin: 0;
-    color: rgba(81,44,69,.82);
-    font-size: .93rem;
+    grid-column:2 / -1;
+    max-width:43rem;
+    margin:0;
+    color:rgba(81,44,69,.82);
+    font-size:.93rem;
   }
 
   .method-number {
-    align-self: start;
-    padding-top: .2rem;
-    font-size: .72rem;
-    font-weight: 900;
+    align-self:start;
+    padding-top:.2rem;
+    font-size:.72rem;
+    font-weight:900;
   }
 
-  .method-arrow {
-    font-size: 1.4rem;
-  }
+  .method-arrow { font-size:1.4rem; }
 
-  .method-tone-1 { background: #ffd8c3; }
-  .method-tone-2 { background: #f5c252; }
-  .method-tone-3 { background: #ef9a85; }
-  .method-tone-4 { background: #b3b999; }
-  .method-tone-5 { background: #f6eadc; }
+  .method-tone-1 { background:#ffd8c3; }
+  .method-tone-2 { background:#f5c252; }
+  .method-tone-3 { background:#ef9a85; }
+  .method-tone-4 { background:#b3b999; }
 
   .approach-note {
-    background: #63384f;
-    color: #f8ece6;
+    background:#63384f;
+    color:#f8ece6;
   }
 
   .note-grid {
-    display: grid;
-    gap: 2.75rem;
+    display:grid;
+    gap:2.75rem;
   }
 
-  blockquote {
-    max-width: 10ch;
-    margin: 0;
-    color: white;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(2.8rem,5vw,5rem);
-    font-weight: 500;
-    line-height: .97;
-    letter-spacing: -.045em;
+  .approach-note blockquote {
+    max-width:10ch;
+    margin:0;
+    color:white;
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:clamp(2.8rem,5vw,5rem);
+    font-weight:500;
+    line-height:.97;
+    letter-spacing:-.045em;
   }
 
   .note-grid > div {
-    max-width: 38rem;
-    align-self: end;
+    max-width:38rem;
+    align-self:end;
   }
 
   .note-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 1.5rem;
-    margin-top: 1.4rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem 1.5rem;
+    margin-top:1.4rem;
   }
 
   .note-links a {
-    color: #ffd8c3;
-    font-weight: 850;
-    text-decoration: underline;
-    text-underline-offset: .25rem;
+    color:#ffd8c3;
+    font-weight:850;
+    text-decoration:underline;
+    text-underline-offset:.25rem;
   }
 
   @media(min-width:48rem) {
     .intro-grid {
-      grid-template-columns: .16fr .84fr 1fr;
-      gap: clamp(2rem,5vw,5rem);
+      grid-template-columns:.16fr .84fr 1fr;
+      gap:clamp(2rem,5vw,5rem);
     }
 
     .method-row {
-      grid-template-columns: 4rem minmax(17rem,.9fr) minmax(18rem,1.1fr) auto;
-      gap: 1.5rem;
-      padding: 1.55rem 1.5rem;
+      grid-template-columns:4rem minmax(17rem,.9fr) minmax(18rem,1.1fr) auto;
+      gap:1.5rem;
+      padding:1.55rem 1.5rem;
     }
 
-    .method-row p {
-      grid-column: auto;
-    }
+    .method-row p { grid-column:auto; }
 
     .note-grid {
-      grid-template-columns: 1.15fr .85fr;
-      gap: clamp(3rem,8vw,8rem);
+      grid-template-columns:1.15fr .85fr;
+      gap:clamp(3rem,8vw,8rem);
     }
   }
 </style>
