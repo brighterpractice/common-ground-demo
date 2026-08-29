@@ -18,68 +18,37 @@ export interface Approach {
 
 export const approaches: Approach[] = [
  {
- title: 'Trauma Therapy',
- shortTitle: '',
- description:
- 'Learn about trauma therapy with Avery Morgan, LPC, in Richmond, Virginia.',
- cardDescription:
- 'A structured approach that may help some clients work with distressing experiences and the responses connected with them.',
- hero:
- 'A structured therapy approach for working with distressing experiences and the reactions connected with them.',
- whatItIsTitle: 'A structured way of working with distressing experiences.',
- whatItIs: [
- ' stands for Eye Movement Desensitization and Reprocessing. It is a structured therapy approach that can include bilateral stimulation, such as guided eye movements or alternating taps, while working with distressing experiences and related thoughts, emotions, or body responses.',
- 'Avery is an . Whether is used depends on the concern being addressed, readiness for the work, current circumstances, and what feels manageable.',
- ],
- sessionTitle: 'Preparation and pacing are part of the work.',
- session: [
- ' does not necessarily begin by immediately revisiting the most difficult material. Preparation may include understanding current concerns, identifying resources, and discussing how the process works.',
- ' may be one part of counseling rather than the entire therapy process.',
- ],
- considerationsTitle: ' is selected collaboratively.',
- considerations: [
- 'Not every client or concern requires .',
- 'The pace can be adjusted according to readiness and current circumstances.',
- 'Other therapeutic approaches may be used alongside when helpful.',
- ],
- related: [
- { label: 'Trauma & PTSD', href: '/services/trauma-ptsd/' },
- { label: 'About Avery', href: '/about/avery-morgan/' },
- ],
- },
-
- {
  slug: 'internal-family-systems',
  title: 'Internal Family Systems (IFS)',
  seoTitle: 'IFS Therapy | Richmond, VA',
  shortTitle: 'IFS',
  href: '/approaches/internal-family-systems/',
  description:
- 'Learn how Avery Morgan may incorporate Internal Family Systems concepts into individual counseling in Richmond, Virginia.',
+ 'Learn how Avery Morgan may use Internal Family Systems concepts in individual counseling in Richmond, Virginia.',
  cardDescription:
- 'A framework for noticing different internal parts and protective patterns with curiosity rather than judgment.',
+ 'A way to get curious about the different reactions inside you instead of treating them like enemies.',
  hero:
- 'A framework for understanding different internal reactions, protective patterns, and conflicting feelings with curiosity.',
- whatItIsTitle: 'Different parts of us can respond in different ways.',
+ 'Sometimes one part of you wants change while another part is doing everything it can to keep things familiar.',
+ whatItIsTitle: 'Conflicting reactions can make more sense when you stop asking which one is “the real you.”',
  whatItIs: [
- 'Internal Family Systems, often called IFS, offers a way to notice different parts of a person’s internal experience. One part may want change while another feels cautious; another may criticize, avoid, please, control, or stay alert in an effort to protect.',
- 'Rather than immediately trying to eliminate these reactions, IFS work can help explore what they may be protecting against, what they need, and how they developed.',
+ 'IFS offers language for noticing different internal reactions—like the part that pushes, the part that avoids, the part that keeps everyone happy, or the part that expects something to go wrong.',
+ 'At Common Ground, the point is not to make you memorize a model. It is to get curious about what these reactions are trying to do for you and whether they still need to work so hard.',
  ],
- sessionTitle: 'The work can begin with noticing what is happening now.',
+ sessionTitle: 'You can start with whatever shows up in the moment.',
  session: [
- 'Avery may help clients notice thoughts, emotions, physical cues, or internal reactions that seem to pull in different directions and explore what those responses may be trying to accomplish.',
- 'The work may involve understanding protective patterns and developing a less adversarial relationship with reactions that have felt frustrating, confusing, or difficult to change.',
+ 'Avery may slow down a familiar reaction and ask what it is afraid would happen if it stopped doing its job. That can make patterns feel less random and less shameful.',
+ 'Some sessions may use IFS language directly; others may simply use the idea of listening to competing needs without forcing one side to win.',
  ],
- considerationsTitle: 'IFS is one framework among several.',
+ considerationsTitle: 'The language is optional. Curiosity is the useful part.',
  considerations: [
- 'Clients do not need to use IFS terminology for the work to be useful.',
- 'The approach can be adapted to the individual and the focus of counseling.',
- 'Avery may combine IFS concepts with other approaches when that better fits the client.',
+ 'You do not have to identify or name “parts” for this way of working to be helpful.',
+ 'Avery may combine IFS concepts with ordinary conversation, body awareness, or other approaches.',
+ 'If the framework does not fit how you think, the work can be described another way.',
  ],
  related: [
  { label: 'Trauma & PTSD', href: '/services/trauma-ptsd/' },
  { label: 'Relationship Concerns', href: '/services/relationship-concerns/' },
- { label: 'Self-Esteem & Personal Growth', href: '/services/self-esteem-personal-growth/' },
+ { label: 'Meet Avery', href: '/about/avery-morgan/' },
  ],
  },
 
@@ -90,31 +59,31 @@ export const approaches: Approach[] = [
  shortTitle: 'Somatic Experiencing',
  href: '/approaches/somatic-experiencing/',
  description:
- 'Learn how Avery Morgan may incorporate Somatic Experiencing and body-informed approaches into individual counseling in Richmond, Virginia.',
+ 'Learn how Avery Morgan may use Somatic Experiencing and body-informed practices in individual counseling in Richmond, Virginia.',
  cardDescription:
- 'An approach that includes attention to physical sensations and body responses alongside thoughts and emotions.',
+ 'A way to notice what your body is doing while the rest of you is trying to keep moving.',
  hero:
- 'An approach that includes physical sensations and nervous-system responses alongside thoughts, emotions, and experiences.',
- whatItIsTitle: 'Emotional experiences can also have a physical dimension.',
+ 'Your body can react before your words catch up. Therapy can make room for both.',
+ whatItIsTitle: 'Tension, shutdown, restlessness, and breath can all be part of the conversation.',
  whatItIs: [
- 'Stress, emotion, and difficult experiences can show up physically through tension, breathing changes, restlessness, numbness, tightness, changes in energy, or other body sensations.',
- 'Avery may incorporate Somatic Experiencing and other body-informed practices to notice these responses, understand what seems to activate or settle them, and include the body as one source of information during counseling.',
+ 'Stress and emotion are not only thoughts. They can show up as tight shoulders, a racing heart, numbness, shallow breathing, fidgeting, fatigue, or the urge to get away.',
+ 'Avery may invite brief attention to those shifts so you can notice what activates you, what helps you settle, and what your body seems to be communicating in a given moment.',
  ],
- sessionTitle: 'Body awareness is introduced gently.',
+ sessionTitle: 'Body awareness can be small and practical.',
  session: [
- 'When it is useful, Avery may invite attention to physical sensations, movement, breathing, posture, or changes in the body while discussing an experience.',
- 'Clients remain in control of the pace. Attention to body sensations can be brief, adjusted, or set aside when it does not feel useful.',
+ 'This might mean noticing your feet on the floor during a difficult story, tracking a change in your breathing, or pausing when your body seems to say “too much.”',
+ 'You stay in charge of the pace. Body-focused work can be shortened, changed, or skipped when it does not feel useful.',
  ],
- considerationsTitle: 'The body is one source of information.',
+ considerationsTitle: 'The body is part of the story, not the whole explanation.',
  considerations: [
- 'Body-informed therapy does not assume that every concern has a physical cause or that every client needs to focus on body sensations.',
- 'Body awareness can be combined with conversation, reflection, IFS, mindfulness, or other counseling approaches.',
- 'The focus remains on what is useful and appropriate for the individual client.',
+ 'A physical sensation is information, not proof that one interpretation is correct.',
+ 'Body awareness can be mixed with conversation, reflection, and other therapy approaches.',
+ 'You do not need to be comfortable with meditation or body-focused exercises to work with Avery.',
  ],
  related: [
  { label: 'Trauma & PTSD', href: '/services/trauma-ptsd/' },
  { label: 'Anxiety & Stress', href: '/services/anxiety-stress/' },
- { label: 'About Avery', href: '/about/avery-morgan/' },
+ { label: 'Meet Avery', href: '/about/avery-morgan/' },
  ],
  },
 
@@ -125,31 +94,31 @@ export const approaches: Approach[] = [
  shortTitle: 'EFT',
  href: '/approaches/emotionally-focused-therapy/',
  description:
- 'Learn how Avery Morgan may use Emotionally Focused Therapy principles in individual counseling for adults in Richmond, Virginia.',
+ 'Learn how Avery Morgan may use emotion- and attachment-focused ideas in individual counseling for adults in Richmond, Virginia.',
  cardDescription:
- 'An emotion- and attachment-focused approach for understanding patterns that can affect connection and relationships.',
+ 'A way to look beneath recurring relationship reactions and understand what connection, distance, or conflict means to you.',
  hero:
- 'An approach for understanding emotional responses, attachment needs, and recurring patterns in important relationships.',
- whatItIsTitle: 'Emotions can provide useful information about connection and protection.',
+ 'The argument, shutdown, or people-pleasing may not be the whole story. There is often something underneath it.',
+ whatItIsTitle: 'Relationship patterns often make more sense when you look at the need beneath the reaction.',
  whatItIs: [
- 'Emotionally Focused Therapy, or EFT, pays close attention to emotional experience and patterns involving closeness, safety, conflict, vulnerability, attachment, and connection.',
- 'At Common Ground Therapy, Avery uses these concepts within individual counseling. Common Ground Therapy is not offering couples therapy through this service.',
+ 'Emotionally focused work pays attention to what happens when closeness, trust, belonging, or safety feels uncertain. People may pursue, withdraw, appease, argue, or go quiet for reasons that make sense in context.',
+ 'At Common Ground, these ideas are used in individual counseling. Avery is not providing couples therapy through this service.',
  ],
- sessionTitle: 'The work may explore patterns beneath the surface.',
+ sessionTitle: 'Slow the pattern down enough to see what it is protecting.',
  session: [
- 'Avery may help clients notice recurring emotional responses in relationships, identify needs beneath those reactions, and understand what happens when connection feels uncertain, unsafe, or difficult.',
- 'The work may include present relationships as well as earlier experiences that influenced expectations about closeness, trust, conflict, or emotional safety.',
+ 'Avery may help you notice what happens immediately before a familiar relationship response and what need, fear, or expectation is underneath it.',
+ 'The work can include current relationships and earlier experiences without turning the session into a search for someone to blame.',
  ],
- considerationsTitle: 'EFT principles can be integrated with individual therapy.',
+ considerationsTitle: 'Understanding a pattern does not tell you what decision to make.',
  considerations: [
- 'Relationship concerns can be explored in individual counseling without another person participating in the session.',
- 'The goal is not to assign blame for relationship difficulties.',
- 'Other approaches may be incorporated depending on the client and the focus of therapy.',
+ 'Individual counseling can explore relationship dynamics without another person attending.',
+ 'The purpose is clarity and choice, not assigning fault.',
+ 'Avery may combine emotion-focused ideas with IFS, body awareness, or straightforward conversation.',
  ],
  related: [
  { label: 'Relationship Concerns', href: '/services/relationship-concerns/' },
  { label: 'Individual Therapy', href: '/services/individual-therapy/' },
- { label: 'About Avery', href: '/about/avery-morgan/' },
+ { label: 'Meet Avery', href: '/about/avery-morgan/' },
  ],
  },
 
@@ -160,31 +129,31 @@ export const approaches: Approach[] = [
  shortTitle: 'Mindfulness',
  href: '/approaches/mindfulness-based-therapy/',
  description:
- 'Learn how Avery Morgan may incorporate mindfulness, meditation experience, and body awareness into individual counseling in Richmond, Virginia.',
+ 'Learn how Avery Morgan may use brief mindfulness and present-moment awareness practices in individual counseling in Richmond, Virginia.',
  cardDescription:
- 'Present-moment awareness practices that can support noticing thoughts, emotions, and body cues with greater clarity.',
+ 'A practical way to notice what is happening before the usual reaction takes over.',
  hero:
- 'Using present-moment awareness to notice thoughts, emotions, sensations, and reactions more clearly.',
- whatItIsTitle: 'Mindfulness can create space around an experience.',
+ 'Sometimes the first change is simply catching the moment before you disappear into autopilot.',
+ whatItIsTitle: 'Mindfulness can be as ordinary as noticing what is happening right now.',
  whatItIs: [
- 'Mindfulness involves intentionally noticing present-moment experience. In counseling, that may include thoughts, emotions, physical sensations, impulses, breathing, or patterns of attention.',
- 'Mindfulness-based work may include developing greater awareness of thoughts, emotions, physical sensations, and patterns of reaction without requiring a particular meditation practice.',
+ 'In therapy, mindfulness might mean noticing a thought without immediately believing it, feeling your body tense during a conversation, or realizing that you have mentally left the room.',
+ 'It does not have to mean long meditation, emptying your mind, or trying to stay calm all the time.',
  ],
- sessionTitle: 'Mindfulness is adapted to the person.',
+ sessionTitle: 'Small moments of attention can be enough.',
  session: [
- 'Mindfulness in counseling does not require sitting silently or trying to empty the mind. It may involve briefly noticing a reaction, observing a body sensation, paying attention to breathing, or slowing down enough to identify what is happening.',
- 'Mindfulness practices can be brief and can be adjusted according to comfort, preferences, and the focus of the session.',
+ 'Avery may invite a brief pause to notice a reaction, breath, sensation, emotion, or urge and then return to the conversation.',
+ 'These moments can help make automatic patterns easier to see and give you more choice about what happens next.',
  ],
- considerationsTitle: 'Mindfulness can be used when it supports the work.',
+ considerationsTitle: 'Use it when it helps. Skip it when it does not.',
  considerations: [
- 'Clients do not need prior meditation experience.',
- 'Mindfulness practices can be brief and practical.',
- 'They may be combined with other therapeutic approaches rather than used as a stand-alone method.',
+ 'No meditation experience is required.',
+ 'Practices can be brief, practical, and adapted to the conversation.',
+ 'Mindfulness is one tool among several rather than a separate program you have to follow.',
  ],
  related: [
  { label: 'Anxiety & Stress', href: '/services/anxiety-stress/' },
  { label: 'Grief & Loss', href: '/services/grief-loss/' },
- { label: 'Self-Esteem & Personal Growth', href: '/services/self-esteem-personal-growth/' },
+ { label: 'Meet Avery', href: '/about/avery-morgan/' },
  ],
  },
 ];
