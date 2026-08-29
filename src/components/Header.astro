@@ -10,12 +10,12 @@ const path = Astro.url.pathname;
 const portalAttrs = externalLinkAttrs();
 
 const primaryLinks = [
-  { number: '01', label: 'Home', href: '/' },
-  { number: '02', label: 'Our Place', href: '/about/' },
-  { number: '03', label: 'What We Help With', href: '/services/' },
-  { number: '04', label: 'How We Work', href: '/approaches/' },
-  { number: '05', label: 'Meet Avery', href: '/about/avery-morgan/' },
-  { number: '06', label: 'Contact', href: '/contact/' },
+  { label: 'Home', href: '/' },
+  { label: 'Our Place', href: '/about/' },
+  { label: 'What We Help With', href: '/services/' },
+  { label: 'How We Work', href: '/approaches/' },
+  { label: 'Meet Avery', href: '/about/avery-morgan/' },
+  { label: 'Contact', href: '/contact/' },
 ];
 
 const isCurrent = (href: string) =>
@@ -78,7 +78,6 @@ const isCurrent = (href: string) =>
                 href={item.href}
                 aria-current={isCurrent(item.href) ? 'page' : undefined}
               >
-                <small>{item.number}</small>
                 <span>{item.label}</span>
                 <b aria-hidden="true">↗</b>
               </a>
@@ -119,7 +118,6 @@ const isCurrent = (href: string) =>
             href={item.href}
             aria-current={isCurrent(item.href) ? 'page' : undefined}
           >
-            <small>{item.number}</small>
             <span>{item.label}</span>
           </a>
         ))
@@ -210,13 +208,8 @@ const isCurrent = (href: string) =>
     transition: transform .2s ease, top .2s ease;
   }
 
-  .menu-icon i:first-child {
-    top: .15rem;
-  }
-
-  .menu-icon i:last-child {
-    top: .55rem;
-  }
+  .menu-icon i:first-child { top: .15rem; }
+  .menu-icon i:last-child { top: .55rem; }
 
   .mobile-menu[open] .menu-icon i:first-child {
     top: .35rem;
@@ -246,7 +239,7 @@ const isCurrent = (href: string) =>
 
   .mobile-menu nav > a {
     display: grid;
-    grid-template-columns: 2.1rem 1fr auto;
+    grid-template-columns: 1fr auto;
     min-height: 3.9rem;
     align-items: center;
     gap: .8rem;
@@ -256,20 +249,12 @@ const isCurrent = (href: string) =>
     text-decoration: none;
   }
 
-  .mobile-menu nav > a small {
-    color: #d85f40;
-    font-size: .7rem;
-    font-weight: 900;
-  }
-
   .mobile-menu nav > a span {
     font-family: Georgia, "Times New Roman", serif;
     font-size: 1.15rem;
   }
 
-  .mobile-menu nav > a b {
-    color: #d85f40;
-  }
+  .mobile-menu nav > a b { color: #d85f40; }
 
   .mobile-menu nav > a[aria-current="page"] {
     border-radius: .65rem;
@@ -290,10 +275,27 @@ const isCurrent = (href: string) =>
     font-weight: 800;
   }
 
+  /* The Common Ground concept originally used editorial section numbers
+     throughout the experience. They were decorative rather than informative,
+     so keep the visual system while removing those labels from view. */
+  :global(.section-number),
+  :global(.hero-poster > strong),
+  :global(.process-card > .number),
+  :global(.statement-number),
+  :global(.approach-list > a > span:first-child),
+  :global(.manifesto-number),
+  :global(.principle > span:first-child),
+  :global(.starting-statement > span:first-child),
+  :global(.method-number),
+  :global(.methods-heading > span:first-child),
+  :global(.background-statement > span:first-child),
+  :global(.start-poster > strong),
+  :global(.next-cards > li > span:first-child) {
+    display: none !important;
+  }
+
   @media (min-width: 64rem) {
-    .masthead-inner {
-      min-height: 5.7rem;
-    }
+    .masthead-inner { min-height: 5.7rem; }
 
     .practice-note,
     .desktop-actions,
@@ -301,9 +303,7 @@ const isCurrent = (href: string) =>
       display: flex;
     }
 
-    .mobile-menu {
-      display: none;
-    }
+    .mobile-menu { display: none; }
 
     .practice-note {
       margin: 0 auto 0 1.2rem;
@@ -332,9 +332,7 @@ const isCurrent = (href: string) =>
       white-space: nowrap;
     }
 
-    .community-nav {
-      background: #512c45;
-    }
+    .community-nav { background: #512c45; }
 
     .community-nav-inner {
       display: grid;
@@ -348,26 +346,16 @@ const isCurrent = (href: string) =>
       display: flex;
       min-width: 0;
       align-items: center;
-      gap: .55rem;
+      justify-content: center;
       padding: .8rem clamp(.65rem, 1.2vw, 1.1rem);
       border-left: 1px solid rgba(255, 248, 237, .16);
       color: #fff8ed;
       text-decoration: none;
-      transition:
-        background .18s ease,
-        color .18s ease,
-        transform .18s ease;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
     }
 
     .community-nav a:last-child {
       border-right: 1px solid rgba(255, 248, 237, .16);
-    }
-
-    .community-nav small {
-      color: #efaa82;
-      font-size: .64rem;
-      font-weight: 900;
-      transition: color .18s ease;
     }
 
     .community-nav span {
@@ -379,9 +367,7 @@ const isCurrent = (href: string) =>
     }
 
     .community-nav a:nth-child(2):hover,
-    .community-nav a:nth-child(2)[aria-current="page"] {
-      background: #d85f40;
-    }
+    .community-nav a:nth-child(2)[aria-current="page"] { background: #d85f40; }
 
     .community-nav a:nth-child(3):hover,
     .community-nav a:nth-child(3)[aria-current="page"] {
@@ -396,38 +382,23 @@ const isCurrent = (href: string) =>
     }
 
     .community-nav a:nth-child(5):hover,
-    .community-nav a:nth-child(5)[aria-current="page"] {
-      background: #9a5e63;
-    }
+    .community-nav a:nth-child(5)[aria-current="page"] { background: #9a5e63; }
 
     .community-nav a:first-child:hover,
     .community-nav a:first-child[aria-current="page"],
     .community-nav a:last-child:hover,
-    .community-nav a:last-child[aria-current="page"] {
-      background: #7f4565;
-    }
+    .community-nav a:last-child[aria-current="page"] { background: #7f4565; }
 
     .community-nav a:hover,
-    .community-nav a[aria-current="page"] {
-      transform: translateY(-2px);
-    }
-
-    .community-nav a:hover small,
-    .community-nav a[aria-current="page"] small {
-      color: currentColor;
-    }
+    .community-nav a[aria-current="page"] { transform: translateY(-2px); }
   }
 
   @media (min-width: 76rem) {
-    .community-nav-inner {
-      padding-inline: var(--gutter);
-    }
+    .community-nav-inner { padding-inline: var(--gutter); }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .community-nav a,
-    .menu-icon i {
-      transition: none;
-    }
+    .menu-icon i { transition: none; }
   }
 </style>
