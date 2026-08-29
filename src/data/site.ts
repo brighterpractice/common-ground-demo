@@ -3,9 +3,9 @@ export const practice = {
  shortName: 'Common Ground Therapy',
  city: 'Richmond',
  state: 'Virginia',
- stateAbbreviation: 'WI',
+ stateAbbreviation: 'VA',
  address: 'Richmond, Virginia',
- phone: '(970) 555-0148',
+ phone: '(804) 555-0148',
  email: 'hello@example.com',
 };
 

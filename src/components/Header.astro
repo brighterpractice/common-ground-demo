@@ -1,8 +1,433 @@
 ---
-import Button from './Button.astro'; import {navigation} from '../data/navigation'; import {appointmentUrl,clientPortalUrl,externalLinkAttrs} from '../data/site'; const path=Astro.url.pathname; const portalAttrs=externalLinkAttrs();
+import Button from './Button.astro';
+import {
+  appointmentUrl,
+  clientPortalUrl,
+  externalLinkAttrs,
+} from '../data/site';
+
+const path = Astro.url.pathname;
+const portalAttrs = externalLinkAttrs();
+
+const primaryLinks = [
+  { number: '01', label: 'Home', href: '/' },
+  { number: '02', label: 'Our Place', href: '/about/' },
+  { number: '03', label: 'What We Help With', href: '/services/' },
+  { number: '04', label: 'How We Work', href: '/approaches/' },
+  { number: '05', label: 'Meet Avery', href: '/about/avery-morgan/' },
+  { number: '06', label: 'Contact', href: '/contact/' },
+];
+
+const isCurrent = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
 ---
-<header class="site-header"><div class="container header-inner"><a class="brand" href="/" aria-label="Common Ground Therapy home"><img class="brand-wordmark" src="/images/branding/common-ground-wordmark.png" width="360" height="101" alt="" fetchpriority="high"/></a><nav class="desktop-nav" aria-label="Primary navigation" data-track="primary-navigation"><a href="/" aria-current={path==='/'?'page':undefined}>Home</a>{navigation.map(item=><details><summary class:list={{active:path.startsWith(item.href)}}>{item.label}</summary><div class:list={['nav-panel',item.label==='Services'&&'nav-panel--wide']}>{item.children.map(child=><a href={child.href} aria-current={path===child.href?'page':undefined}>{child.label}</a>)}</div></details>)}</nav><div class="actions"><a class="portal" href={clientPortalUrl} target={portalAttrs.target} rel={portalAttrs.rel} data-track="client-portal">Client Portal</a><Button href={appointmentUrl} tracking="request-appointment">Request appointment</Button></div><details class="mobile-nav"><summary aria-label="Open navigation"><span></span><span></span><span></span></summary><nav aria-label="Mobile navigation" data-track="mobile-navigation"><a href="/" aria-current={path==='/'?'page':undefined}>Home</a>{navigation.map(item=>item.label==='About'?<div class="mobile-group"><p class="mobile-section-label">About</p>{item.children.map(child=><a href={child.href} aria-current={path===child.href?'page':undefined}>{child.label}</a>)}</div>:(item.label==='Services'||item.label==='Approaches')?<div class="mobile-group"><div class="mobile-row"><a class:list={['mobile-parent',{active:path.startsWith(item.href)}]} href={item.href} aria-current={path===item.href?'page':undefined}>{item.label}</a><button type="button" class="mobile-subtoggle" aria-expanded={path.startsWith(item.href)?'true':'false'} aria-controls={`mobile-${item.label.toLowerCase().replace(/\s+/g,'-')}-panel`} aria-label={`Toggle ${item.label.toLowerCase()} list`}><span class="chevron" aria-hidden="true"></span></button></div><div class="mobile-subpanel" id={`mobile-${item.label.toLowerCase().replace(/\s+/g,'-')}-panel`} hidden={!path.startsWith(item.href)}>{item.children.slice(1).map(child=><a href={child.href} aria-current={path===child.href?'page':undefined}>{child.label}</a>)}</div></div>:<div class="mobile-group"><a class:list={['mobile-parent',{active:path.startsWith(item.href)}]} href={item.href} aria-current={path===item.href?'page':undefined}>{item.label}</a>{item.children.slice(1).map(child=><a href={child.href} aria-current={path===child.href?'page':undefined}>{child.label}</a>)}</div>)}<a href={clientPortalUrl} target={portalAttrs.target} rel={portalAttrs.rel} data-track="client-portal">Client Portal</a></nav></details></div></header>
+
+<header class="site-header">
+  <div class="masthead">
+    <div class="container masthead-inner">
+      <a
+        class="brand"
+        href="/"
+        aria-label="Common Ground Therapy home"
+      >
+        <img
+          src="/images/branding/common-ground-wordmark.png"
+          width="360"
+          height="101"
+          alt="Common Ground Therapy"
+          fetchpriority="high"
+        />
+      </a>
+
+      <p class="practice-note">
+        Individual counseling for adults
+        <span>Richmond, Virginia</span>
+      </p>
+
+      <div class="desktop-actions">
+        <a
+          class="portal-link"
+          href={clientPortalUrl}
+          target={portalAttrs.target}
+          rel={portalAttrs.rel}
+          data-track="client-portal"
+        >
+          Client portal
+        </a>
+
+        <Button
+          href={appointmentUrl}
+          tracking="request-appointment"
+        >
+          Request appointment
+        </Button>
+      </div>
+
+      <details class="mobile-menu">
+        <summary>
+          <span class="menu-label">Menu</span>
+          <span class="menu-icon" aria-hidden="true">
+            <i></i><i></i>
+          </span>
+        </summary>
+
+        <nav aria-label="Mobile navigation" data-track="mobile-navigation">
+          {
+            primaryLinks.map((item) => (
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+              >
+                <small>{item.number}</small>
+                <span>{item.label}</span>
+                <b aria-hidden="true">↗</b>
+              </a>
+            ))
+          }
+
+          <div class="mobile-actions">
+            <a
+              href={clientPortalUrl}
+              target={portalAttrs.target}
+              rel={portalAttrs.rel}
+              data-track="client-portal"
+            >
+              Client portal
+            </a>
+
+            <Button
+              href={appointmentUrl}
+              tracking="request-appointment"
+            >
+              Request appointment
+            </Button>
+          </div>
+        </nav>
+      </details>
+    </div>
+  </div>
+
+  <nav
+    class="community-nav"
+    aria-label="Primary navigation"
+    data-track="primary-navigation"
+  >
+    <div class="container community-nav-inner">
+      {
+        primaryLinks.map((item) => (
+          <a
+            href={item.href}
+            aria-current={isCurrent(item.href) ? 'page' : undefined}
+          >
+            <small>{item.number}</small>
+            <span>{item.label}</span>
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</header>
+
 <style>
-.site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(112,135,125,.2);background:rgba(255,253,249,.94);backdrop-filter:blur(14px)}.header-inner{display:flex;min-height:4.8rem;align-items:center;justify-content:space-between;gap:1rem}.brand{display:flex;min-width:0;min-height:44px;align-items:center;gap:.45rem;color:var(--ink);text-decoration:none}.brand img{display:block;flex:0 0 auto}.brand-mark{width:3rem;height:auto}.brand-wordmark{width:9.3rem;height:auto}.desktop-nav,.actions{display:none}.mobile-nav{flex:0 0 auto}.mobile-nav>summary{display:grid;width:3rem;height:3rem;cursor:pointer;list-style:none;place-content:center;gap:5px}.mobile-nav>summary::-webkit-details-marker{display:none}.mobile-nav>summary span{width:1.45rem;height:2px;background:var(--ink)}.mobile-nav nav{position:absolute;top:100%;left:0;width:100%;max-width:100vw;max-height:calc(100dvh - 4.8rem);overflow:auto;overscroll-behavior:contain;padding:1rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom));border-bottom:1px solid var(--sand);background:var(--paper)}.mobile-nav a{display:flex;min-height:44px;align-items:center;padding:.45rem .3rem;color:var(--ink);font-weight:650;text-decoration:none}.mobile-section-label{display:flex;min-height:44px;align-items:center;margin:0;padding:.45rem .3rem;color:var(--ink);font-weight:650}.mobile-nav a[aria-current="page"],.mobile-parent.active{color:var(--clay-text)}.mobile-group{padding-block:.3rem;border-top:1px solid var(--sand)}.mobile-group a:not(.mobile-parent){padding-left:1.25rem;color:var(--body);font-size:.93rem;font-weight:500}.mobile-group a[aria-current="page"]{color:var(--clay-text)}.mobile-row{display:flex;align-items:center;gap:.25rem}.mobile-row .mobile-parent{flex:1 1 auto}.mobile-subtoggle{display:grid;flex:0 0 auto;width:44px;height:44px;place-content:center;color:var(--ink);background:none;border:0;cursor:pointer}.mobile-subtoggle .chevron{display:block;width:.55rem;height:.55rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s ease}.mobile-subtoggle[aria-expanded="true"] .chevron{transform:rotate(-135deg)}.mobile-subpanel{display:grid;gap:.05rem;padding-bottom:.35rem}.mobile-subpanel[hidden]{display:none}.mobile-subpanel a{padding-left:1.25rem;color:var(--body);font-size:.93rem;font-weight:500}.mobile-subpanel a[aria-current="page"]{color:var(--clay-text)}
-@media(min-width:64rem){.brand-mark{width:3.2rem;height:auto}.brand-wordmark{width:10rem}.mobile-nav{display:none}.desktop-nav,.actions{display:flex;align-items:center}.desktop-nav{gap:.3rem;margin-left:auto}.desktop-nav>a,.desktop-nav summary{padding:.8rem .65rem;color:var(--ink);font-size:.88rem;font-weight:700;text-decoration:none}.desktop-nav details{position:relative}.desktop-nav summary{cursor:pointer;list-style:none}.desktop-nav summary:after{content:"⌄";margin-left:.35rem;color:var(--sage)}.desktop-nav summary::-webkit-details-marker{display:none}.desktop-nav .active,.desktop-nav [aria-current=page]{color:var(--clay-text)}.nav-panel{position:absolute;top:100%;left:50%;display:grid;width:max-content;min-width:15rem;max-width:21rem;padding:.65rem;border:1px solid var(--sand);border-radius:var(--radius);background:white;box-shadow:var(--shadow);transform:translateX(-50%)}.nav-panel--wide{grid-template-columns:repeat(2,1fr);width:32rem;max-width:70vw}.nav-panel a{padding:.55rem .7rem;border-radius:.4rem;color:var(--body);font-size:.86rem;line-height:1.3;text-decoration:none}.nav-panel a:hover{background:var(--cream);color:var(--moss)}.actions{gap:1rem}.portal{color:var(--ink);font-size:.86rem;font-weight:750;white-space:nowrap}}
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid rgba(81, 44, 69, .16);
+    background: #fff8ed;
+  }
+
+  .masthead {
+    background: rgba(255, 248, 237, .96);
+    backdrop-filter: blur(14px);
+  }
+
+  .masthead-inner {
+    display: flex;
+    min-height: 5.2rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+
+  .brand {
+    display: flex;
+    min-width: 0;
+    min-height: 44px;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .brand img {
+    display: block;
+    width: clamp(9.5rem, 18vw, 12.5rem);
+    height: auto;
+  }
+
+  .practice-note,
+  .desktop-actions,
+  .community-nav {
+    display: none;
+  }
+
+  .mobile-menu {
+    flex: 0 0 auto;
+  }
+
+  .mobile-menu > summary {
+    display: flex;
+    min-width: 5.4rem;
+    min-height: 44px;
+    cursor: pointer;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    gap: .65rem;
+    border: 1px solid #512c45;
+    border-radius: 999px;
+    color: #512c45;
+    font-size: .82rem;
+    font-weight: 850;
+  }
+
+  .mobile-menu > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .menu-icon {
+    position: relative;
+    display: block;
+    width: 1rem;
+    height: .75rem;
+  }
+
+  .menu-icon i {
+    position: absolute;
+    left: 0;
+    width: 1rem;
+    height: 2px;
+    background: currentColor;
+    transition: transform .2s ease, top .2s ease;
+  }
+
+  .menu-icon i:first-child {
+    top: .15rem;
+  }
+
+  .menu-icon i:last-child {
+    top: .55rem;
+  }
+
+  .mobile-menu[open] .menu-icon i:first-child {
+    top: .35rem;
+    transform: rotate(45deg);
+  }
+
+  .mobile-menu[open] .menu-icon i:last-child {
+    top: .35rem;
+    transform: rotate(-45deg);
+  }
+
+  .mobile-menu nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: grid;
+    width: 100%;
+    max-height: calc(100dvh - 5.2rem);
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding: .75rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom));
+    border-top: 1px solid #edd9c8;
+    border-bottom: 1px solid #dca68a;
+    background: #fff8ed;
+    box-shadow: 0 1.2rem 2.8rem rgba(81, 44, 69, .16);
+  }
+
+  .mobile-menu nav > a {
+    display: grid;
+    grid-template-columns: 2.1rem 1fr auto;
+    min-height: 3.9rem;
+    align-items: center;
+    gap: .8rem;
+    padding: .5rem .85rem;
+    border-bottom: 1px solid #edd9c8;
+    color: #512c45;
+    text-decoration: none;
+  }
+
+  .mobile-menu nav > a small {
+    color: #d85f40;
+    font-size: .7rem;
+    font-weight: 900;
+  }
+
+  .mobile-menu nav > a span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15rem;
+  }
+
+  .mobile-menu nav > a b {
+    color: #d85f40;
+  }
+
+  .mobile-menu nav > a[aria-current="page"] {
+    border-radius: .65rem;
+    background: #f3c95d;
+  }
+
+  .mobile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.2rem;
+  }
+
+  .mobile-actions > a {
+    color: #512c45;
+    font-size: .85rem;
+    font-weight: 800;
+  }
+
+  @media (min-width: 64rem) {
+    .masthead-inner {
+      min-height: 5.7rem;
+    }
+
+    .practice-note,
+    .desktop-actions,
+    .community-nav {
+      display: flex;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .practice-note {
+      margin: 0 auto 0 1.2rem;
+      padding-left: 1.2rem;
+      border-left: 1px solid #dcbda8;
+      color: #765f68;
+      font-size: .76rem;
+      font-weight: 750;
+      line-height: 1.35;
+    }
+
+    .practice-note span {
+      display: block;
+      color: #a74636;
+    }
+
+    .desktop-actions {
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .portal-link {
+      color: #512c45;
+      font-size: .82rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .community-nav {
+      background: #512c45;
+    }
+
+    .community-nav-inner {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      min-height: 3.65rem;
+      padding-inline: 0;
+    }
+
+    .community-nav a {
+      position: relative;
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: .55rem;
+      padding: .8rem clamp(.65rem, 1.2vw, 1.1rem);
+      border-left: 1px solid rgba(255, 248, 237, .16);
+      color: #fff8ed;
+      text-decoration: none;
+      transition:
+        background .18s ease,
+        color .18s ease,
+        transform .18s ease;
+    }
+
+    .community-nav a:last-child {
+      border-right: 1px solid rgba(255, 248, 237, .16);
+    }
+
+    .community-nav small {
+      color: #efaa82;
+      font-size: .64rem;
+      font-weight: 900;
+      transition: color .18s ease;
+    }
+
+    .community-nav span {
+      overflow: hidden;
+      font-size: clamp(.72rem, .92vw, .86rem);
+      font-weight: 820;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .community-nav a:nth-child(2):hover,
+    .community-nav a:nth-child(2)[aria-current="page"] {
+      background: #d85f40;
+    }
+
+    .community-nav a:nth-child(3):hover,
+    .community-nav a:nth-child(3)[aria-current="page"] {
+      background: #ef8a4c;
+      color: #3d2634;
+    }
+
+    .community-nav a:nth-child(4):hover,
+    .community-nav a:nth-child(4)[aria-current="page"] {
+      background: #f3c95d;
+      color: #3d2634;
+    }
+
+    .community-nav a:nth-child(5):hover,
+    .community-nav a:nth-child(5)[aria-current="page"] {
+      background: #9a5e63;
+    }
+
+    .community-nav a:first-child:hover,
+    .community-nav a:first-child[aria-current="page"],
+    .community-nav a:last-child:hover,
+    .community-nav a:last-child[aria-current="page"] {
+      background: #7f4565;
+    }
+
+    .community-nav a:hover,
+    .community-nav a[aria-current="page"] {
+      transform: translateY(-2px);
+    }
+
+    .community-nav a:hover small,
+    .community-nav a[aria-current="page"] small {
+      color: currentColor;
+    }
+  }
+
+  @media (min-width: 76rem) {
+    .community-nav-inner {
+      padding-inline: var(--gutter);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .community-nav a,
+    .menu-icon i {
+      transition: none;
+    }
+  }
 </style>
