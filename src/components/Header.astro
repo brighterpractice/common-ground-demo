@@ -25,11 +25,7 @@ const isCurrent = (href: string) =>
 <header class="site-header">
   <div class="masthead">
     <div class="container masthead-inner">
-      <a
-        class="brand"
-        href="/"
-        aria-label="Common Ground Therapy home"
-      >
+      <a class="brand" href="/" aria-label="Common Ground Therapy home">
         <img
           src="/images/branding/common-ground-wordmark.png"
           width="360"
@@ -55,10 +51,7 @@ const isCurrent = (href: string) =>
           Client portal
         </a>
 
-        <Button
-          href={appointmentUrl}
-          tracking="request-appointment"
-        >
+        <Button href={appointmentUrl} tracking="request-appointment">
           Request appointment
         </Button>
       </div>
@@ -66,9 +59,7 @@ const isCurrent = (href: string) =>
       <details class="mobile-menu">
         <summary>
           <span class="menu-label">Menu</span>
-          <span class="menu-icon" aria-hidden="true">
-            <i></i><i></i>
-          </span>
+          <span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
         </summary>
 
         <nav aria-label="Mobile navigation" data-track="mobile-navigation">
@@ -93,11 +84,7 @@ const isCurrent = (href: string) =>
             >
               Client portal
             </a>
-
-            <Button
-              href={appointmentUrl}
-              tracking="request-appointment"
-            >
+            <Button href={appointmentUrl} tracking="request-appointment">
               Request appointment
             </Button>
           </div>
@@ -106,11 +93,7 @@ const isCurrent = (href: string) =>
     </div>
   </div>
 
-  <nav
-    class="community-nav"
-    aria-label="Primary navigation"
-    data-track="primary-navigation"
-  >
+  <nav class="community-nav" aria-label="Primary navigation" data-track="primary-navigation">
     <div class="container community-nav-inner">
       {
         primaryLinks.map((item) => (
@@ -131,12 +114,12 @@ const isCurrent = (href: string) =>
     position: sticky;
     top: 0;
     z-index: 50;
-    border-bottom: 1px solid rgba(81, 44, 69, .16);
+    border-bottom: 1px solid rgba(81,44,69,.16);
     background: #fff8ed;
   }
 
   .masthead {
-    background: rgba(255, 248, 237, .96);
+    background: rgba(255,248,237,.96);
     backdrop-filter: blur(14px);
   }
 
@@ -158,7 +141,7 @@ const isCurrent = (href: string) =>
 
   .brand img {
     display: block;
-    width: clamp(9.5rem, 18vw, 12.5rem);
+    width: clamp(9.5rem,18vw,12.5rem);
     height: auto;
   }
 
@@ -168,9 +151,7 @@ const isCurrent = (href: string) =>
     display: none;
   }
 
-  .mobile-menu {
-    flex: 0 0 auto;
-  }
+  .mobile-menu { flex: 0 0 auto; }
 
   .mobile-menu > summary {
     display: flex;
@@ -188,9 +169,7 @@ const isCurrent = (href: string) =>
     font-weight: 850;
   }
 
-  .mobile-menu > summary::-webkit-details-marker {
-    display: none;
-  }
+  .mobile-menu > summary::-webkit-details-marker { display: none; }
 
   .menu-icon {
     position: relative;
@@ -210,16 +189,8 @@ const isCurrent = (href: string) =>
 
   .menu-icon i:first-child { top: .15rem; }
   .menu-icon i:last-child { top: .55rem; }
-
-  .mobile-menu[open] .menu-icon i:first-child {
-    top: .35rem;
-    transform: rotate(45deg);
-  }
-
-  .mobile-menu[open] .menu-icon i:last-child {
-    top: .35rem;
-    transform: rotate(-45deg);
-  }
+  .mobile-menu[open] .menu-icon i:first-child { top: .35rem; transform: rotate(45deg); }
+  .mobile-menu[open] .menu-icon i:last-child { top: .35rem; transform: rotate(-45deg); }
 
   .mobile-menu nav {
     position: absolute;
@@ -234,7 +205,7 @@ const isCurrent = (href: string) =>
     border-top: 1px solid #edd9c8;
     border-bottom: 1px solid #dca68a;
     background: #fff8ed;
-    box-shadow: 0 1.2rem 2.8rem rgba(81, 44, 69, .16);
+    box-shadow: 0 1.2rem 2.8rem rgba(81,44,69,.16);
   }
 
   .mobile-menu nav > a {
@@ -250,16 +221,12 @@ const isCurrent = (href: string) =>
   }
 
   .mobile-menu nav > a span {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Georgia,"Times New Roman",serif;
     font-size: 1.15rem;
   }
 
   .mobile-menu nav > a b { color: #d85f40; }
-
-  .mobile-menu nav > a[aria-current="page"] {
-    border-radius: .65rem;
-    background: #f3c95d;
-  }
+  .mobile-menu nav > a[aria-current="page"] { border-radius: .65rem; background: #f3c95d; }
 
   .mobile-actions {
     display: flex;
@@ -275,9 +242,9 @@ const isCurrent = (href: string) =>
     font-weight: 800;
   }
 
-  /* The Common Ground concept originally used editorial section numbers
-     throughout the experience. They were decorative rather than informative,
-     so keep the visual system while removing those labels from view. */
+  /* Decorative editorial numbering was part of the original concept but did
+     not carry useful meaning. Remove it consistently across overview and
+     detail pages while keeping the color, shape, and collage language. */
   :global(.section-number),
   :global(.hero-poster > strong),
   :global(.process-card > .number),
@@ -290,18 +257,37 @@ const isCurrent = (href: string) =>
   :global(.methods-heading > span:first-child),
   :global(.background-statement > span:first-child),
   :global(.start-poster > strong),
-  :global(.next-cards > li > span:first-child) {
+  :global(.next-cards > li > span:first-child),
+  :global(.tile-number),
+  :global(.bridge-statement > span:first-child),
+  :global(.section-mark),
+  :global(.experience-heading > span:first-child),
+  :global(.experience-item > span:first-child),
+  :global(.help-title > span:first-child),
+  :global(.whole-number),
+  :global(.band-index),
+  :global(.considerations-title > span:first-child),
+  :global(.consideration > span:first-child),
+  :global(.related-links > a > span:first-child) {
     display: none !important;
   }
 
-  @media (min-width: 64rem) {
+  :global(.approach-list > a),
+  :global(.related-links > a) {
+    grid-template-columns: 1fr auto !important;
+  }
+
+  :global(.experience-item),
+  :global(.consideration) {
+    grid-template-columns: 1fr !important;
+  }
+
+  @media (min-width:64rem) {
     .masthead-inner { min-height: 5.7rem; }
 
     .practice-note,
     .desktop-actions,
-    .community-nav {
-      display: flex;
-    }
+    .community-nav { display: flex; }
 
     .mobile-menu { display: none; }
 
@@ -315,15 +301,8 @@ const isCurrent = (href: string) =>
       line-height: 1.35;
     }
 
-    .practice-note span {
-      display: block;
-      color: #a74636;
-    }
-
-    .desktop-actions {
-      align-items: center;
-      gap: 1rem;
-    }
+    .practice-note span { display: block; color: #a74636; }
+    .desktop-actions { align-items: center; gap: 1rem; }
 
     .portal-link {
       color: #512c45;
@@ -336,7 +315,7 @@ const isCurrent = (href: string) =>
 
     .community-nav-inner {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(6,1fr);
       min-height: 3.65rem;
       padding-inline: 0;
     }
@@ -347,20 +326,18 @@ const isCurrent = (href: string) =>
       min-width: 0;
       align-items: center;
       justify-content: center;
-      padding: .8rem clamp(.65rem, 1.2vw, 1.1rem);
-      border-left: 1px solid rgba(255, 248, 237, .16);
+      padding: .8rem clamp(.65rem,1.2vw,1.1rem);
+      border-left: 1px solid rgba(255,248,237,.16);
       color: #fff8ed;
       text-decoration: none;
-      transition: background .18s ease, color .18s ease, transform .18s ease;
+      transition: background .18s ease,color .18s ease,transform .18s ease;
     }
 
-    .community-nav a:last-child {
-      border-right: 1px solid rgba(255, 248, 237, .16);
-    }
+    .community-nav a:last-child { border-right: 1px solid rgba(255,248,237,.16); }
 
     .community-nav span {
       overflow: hidden;
-      font-size: clamp(.72rem, .92vw, .86rem);
+      font-size: clamp(.72rem,.92vw,.86rem);
       font-weight: 820;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -370,16 +347,10 @@ const isCurrent = (href: string) =>
     .community-nav a:nth-child(2)[aria-current="page"] { background: #d85f40; }
 
     .community-nav a:nth-child(3):hover,
-    .community-nav a:nth-child(3)[aria-current="page"] {
-      background: #ef8a4c;
-      color: #3d2634;
-    }
+    .community-nav a:nth-child(3)[aria-current="page"] { background: #ef8a4c; color: #3d2634; }
 
     .community-nav a:nth-child(4):hover,
-    .community-nav a:nth-child(4)[aria-current="page"] {
-      background: #f3c95d;
-      color: #3d2634;
-    }
+    .community-nav a:nth-child(4)[aria-current="page"] { background: #f3c95d; color: #3d2634; }
 
     .community-nav a:nth-child(5):hover,
     .community-nav a:nth-child(5)[aria-current="page"] { background: #9a5e63; }
@@ -393,7 +364,15 @@ const isCurrent = (href: string) =>
     .community-nav a[aria-current="page"] { transform: translateY(-2px); }
   }
 
-  @media (min-width: 76rem) {
+  @media (min-width:48rem) {
+    :global(.detail-lead-grid),
+    :global(.whole-person-grid),
+    :global(.band-grid) {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+
+  @media (min-width:76rem) {
     .community-nav-inner { padding-inline: var(--gutter); }
   }
 
