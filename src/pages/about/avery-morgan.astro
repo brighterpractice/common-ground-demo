@@ -8,7 +8,7 @@ import {
 } from '../../lib/schema';
 
 const crumbs = [
-  { label: 'About', href: '/about/' },
+  { label: 'Our Place', href: '/about/' },
   { label: 'Avery Morgan, LPC' },
 ];
 ---
@@ -22,28 +22,37 @@ const crumbs = [
   ])}
 >
   <PageHero
-    eyebrow="Your counselor"
+    eyebrow="Meet Avery"
     title="Avery Morgan, LPC"
     intro="Avery offers thoughtful individual therapy for adults who want support navigating stress, change, relationships, and difficult emotional patterns."
     crumbs={crumbs}
   />
 
-  <section class="section bio-section bio-intro">
-    <div class="container profile">
-      <picture class="photo">
-        <img
-          src="/images/demo/clinician-placeholder.svg"
-          width="700"
-          height="780"
-          loading="lazy"
-          decoding="async"
-          alt="Clinician photo placeholder"
-        />
-      </picture>
+  <section class="avery-profile">
+    <div class="container profile-grid">
+      <div class="portrait-wrap">
+        <span class="portrait-shape portrait-plum" aria-hidden="true"></span>
+        <span class="portrait-shape portrait-gold" aria-hidden="true"></span>
+        <div class="portrait-card">
+          <span class="tape" aria-hidden="true"></span>
+          <img
+            src="/images/demo/clinician-placeholder.svg"
+            width="700"
+            height="780"
+            loading="lazy"
+            decoding="async"
+            alt="Clinician photo placeholder for Avery Morgan, LPC"
+          />
+          <div class="portrait-caption">
+            <strong>Avery Morgan, LPC</strong>
+            <span>Richmond, Virginia</span>
+          </div>
+        </div>
+      </div>
 
-      <div>
-        <p class="eyebrow">Working with Avery</p>
-        <h2>Support that is collaborative, practical, and grounded.</h2>
+      <div class="profile-copy">
+        <p class="hand-label">Working with Avery</p>
+        <h2>Warm, curious, and willing to stay with the complicated parts.</h2>
 
         <p>
           Avery approaches counseling as a partnership. Sessions create space to
@@ -52,160 +61,363 @@ const crumbs = [
         </p>
 
         <p>
-          Her style is warm, engaged, and curious. She works with clients to
-          notice patterns, clarify priorities, and build approaches that fit
-          their individual circumstances rather than following a single formula.
+          Her style is engaged and collaborative. She works with clients to notice
+          patterns, clarify priorities, and build approaches that fit their actual
+          lives rather than following a single formula.
         </p>
+
+        <blockquote>
+          “You do not need to bring a polished version of the story.”
+        </blockquote>
       </div>
     </div>
   </section>
 
-  <section class="section section--tint bio-section">
-    <div class="container grid grid--2">
-      <div>
-        <p class="eyebrow">Clinical approach</p>
+  <section class="avery-methods">
+    <div class="container methods-grid">
+      <div class="methods-heading">
+        <span>01</span>
+        <p class="hand-label light">Clinical approach</p>
         <h2>Different tools for different people.</h2>
       </div>
 
-      <div>
-        <p>
-          Avery may incorporate Internal Family Systems concepts, mindfulness,
-          somatic awareness, emotionally focused work, and person-centered
-          counseling depending on the goals of therapy.
-        </p>
+      <div class="method-list">
+        <span>Internal Family Systems concepts</span>
+        <span>Mindfulness</span>
+        <span>Somatic awareness</span>
+        <span>Emotionally focused work</span>
+        <span>Person-centered counseling</span>
+      </div>
 
+      <div class="methods-copy">
         <p>
-          These approaches are used flexibly. Therapy can focus on insight,
-          coping skills, relationships, emotional patterns, or simply creating
-          enough space to understand what needs attention next.
+          Avery may draw from these approaches depending on the goals of therapy.
+          The methods are used flexibly rather than as separate programs you have
+          to choose before starting.
         </p>
-
-        <div class="bio-links">
-          <a class="link-arrow" href="/approaches/">
-            Explore therapy approaches
-          </a>
-        </div>
+        <p>
+          Therapy can focus on insight, coping skills, relationships, emotional
+          patterns, or simply creating enough space to understand what needs
+          attention next.
+        </p>
+        <a href="/approaches/">Explore how we work →</a>
       </div>
     </div>
   </section>
 
-  <section class="section bio-section">
-    <div class="container grid grid--2">
-      <div>
-        <p class="eyebrow">Professional background</p>
-        <h2>A fictional clinician created for this demonstration site.</h2>
+  <section class="avery-background">
+    <div class="container background-grid">
+      <div class="background-statement">
+        <span>02</span>
+        <h2>A real-practice profile, built with fictional demo details.</h2>
       </div>
 
-      <div>
+      <div class="background-note">
         <p>
           Avery Morgan, LPC, is a fictional counselor used to demonstrate how a
           clinician profile can be presented on a professional therapy website.
         </p>
-
         <p>
-          The education, credentials, specialties, and professional history shown
-          on a real client website would be replaced with information supplied
-          and verified by that clinician.
+          On a real client website, education, credentials, specialties, and
+          professional history would be replaced with information supplied and
+          verified by that clinician.
         </p>
-
         <p>
-          This demonstration intentionally avoids representing the fictional
-          clinician as holding certifications, training, or professional history
-          that have not actually been established.
+          This demonstration intentionally avoids presenting fictional training,
+          certifications, or professional history as if they were real.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="section section--tint bio-section">
-    <div class="container measure">
-      <p class="eyebrow">A personalized process</p>
-      <h2>Therapy can reflect what matters to you.</h2>
+  <section class="avery-final">
+    <div class="container final-grid">
+      <div>
+        <p class="hand-label light">A personalized process</p>
+        <h2>Therapy can make room for the whole context of your life.</h2>
+      </div>
 
-      <p>
-        Clients bring different values, backgrounds, relationships, and life
-        experiences into counseling. Those differences can be part of the
-        conversation when they are relevant and meaningful to the client.
-      </p>
-
-      <div class="bio-links">
-        <a class="link-arrow" href="/services/">
-          Explore therapy services
-        </a>
-
-        <a class="link-arrow" href="/contact/">
-          Contact Common Ground Therapy
-        </a>
+      <div class="final-copy">
+        <p>
+          Values, relationships, culture, beliefs, responsibilities, and life
+          experiences can all be part of the work when they matter to you.
+        </p>
+        <div class="final-links">
+          <a href="/services/">What we help with →</a>
+          <a href="/contact/">Contact Common Ground →</a>
+        </div>
       </div>
     </div>
   </section>
 </Layout>
 
-<style>
-  .bio-section{
-    padding-block:2.75rem
+<style is:inline>
+  .avery-profile,
+  .avery-methods,
+  .avery-background,
+  .avery-final {
+    padding: clamp(4.5rem,8vw,7rem) 0;
   }
 
-  .bio-intro{
-    padding-bottom:2.25rem
+  .hand-label {
+    margin: 0 0 .75rem;
+    color: #d85f40;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 700;
   }
 
-  .bio-intro+.bio-section{
-    padding-top:2.5rem
+  .hand-label.light { color: #ffd7bf; }
+
+  .avery-profile { background: #fffdf8; }
+
+  .profile-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
   }
 
-  .profile{
-    display:grid;
-    gap:1.75rem;
-    align-items:center
+  .portrait-wrap {
+    position: relative;
+    min-height: 31rem;
+    display: grid;
+    place-items: center;
   }
 
-  .photo{
-    display:block;
-    width:min(68vw,15rem);
-    aspect-ratio:35/39;
-    overflow:hidden;
-    justify-self:center;
-    border-radius:12rem 12rem 1rem 1rem;
-    background:#dbe5df;
-    box-shadow:var(--shadow)
+  .portrait-shape {
+    position: absolute;
+    display: block;
   }
 
-  .photo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center top
+  .portrait-plum {
+    width: 17rem;
+    height: 23rem;
+    left: 0;
+    top: 2rem;
+    border-radius: 9rem 9rem 1.5rem 1.5rem;
+    background: #7f4565;
+    transform: rotate(-7deg);
   }
 
-  
-
-  
-
-  
-
-  
-
-  .bio-links{
-    display:grid;
-    gap:.5rem;
-    margin-top:1rem
+  .portrait-gold {
+    width: 8rem;
+    height: 8rem;
+    right: 1rem;
+    bottom: 2rem;
+    border-radius: 50%;
+    background: #f4b21a;
   }
 
-  @media(min-width:48rem){
-    .bio-section,
-    .bio-intro,
-    .bio-intro+.bio-section{
-      padding-block:var(--s7)
+  .portrait-card {
+    position: relative;
+    z-index: 2;
+    width: min(78%,23rem);
+    padding: .85rem .85rem 1.1rem;
+    background: #fffaf4;
+    box-shadow: 0 24px 55px rgba(63,35,52,.18);
+    transform: rotate(2.4deg);
+  }
+
+  .portrait-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 35/39;
+    object-fit: cover;
+    object-position: center top;
+    background: #f0dfd2;
+  }
+
+  .portrait-caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: .85rem;
+    color: #512c45;
+    font-size: .78rem;
+  }
+
+  .portrait-caption span { color: #8a6f78; }
+
+  .tape {
+    position: absolute;
+    z-index: 3;
+    width: 5.5rem;
+    height: 1.4rem;
+    left: 50%;
+    top: -.7rem;
+    background: rgba(244,207,120,.78);
+    transform: translateX(-50%) rotate(-3deg);
+  }
+
+  .profile-copy h2,
+  .methods-heading h2,
+  .background-statement h2,
+  .avery-final h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    letter-spacing: -.045em;
+  }
+
+  .profile-copy h2 {
+    max-width: 12ch;
+    font-size: clamp(2.7rem,5vw,5rem);
+    line-height: .97;
+  }
+
+  .profile-copy > p:not(.hand-label) {
+    max-width: 40rem;
+  }
+
+  .profile-copy blockquote {
+    max-width: 15ch;
+    margin: 2.2rem 0 0;
+    padding-left: 1.2rem;
+    border-left: 4px solid #f18767;
+    color: #7f4565;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.7rem,3vw,2.6rem);
+    font-style: italic;
+    line-height: 1.12;
+  }
+
+  .avery-methods {
+    background: #63384f;
+    color: #fff0e7;
+  }
+
+  .methods-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .methods-heading > span,
+  .background-statement > span {
+    display: block;
+    margin-bottom: 1rem;
+    color: #f4b21a;
+    font-size: .75rem;
+    font-weight: 900;
+    letter-spacing: .12em;
+  }
+
+  .methods-heading h2 {
+    max-width: 10ch;
+    margin: 0;
+    color: white;
+    font-size: clamp(2.8rem,5vw,5rem);
+    line-height: .96;
+  }
+
+  .method-list {
+    display: grid;
+    gap: .65rem;
+    align-content: start;
+  }
+
+  .method-list span {
+    display: block;
+    width: fit-content;
+    padding: .72rem 1rem;
+    border-radius: 999px;
+    background: #f7b18f;
+    color: #512c45;
+    font-size: .9rem;
+    font-weight: 800;
+  }
+
+  .method-list span:nth-child(2) { background: #f4cf78; }
+  .method-list span:nth-child(3) { background: #a4ad98; }
+  .method-list span:nth-child(4) { background: #e7c4d2; }
+  .method-list span:nth-child(5) { background: #fff1df; }
+
+  .methods-copy {
+    max-width: 38rem;
+    align-self: end;
+  }
+
+  .methods-copy a,
+  .final-links a {
+    display: inline-block;
+    margin-top: .8rem;
+    color: inherit;
+    font-weight: 850;
+    text-decoration: underline;
+    text-underline-offset: .25rem;
+  }
+
+  .avery-background {
+    background: #f4b21a;
+  }
+
+  .background-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .background-statement h2 {
+    max-width: 12ch;
+    margin: 0;
+    color: #512c45;
+    font-size: clamp(2.7rem,4.8vw,4.8rem);
+    line-height: .97;
+  }
+
+  .background-note {
+    max-width: 40rem;
+    align-self: end;
+    padding: clamp(1.5rem,3vw,2.3rem);
+    border-radius: 1.5rem;
+    background: rgba(255,248,237,.78);
+    color: #5e4050;
+    transform: rotate(-.5deg);
+  }
+
+  .avery-final {
+    background: #7f4565;
+    color: #fff0e7;
+  }
+
+  .final-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .avery-final h2 {
+    max-width: 12ch;
+    margin: 0;
+    color: white;
+    font-size: clamp(2.7rem,5vw,5rem);
+    line-height: .96;
+  }
+
+  .final-copy {
+    max-width: 36rem;
+    align-self: end;
+  }
+
+  .final-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    margin-top: 1.2rem;
+  }
+
+  @media(min-width:48rem) {
+    .profile-grid {
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(4rem,8vw,8rem);
     }
 
-    .profile{
-      grid-template-columns:.8fr 1.2fr;
-      gap:2.5rem
+    .methods-grid {
+      grid-template-columns: .9fr .75fr 1fr;
+      gap: clamp(2.5rem,5vw,5rem);
     }
 
-    .photo{
-      width:min(100%,25rem)
+    .background-grid,
+    .final-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem,7vw,7rem);
     }
   }
 </style>
