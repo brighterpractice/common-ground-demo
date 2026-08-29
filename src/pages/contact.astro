@@ -31,7 +31,6 @@ const crumbs = [{ label: 'Contact' }];
         <span class="poster-plum"></span>
         <span class="poster-coral"></span>
         <span class="poster-gold"></span>
-        <strong>06</strong>
         <em>start here</em>
       </div>
 
@@ -63,17 +62,14 @@ const crumbs = [{ label: 'Contact' }];
 
       <ol class="next-cards">
         <li class="next-one">
-          <span>01</span>
           <h3>Reach out</h3>
           <p>Send the appointment request when you are ready.</p>
         </li>
         <li class="next-two">
-          <span>02</span>
           <h3>Sort out the details</h3>
           <p>Availability and the practical next steps can be handled from there.</p>
         </li>
         <li class="next-three">
-          <span>03</span>
           <h3>Bring the real version</h3>
           <p>Your first conversation can begin with whatever feels most relevant that day.</p>
         </li>
@@ -84,8 +80,12 @@ const crumbs = [{ label: 'Contact' }];
   <section class="contact-board" id="contact-details">
     <div class="container board-grid">
       <div class="board-copy">
-        <p class="hand-label">Common Ground Therapy</p>
-        <h2>Richmond, Virginia</h2>
+        <p class="hand-label">Practice details</p>
+        <h2>Common Ground Therapy</h2>
+        <p class="practice-location">
+          <strong>Avery Morgan, LPC</strong><br />
+          Richmond, Virginia
+        </p>
         <p>
           This fictional demonstration practice provides individual counseling
           for adults and is presented as a Brighter Sites portfolio example.
@@ -164,7 +164,6 @@ const crumbs = [{ label: 'Contact' }];
   }
 
   .start-poster span,
-  .start-poster strong,
   .start-poster em {
     position:absolute;
     display:block;
@@ -197,17 +196,6 @@ const crumbs = [{ label: 'Contact' }];
     top:1.8rem;
     border-radius:50%;
     background:#f4b21a;
-  }
-
-  .start-poster strong {
-    left:calc(6% + 4rem);
-    top:6rem;
-    z-index:2;
-    color:#fff4ec;
-    font-family:Georgia,'Times New Roman',serif;
-    font-size:7rem;
-    font-weight:500;
-    line-height:1;
   }
 
   .start-poster em {
@@ -271,15 +259,8 @@ const crumbs = [{ label: 'Contact' }];
     color:#512c45;
   }
 
-  .next-cards span {
-    display:block;
-    margin-bottom:3rem;
-    font-size:.72rem;
-    font-weight:900;
-    letter-spacing:.1em;
-  }
-
   .next-cards h3 {
+    margin-top:1.5rem;
     color:#512c45;
     font-family:Georgia,'Times New Roman',serif;
     font-size:clamp(1.8rem,3vw,2.7rem);
@@ -301,6 +282,18 @@ const crumbs = [{ label: 'Contact' }];
   .board-copy h2 {
     font-size:clamp(2.8rem,5vw,4.8rem);
     line-height:.98;
+  }
+
+  .practice-location {
+    margin:1rem 0 1.4rem;
+    color:#6f5661;
+    font-size:1.05rem;
+    line-height:1.55;
+  }
+
+  .practice-location strong {
+    color:#512c45;
+    font-size:1.12rem;
   }
 
   .board-copy p:not(.hand-label) { max-width:35rem; }
